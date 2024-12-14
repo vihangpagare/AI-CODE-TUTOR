@@ -1,0 +1,2124 @@
+Questions,Syntax Error Code Solution,Indentation Error Wrong Code Solution,Logic Error Wrong Code Solution,Name Error Wrong Code Solution,Type Error Wrong Code Solution
+"Given an integer, check if it is even or odd.","if integer % 2 = 0:
+    print(""Even"")
+else:
+    print(""Odd"")","def check_even_odd(num):
+  if num % 2 == 0:
+    print(""Even"")
+  else:
+  print(""Odd"")","def check_even_odd(num):
+    if num % 2 == 0:
+        return ""Odd""
+    else:
+        return ""Even""","if a % 2 == 0:
+    print(""Even"")
+else:
+    print(""Odd"")","def even_or_odd(num):
+    if num % 2 == 0:
+        return ""Even""
+    else:
+        return ""Odd""
+    
+print(even_or_odd(""four"")) #Type Error"
+"Given two integers, find the larger one.","def find_larger(num1, num2):
+    if num1 > num2
+        return num1
+    else:
+        return num2","def find_larger(num1, num2):
+return max(num1, num2)","def find_larger(num1, num2):
+    if num1 > num2:
+        return num1
+    else:
+        return num2 - 1","a = 10
+b = 20
+if a > b:
+    print(a)
+else:
+    print(c)  # Name Error because 'c' is not defined","def find_larger(a,b):
+    if a > b:
+        return a
+    else:
+        return ""b""
+    
+find_larger(5,10)"
+"Given a temperature in Celsius, convert it to Fahrenheit using the formula F = (C * 1.8) + 32. If the temperature is above 90°F, print “It’s hot outside!” otherwise, print “The temperature is pleasant”.","F = (C * 1.8) + 32
+temperature = 85
+if temperature > 90°F:
+    print(""It’s hot outside!"")
+else:
+    print(""The temperature is pleasant"")","Celsius = 32
+Fahrenheit = (Celsius * 1.8) + 32
+if Fahrenheit > 90:
+print(""It’s hot outside!"")
+else:
+print(""The temperature is pleasant"")","F = (C + 32) * 1.8
+if F > 90:
+    print(""It’s hot outside!"")
+else:
+    print(""The temperature is pleasant"")","Code:
+Celcius_temp = 30
+F = (C * 1.8) + 32
+if F > 90:
+    print(""It’s hot outside!"")
+else:
+    print(""The temperature is pleasant"") 
+
+NameError: name 'C' is not defined","Code solution with Type Error:
+temp = input(""Enter temperature in Celsius: "")
+fahrenheit = (temp * 1.8) + 32
+if fahrenheit > 90:
+  print(""It's hot outside!"")
+else:
+  print(""The temperature is pleasant"")"
+"Given a year, check if it is a leap year or not. A leap year is divisible by 4, except for years that are divisible by 100. However, years that are divisible by 400 are also leap years.","def is_leap_year(year):
+    if year % 4 == 0:
+        if year % 100 != 0:
+            return True
+        elif year % 400 == 0:
+            return True
+        else:
+            return False
+    else:
+        return False
+
+year = input(""Enter a year: "")
+print(is_leap_year(year))","def is_leap_year(year):
+if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
+    return True
+else:
+    return False","def isLeapYear(year):
+    if year % 4 == 0:
+        if year % 100 != 0:
+            return True
+        elif year % 400 == 0:
+            return False
+        else:
+            return True
+    else:
+        return False","year=input(""Enter year:"")
+if year%4==0:
+   if year%100==0:
+       if year%400==0:
+           print(""Leap year"")
+       else:
+           print(""Not a leap year"")
+   else:
+       print(""Leap year"")
+else:
+   print(""Not a leap year"")","def is_leap_year(year):
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == ""0"":
+                return True
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
+
+is_leap_year(""2024"") # Type Error"
+"Given two numbers, a and b, find the value of a/b (b may be zero).","a = 10
+b = 0
+
+# Syntax Error: Division by zero is not allowed
+value = a/b","def divide(a, b):
+result = a / b
+return result","float divideNumbers(int a, int b) {
+    // Incorrect logic error - not checking for division by zero
+    return a / b;
+}","a = 10
+b = 0
+print(c/d) # Name Error because c and d are not defined","a = 10
+b = ""0""
+print(a/b) # Wrong code solution with Type Error"
+"Given a point (x1, y1), find the quadrant in which this point lies.","if (x1 > 0 and y1 > 0) 
+    print(""Quadrant 1"")
+else if (x1 < 0 and y1 > 0) 
+    print(""Quadrant 2"")
+else if (x1 < 0 and y1 < 0) 
+    print(""Quadrant 3"")
+else if (x1 > 0 and y1 < 0) 
+    print(""Quadrant 4"")
+else 
+    print(""Origin"")","x1 = float(input(""Enter the x-coordinate: ""))
+y1 = float(input(""Enter the y-coordinate: ""))
+
+if x1 > 0 and y1 > 0:
+  print(""The point lies in the first quadrant"")
+elif x1 < 0 and y1 > 0:
+  print(""The point lies in the second quadrant"")
+elif x1 < 0 and y1 < 0:
+  print(""The point lies in the third quadrant"")
+elif x1 > 0 and y1 < 0:
+  print(""The point lies in the fourth quadrant"")
+else:
+  print(""The point lies on the axis"")","x1 = 3
+y1 = -2
+
+if x1 > 0 and y1 > 0:
+    print(""Quadrant I"")
+elif x1 < 0 and y1 > 0:
+    print(""Quadrant II"")
+elif x1 < 0 and y1 < 0:
+    print(""Quadrant III"")
+elif x1 > 0 and y1 < 0:
+    print(""Quadrant IV"")
+else:
+    print(""On the axis or origin"")","Code Solution:
+
+x = input(""Enter the x-coordinate: "")
+y = input(""Enter the y-coordinate: "")
+if x > 0 and y > 0:
+    print(""Quadrant 1"")
+elif x < 0 and y > 0:
+    print(""Quadrant 2"")
+elif x < 0 and y < 0:
+    print(""Quadrant 3"")
+elif x > 0 and y < 0:
+    print(""Quadrant 4"")
+else:
+    print(""Point lies on axis or at origin"") 
+
+# The NameError would occur if the input values are not converted to integer data type.","def find_quadrant(x1, y1):
+    if x1 > 0 and y1 > 0:
+        return ""First Quadrant""
+    elif x1 < 0 and y1 > 0:
+        return ""Second Quadrant""
+    elif x1 < 0 and y1 < 0:
+        return ""Third Quadrant""
+    elif x1 > 0 and y1 < 0:
+        return ""Fourth Quadrant""
+    else:
+        return ""Point is on an axis""
+
+find_quadrant(""a"", 5) # Type Error due to passing a string instead of an integer for x1"
+"Given two points (x1, y1) and (x2, y2), find the slope and intercept of the line joining these two points (the line may be perfectly horizontal or vertical).","def find_slope_intercept(x1, y1, x2, y2):
+    slope = (y2 - y1) / (x2 - x1)
+    intercept = y1 - slope * x1
+    return slope, intercept
+
+# Syntax Error: Missing colon after function definition
+def find_slope_intercept(x1, y1, x2, y2)
+    slope = (y2 - y1) / (x2 - x1)
+    intercept = y1 - slope * x1
+    return slope, intercept","def find_slope_intercept(x1, y1, x2, y2):
+slope = (y2 - y1) / (x2 - x1)
+intercept = y1 - slope * x1
+return slope, intercept","def find_slope_and_intercept(x1, y1, x2, y2):
+    if (x2 - x1) != 0:
+        slope = (y2 - y1) / (x2 - x1)
+        intercept = y1 - slope * x1
+    else:
+        slope = ""undefined""
+        intercept = ""undefined""
+    return slope, intercept","slope=(y2-y1)/(x2-x1)
+intercept=y1-slope*x1
+print(slop)
+print(intercept) #Name Error: slop is not defined","def find_slope_intercept(x1, y1, x2, y2):
+    slope = (y2 - y1) / (x2 - x1)
+    intercept = y1 - slope * x1
+    return slope, intercept
+
+find_slope_intercept(2, 4, ""3"", 8) # Type Error"
+"Given a quadratic equation with coefficients a, b and c, find the two solutions (may be real or complex). You should not take the square root of a negative number in your code.","Code Solution:
+
+```python
+import math
+
+def quadratic_equation(a, b, c):
+    discriminant = b**2 - 4*a*c
+    if discriminant < 0:
+        return ""No real solutions""
+    else:
+        solution1 = (-b + math.sqrt(discriminant)) / (2*a)
+        solution2 = (-b - math.sqrt(discriminant)) / (2*a)
+        return solution1, solution2
+
+a = 1
+b = -4
+c = 5
+
+print(quadratic_equation(a, b, c))
+```","def quadratic_solver(a, b, c):
+  discriminant = b**2 - 4*a*c
+    if discriminant < 0:
+        print(""No real roots"")
+    else:
+        root1 = (-b + discriminant**0.5) / (2*a)
+        root2 = (-b - discriminant**0.5) / (2*a)
+        return root1, root2","def find_solutions(a, b, c):
+    discriminant = b**2 - 4*a*c
+    if discriminant < 0: # Logic Error: This condition should be if discriminant >= 0
+        print(""The solutions are complex"")
+        solution1 = (-b + (discriminant)**0.5) / (2*a)
+        solution2 = (-b - (discriminant)**0.5) / (2*a)
+        return solution1, solution2
+    else:
+        print(""The solutions are real"")
+        solution1 = (-b + (discriminant)**0.5) / (2*a)
+        solution2 = (-b - (discriminant)**0.5) / (2*a)
+        return solution1, solution2","x = (-b +/- sqrt(b^2 - 4ac)) / 2a
+print(solution1)
+print(solution2) # Name Error: solution1 and solution2 are not defined.","def quadratic_eq(a, b, c):
+    d = b**2 - 4*a*c
+    if d < 0:
+        return ""Cannot take square root of negative number""
+    else:
+        x1 = (-b + sqrt(d)) / (2*a)
+        x2 = (-b - sqrt(d)) / (2*a)
+        return x1, x2
+
+quadratic_eq(1, 4, 5) # Raises Type Error"
+"Given three points, find out whether they lie on the same straight line or not.","def check_straight_line(point1, point2, point3):
+    # calculate the slope of the line formed by the first two points
+    slope = (point2[1] - point1[1]) / (point2[0] - point1[0])
+    
+    # calculate the slope of the line formed by the second and third points
+    slope2 = (point3[1] - point2[1]) / (point3[0] - point2[0])
+    
+    # check if the slopes are equal
+    if slope = slope2:
+        return ""Points lie on the same straight line""
+    else:
+        return ""Points do not lie on the same straight line""","def on_same_line(x1, y1, x2, y2, x3, y3):
+    if (y3 - y2) * (x2 - x1) == (y2 - y1) * (x3 - x2)
+    return True
+    else:
+    return False","Code:
+
+def checkStraightLine(points):
+    if len(points) != 3:
+        return ""Invalid input""
+    
+    x1, y1 = points[0]
+    x2, y2 = points[1]
+    x3, y3 = points[2]
+    
+    if (x1*(y2-y3) + x2*(y3-y1) + x3*(y1-y2)) == 0:
+        return True
+    else:
+        return False
+
+# Incorrect logic error in the if condition for checking collinearity.","x1 = int(input(""Enter x-coordinate of point 1: ""))
+y1 = int(input(""Enter y-coordinate of point 1: ""))
+x2 = int(input(""Enter x-coordinate of point 2: ""))
+y2 = int(input(""Enter y-coordinate of point 2: ""))
+x3 = int(input(""Enter x-coordinate of point 3: ""))
+y3 = int(input(""Enter y-coordinate of point 3: ""))
+
+if ((y2-y1)/(x2-x1)) == ((y3-y2)/(x3-x2)):
+    print(""Points lie on the same straight line"")
+else:
+    print(""Points do not lie on the same straight line"")","def on_same_line(p1, p2, p3):
+    if p1[1] - p2[1] == p2[1] - p3[1]:
+        return True
+    else:
+        return Type Error(""Points must be integers"")"
+"Given three integers, find the smallest one.","def find_smallest(a, b, c):
+    smallest = a
+    if b < smallest
+        smallest = b
+    if c < smallest:
+        smallest = c
+    return smallest","def find_smallest(a, b, c):
+  if (a < b) and (a < c):
+   return a
+     if (b < a) and (b < c):
+    return b
+  else:
+        return c","def find_smallest(a, b, c):
+    smallest = a
+    if b < smallest:
+        smallest = b
+    if c < smallest:
+        smallest = c
+    return smallest + 1","a = 5
+b = 10
+c = 3
+
+minimum = min(a, b, d)
+
+print(minimum)","def smallest_num(a,b,c):
+    smallest = a
+    if b < smallest:
+        smallest = b
+    if c < smallest:
+        smallest = c
+    return smallest
+
+print(smallest_num(5,7,""9"")) # Type Error: '>' not supported between instances of 'str' and 'int'"
+"Given a positive integer, print all integers from 1 up to this number.","def print_numbers(n)
+    for i in range(1, n+1):
+        print(i)","def print_numbers(num):
+for i in range(1, num+1):
+print(i)","def print_numbers(num):
+    for i in range(num):
+        print(i)
+    return
+
+print_numbers(5)","Code Solution with Name Error: 
+
+num = int(input(""Enter a positive integer: ""))
+for i in range(1, n+1):
+    print(i)","num = input(""Enter a positive integer: "")
+for i in range(1, num+1):
+    print(i)"
+"Given a positive integer, find out the sum of all integers from 1 up to this number.","def sum_of_integers(n):
+    sum = 0
+    for i in range(1, n+1)
+        sum += i
+    return sum","def sum_of_integers(n):
+  sum = 0 
+  for i in range(1, n+1):
+    sum += i 
+  return sum","def sum_of_integers(num):
+    sum = 0
+    for i in range(num+1):
+        sum += i
+    return sum + 1  # Logic Error: adding 1 extra to the sum","n = int(input(""Enter a positive integer: ""))
+sum = 0
+for i in range(1, n+1):
+    su += i
+print(summ)","def sum_up_to(n):
+    return sum(range(1, n+1, 1))
+
+sum_up_to(""10"")"
+"Given a positive integer, find out its factorial.","def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+n = int(input(""Enter a positive integer: ""))
+print(""The factorial of"", n, ""is"", factorial(n))","def factorial(num):
+  if num == 0:
+  return 1
+  else:
+  return num * factorial(num-1)","def find_factorial(n):
+    factorial = 1
+    for i in range(1, n+1):
+        factorial *= i
+    return factorial - 1 # incorrect logic error: subtracting 1 from the factorial instead of returning the correct value","num = int(input(""Enter a number: ""))
+fact = 1
+for i in range(1,num+1):
+    fact = fact*i
+print(""The factorial of"",num,""is"",fact)
+print(num_factorial) # wrong variable name used, should be 'fact' instead of 'num_factorial'","def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+factorial(""5"")"
+"Given a positive integer, find out if it’s prime or not.","def is_prime(n):
+    if n <= 1:
+        return False
+    elif n <= 3:
+        return True
+    elif n % 2 == 0:
+        return False
+    for i in range(3, int(n**0.5) + 1, 2)
+        if n % i == 0:
+            return False
+    return True","def is_prime(num):
+  if num <= 1:
+  return False
+  for i in range(2, num):
+    if num % i == 0:
+      return False
+  return True","def isPrime(num):
+    if num < 2:
+        return False
+    for i in range(2, num):
+        if num % i == 0:
+            return True
+    return False","def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(isprime(7)) # NameError: name 'isprime' is not defined","def is_prime(n):
+    if n < 2:
+        return False
+    elif n == 2:
+        return True
+    else:
+        for i in range(2, n):
+            if n % i == 0:
+                return False
+        return True
+
+print(is_prime(""10"")) #Type Error"
+"Given a positive integer, find out the sum of all odd numbers from 1 up to this number.","def sum_odd_numbers(n):
+    sum = 0
+    for i in range(1, n+1):
+        if i % 2 != 0:
+            sum += i
+    return sum","def sum_of_odd_numbers(n):
+  sum = 0
+  for i in range(1, n+1):
+    if i % 2 != 0:
+    sum += i
+  return sum","def sum_of_odd_numbers(num):
+    sum = 0
+    for i in range(1, num+1):
+        if i % 2 != 0:
+            sum += i
+    return sum + 1 # Logic error: adding 1 to the final sum","wrong_code_solution:
+n = int(input(""Enter a positive integer: ""))
+sum = 0
+for i in range(1,n+1):
+    if i%2 != 0:
+        sum += i
+print(""The sum of all odd numbers from 1 to n is: "", sum_odd) # NameError: name 'sum_odd' is not defined","def sum_of_odd_numbers(n):
+    sum = 0
+    for i in range(1, n+1):
+        if i%2 != 0:
+            sum += i
+    return sum
+
+print(sum_of_odd_numbers(""10"")) # Type Error: string cannot be converted to integer"
+"Given a positive integer, find out the sum of all even numbers from 2 up to this number.","Code Solution:
+
+n = int(input(""Enter a positive integer:""))
+
+sum = 0
+for i in range(2, n + 1, 2)
+    sum += i
+
+print(""The sum of all even numbers from 2 to"", n, ""is"", sum)","def sum_of_even_numbers(num):
+sum = 0
+for i in range(2, num+1):
+if i % 2 == 0:
+sum += i
+return sum","def sum_even_numbers(n):
+    total = 0
+    for i in range(2, n+1):
+        if i % 2 == 0:
+            total += i
+        return total","sum = 0
+n = int(input(""Enter a positive integer: ""))
+for i in range(2, n+1, 2):
+    sum += i
+print(""The sum of even numbers from 2 to"", n, ""is"", sum)
+print(""This code has a Name Error"")","def sum_even_numbers(n):
+    sum = 0
+    for i in range(2, n+1, 2):
+        sum += i
+    return sum
+
+print(sum_even_numbers(""10"")) # Type Error: 'str' object cannot be interpreted as an integer"
+"Given a positive integer, find the multiplication table of that integer up to 10.","for i in range(1, 11)
+    for j in range(1, 11)
+        print(i * j)
+    print()","num = 5 
+for i in range(1, 11):
+print(num, 'x', i, '=', num * i)","def multiplication_table(num):
+    for i in range(1, 11):
+        print(num * i, end="" "")
+    print() # Logic Error: The new line should be printed after each iteration of the inner loop, not after all iterations are completed.","num = input(""Enter a positive integer: "")
+for i in range(1, 11):
+    print(num + "" x "" + i + "" = "" + num*i)","def multiplication_table(num):
+    for i in range(1, 11):
+        print(num * i)
+        
+multiplication_table(""5"") # Type Error"
+"Given a positive integer, find all its divisors.","def find_divisors(num):
+    divisors = []
+    for i in range(1, num + 1)
+        if num % i == 0
+            divisors.append(i)
+    return divisors","def find_divisors(n):
+  divisors = []
+  for i in range(1, n+1):
+    if n % i == 0:
+  divisors.append(i)
+  return divisors","def find_divisors(num):
+    divisors = []
+    for i in range(1, num+1):
+        if num % i == 0:
+            divisors.append(i)
+        else:
+            divisors.append(0) # Logic Error: Adding 0 to the divisors list if the number is not divisible
+    return divisors","Code Solution:
+
+n = input()
+for i in range(1,n+1):
+    if n % i == 0:
+        print(i) 
+
+Name Error: 
+NameError: name 'input' is not defined","def find_divisors(num):
+    divisors = []
+    for i in range(1, num+1):
+        if num % i == 0:
+            divisors.append(i)
+    return divisors
+
+find_divisors(""10"") # Type Error: can't mod string by int"
+"Given a positive integer, print each of its digits separately without converting the number into a string.","def print_digits(n):
+    while n > 0:
+        digit = n % 10
+        print digit
+        n = n / 10","def print_digits(num):
+  while num > 0:
+    digit = num % 10
+    print(digit)
+    num = num // 10","def print_digits(num):
+    if num < 0:
+        print(""Enter a positive integer"")
+    else:
+        while num > 0:
+            digit = num % 10
+            print(digit)
+            num = num // 10","num = 12345
+for i in range(len(num)):
+    print(number[i])","x = 12345
+for i in range(len(x)):
+    print(x[i])"
+"Given a positive integer, convert it into binary, and vice-versa.","def decimal_to_binary(n):
+    if n == 0:
+        return '0'
+    else:
+        return decimal_to_binary(n // 2) + n % 2
+
+decimal_to_binary(10)","def decimal_to_binary(num):
+  return bin(num)
+
+def binary_to_decimal(num):
+  return int(num, 2)","Wrong Code:
+
+def decimal_to_binary(num):
+    binary = """"
+    while num > 0:
+        binary = str(num % 2) + binary
+        num = num // 2
+    return binary
+
+def binary_to_decimal(binary):
+    decimal = 0
+    for i in range(len(binary)):
+        digit = binary[i]
+        decimal = decimal + digit * 2 ** (len(binary) - i - 1)
+    return decimal","x = 10
+binary = bin(x)
+print(binary)
+
+decimal = int('1010', 2)
+print(decimal)","def decimalToBinary(num):
+    if num > 1:
+        decimalToBinary(num // 2)
+    print(num % 2, end='')
+
+decimalToBinary(""10"") # Type Error: decimalToBinary() argument must be integer, not str"
+"Given a list of numbers, find out its length and the sum of all these numbers.","length= len(numbers)
+sum= 0
+for num in numbers:
+    sum+= num
+print(""Length of the list is:"", length)
+print(""Sum of all the numbers in the list is:"", sum)","numbers = [1, 2, 3, 4, 5]
+    length = len(numbers)
+    sum = 0
+    for num in numbers:
+    sum += num
+    print(""Length:"", length)
+    print(""Sum:"", sum)","def find_length_and_sum(nums):
+    length = 0
+    total_sum = 0
+    
+    for num in nums:
+        length += 1
+        total_sum += num
+        
+    return length, total_sum + 1  # Logic Error: adding 1 to the total sum","lst = [1, 2, 3, 4, 5]
+lenn = lenn(lst)
+summ = sum(lst)
+print(""Length:"", lenn)
+print(""Sum:"", summ)","def list_sum_len(lst):
+    length = len(lst)
+    total = sum(lst)
+    return length, total
+
+list_sum_len(""1,2,3,4"") # Type Error"
+"Given a list of numbers, find the squares of all the numbers.","def square_numbers(numbers):
+    squared_numbers = []
+    for num in numbers
+        squared_numbers.append(num ** 2)
+    return squared_numbers","numbers = [1, 2, 3, 4, 5]
+    for num in numbers:
+    square = num ** 2
+    print(square)","def find_squares(numbers):
+    squares = []
+    for num in numbers:
+        square = num * num
+        squares.append(square)
+    return squares","lst = [2, 4, 6, 8, 10]
+for i in lst:
+    print(i ** 2)
+print(square_lst) # Name Error as square_lst is not defined","def square_numbers(numbers):
+    squared_numbers = []
+    for num in numbers:
+        squared_numbers.append(num ** 2)
+    return squared_numbers
+
+numbers = [1, 2, 3, '4', 5]
+print(square_numbers(numbers)) #Type Error"
+"Given a list of numbers, find out their mean and standard deviation.","mean = sum(numbers) / len(numbers)
+sd = (sum((x - mean) ** 2 for x in numbers) / len(numbers)) ** 0.5","numbers = [1, 2, 3, 4, 5]
+    mean = sum(numbers) / len(numbers)
+    variance = sum((i - mean) ** 2 for i in numbers) / len(numbers)
+    std_deviation = variance ** 0.5
+
+    print(""Mean:"", mean)
+    print(""Standard Deviation:"", std_deviation)","mean = sum(numbers) / len(numbers)
+variance = sum([(x - mean) ** 2 for x in numbers]) / len(numbers)
+standard_deviation = variance ** 0.5
+
+print(""Mean:"", mean)
+print(""Standard Deviation:"", standard_deviation)","x = [10, 20, 30, 40, 50]
+mean = sum(x)/len(x)
+std_dev = ((sum(x - mean)**2)/len(x))**0.5","numbers = [3, 5, 7, ""9"", 11]
+mean = sum(numbers) / len(numbers)
+variance = sum([(x - mean) ** 2 for x in numbers]) / len(numbers)
+std_dev = variance ** 0.5"
+"Given a list of integers, find all the even numbers in it and their count.","def find_even_numbers(numbers):
+    even_numbers = []
+    count = 0
+    for num in numbers
+        if num % 2 == 0:
+            even_numbers.append(num)
+            count += 1
+    return even_numbers, count","def find_even_numbers(arr):
+  count = 0
+  for num in arr:
+    if num % 2 == 0:
+    count += 1
+  return count","def find_even_numbers(lst):
+    count = 0
+    even_numbers = []
+    for num in lst:
+        if num % 2 == 0:
+            even_numbers.append(num)
+            count += 1
+    return count, even_numbers","lst = [3, 5, 8, 10, 12, 15, 20]
+count = 0
+for num in lst:
+    if num % 2 == 0:
+        count += 1
+        print(num)
+print(""Total even numbers:"", count)
+print(""Even number count:"", cnt) # Name Error - cnt not defined","def find_even_numbers(lst):
+    count = 0
+    for num in lst:
+        if num % 2 = 0:
+            count += 1
+    return count
+
+find_even_numbers([1, 2, 3, 4, 5, 6]) # Type Error"
+"Given a list of integers, find all the odd numbers in it and their count.","def find_odd_numbers(lst):
+    count = 0
+    odd_numbers = []
+    for num in lst:
+        if num % 2 != 0:
+            count += 1
+            odd_numbers.append(num)
+    return odd_numbers, count","def count_odd_numbers(int_list):
+  odd_numbers = []
+  for num in int_list:
+    if num % 2 != 0:
+    odd_numbers.append(num)
+  return len(odd_numbers), odd_numbers","def find_odd_numbers(arr):
+    odd_numbers = []
+    count = 0
+    for num in arr:
+        if num % 2 != 0:
+            odd_numbers.append(num)
+        count += 1
+    return odd_numbers, count","count = 0
+for num in lst:
+    if num % 2 != 0:
+        odd_lst.append(num)
+        cnt += 1
+print(""There are"", count, ""odd numbers in the list."")","def odd_numbers(lst):
+    count = 0
+    result = []
+    for num in list:
+        if num % 2 != 0:
+            result.append(num)
+            count += 1
+    return ""Odd numbers: "" + result + ""\nCount: "" + count
+
+lst = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(odd_numbers(lst))"
+"Given a list of numbers, create another list in reverse order (without using list splicing).","Wrong code:
+
+numbers = [1, 2, 3, 4, 5]
+reversed_list = []
+
+for i in range(len(numbers)):
+    reversed_list.append(numbers[len(numbers) - i - 1])
+
+print(reversed_list)","def reverse_list(input_list):
+  reversed_list = []
+   for i in range(len(input_list)-1, -1, -1):
+     reversed_list.append(input_list[i])
+  return reversed_list","def reverse_list(input_list):
+    reversed_list = []
+    for i in range(len(input_list)):
+        reversed_list.append(input_list[len(input_list) - i])
+    return reversed_list","lst = [1, 2, 3, 4, 5]
+reversed_lst = []
+for i in range(len(lst)):
+    reversed_lst.append(lst[j])
+print(reversed_lst)","lst = 12345
+new_lst = []
+for i in range(len(lst)):
+    new_lst[i] = lst[-i]
+print(new_lst)"
+"Given a list of numbers, find out the maximum number.","max_number = 0
+numbers = [2, 5, 7, 9, 4, 1]
+
+for number in numbers
+    if number > max_number
+        max_number = number
+
+print(""The maximum number is:"", max_number)","def find_max(numbers):
+max_num = numbers[0]
+for num in numbers:
+if num > max_num:
+max_num = num
+return max_num","def find_max_number(numbers):
+    max_num = 0
+    for num in numbers:
+        if num > max_num:
+            max_num = num
+    return max_num","max_num = [5, 8, 3, 10, 2]
+maximum = max_num[0]
+for num in max_num:
+    if num > max:
+        max = num
+print(maximum_number)","def find_max(nums):
+    max_num = nums[0]
+    for num in nums:
+        if num > max_num:
+            max_num = num
+    return max_num
+
+print(find_max(""1,2,3,4,5"")) # Type Error: '>' not supported between instances of 'str' and 'int'"
+"Given a list of integers, find out the index of another given integer.","def find_index(lst, target):
+    for i in range(len(lst)):
+        if lst[i] == target
+            return i
+    return -1","def find_index(arr, target):
+  for i in range(len(arr)):
+  if arr[i] == target:
+    return i
+  return -1","def find_index(arr, num):
+    for i in range(len(arr)):
+        if arr[i] == num:
+            return i + 1
+        else:
+            return -1","x = [1, 2, 3, 4, 5]
+print(x.index(6)) # This will give NameError as 'y' is not defined.","def find_index(lst, num):
+    for i in range(len(lst)):
+        if lst[i] == num:
+            return i
+    return ""Not Found""
+    
+find_index([1, 2, 3, 4, 5], ""6"") # Type Error: '==' not supported between instances of 'int' and 'str'"
+"Given a list of integers, find their Least Common Multiple (LCM) and Greatest Common Divisor (Divisor).","def find_lcm_gcd(numbers):
+    lcm = 1
+    for num in numbers:
+        lcm *= num
+        
+    gcd = numbers[0]
+    for num in numbers:
+        gcd = gcd % num
+        
+    return lcm, gcd
+
+numbers = [2, 4, 6, 8, 10]
+print(find_lcm_gcd(numbers))","def find_lcm(arr):
+    lcm = 1
+  for i in arr:
+    lcm = (lcm * i) // find_gcd(lcm, i)
+  return lcm
+
+def find_gcd(x, y):
+  while(y):
+    x, y = y, x % y
+  return x
+
+arr = [2, 3, 5, 7]
+print(""LCM:"", find_lcm(arr))
+print(""GCD:"", find_gcd(arr))","def LCM_GCD(nums):
+    def gcd(a, b):
+        while b:
+            a, b = b, a % b
+        return a
+    
+    def lcm(a, b):
+        return abs(a * b) // gcd(a, b)
+    
+    lcm_result = 1
+    gcd_result = nums[0]
+    
+    for num in nums:
+        lcm_result *= num
+        gcd_result = gcd(gcd_result, num)
+    
+    return lcm_result, gcd_result","def wrong_code():
+    nums = [2, 4, 6, 8]
+    lcm = 1
+    for i in nums:
+        lcm = lcm*i
+    print(lcm)
+    
+    div = nums[0]
+    for i in range(1, len(nums)):
+        div = gcd(div, nums[i])
+    print(div)
+    
+wrong_code()","def find_lcm(arr):
+    lcm = arr[0]
+    for i in range(1, len(arr)):
+        lcm = lcm * arr[i] // gcd(lcm, arr[i]) # Type Error: 'gcd' is not defined
+    return lcm
+
+def find_gcd(arr):
+    gcd = arr[0]
+    for i in range(1, len(arr)):
+        gcd = gcd(gcd, arr[i]) # Type Error: 'int' object is not callable
+    return gcd"
+"Create a list containing the first n integers in the Fibonacci series, where n is given by the user.","list = []
+n = input(""Enter the value of n: "")
+a = 0
+b = 1
+for i in range(n):
+    list.append(a)
+    temp = a
+    a = b
+    b = temp + b
+print(list)","n = int(input(""Enter the value of n:""))
+a = 0
+b = 1
+fib_series = [a, b]
+for i in range(2, n):
+    c = a + b
+    fib_series.append(c)
+    a = b
+    b = c
+print(fib_series)","def fibonacci_series(n):
+    fib_list = [0, 1]
+    for i in range(2, n):
+        fib_list.append(fib_list[i-1] + fib_list[i-2])
+    return fib_list
+
+n = int(input(""Enter the value of n: ""))
+print(fibonacci_series(n))","# Wrong Code Solution with Name Error:
+
+n = int(input(""Enter the value of n: ""))
+fib_list = [0, 1]
+for i in range(2, n):
+    fib_list.append(fib_list[i-1] + fib[i-2])
+print(fib_list) # NameError: name 'fib' is not defined","n = input(""Enter the value of n: "")
+n = int(n)
+fib_list = []
+if n == 1:
+    fib_list = [1]
+elif n == 2:
+    fib_list = [1, 1]
+else:
+    fib_list = [1, 1]
+    for i in range(2, n):
+        fib_list.append(fib_list[i-1] + fib_list[i-2])
+print(fib_list)"
+"Given a list of distinct numbers, create another list which contains the sum of all pairs of numbers in the given list (the same pair should not be taken twice).","def sum_of_pairs(numbers):
+    result = []
+    for i in range(len(numbers)):
+        for j in range(i+1, len(numbers)):
+            result.append(numbers[i] + numbers[j])
+    return result","def find_pair_sum(nums):
+    pair_sums = []
+  for i in range(len(nums)):
+    for j in range(i+1, len(nums)):
+      pair_sums.append(nums[i] + nums[j])
+  return pair_sums","def sum_of_pairs(numbers):
+    result = []
+    for i in range(len(numbers)):
+        for j in range(i+1, len(numbers)):
+            result.append(numbers[i] + numbers[j])
+    return result","wrong_code_solution:
+
+lst = [1, 2, 3, 4, 5]
+new_lst = []
+for i in range(len(lst)):
+  for j in range(i+1, len(lst)):
+    new_lst.append(lst[i] + lst[j])
+print(new_list)  # NameError: name 'new_list' is not defined","def sum_pairs(lst):
+    res = []
+    for i in range(len(lst)):
+        for j in range(i+1, len(lst)):
+            res.append(lst[i] + lst[j])
+    return res
+
+sum_pairs([1, 2, 3, 4]) + 5"
+"Given a list of distinct numbers (may contain zero), create another list which contains the ratio of all pairs of numbers in the given list (the same pair should not be taken twice).","def ratio_of_pairs(nums):
+    ratio_list = []
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            if nums[j] != 0:
+                ratio = nums[i] / nums[j]
+                ratio_list.append(ratio)
+    return ratio_list
+
+#defining a list of numbers
+numbers = [1, 2, 3, 4, 5]
+
+#calling the function and printing the result
+print(ratio_of_pairs(numbers))","def create_ratio_list(numbers):
+  ratio_list = []
+    for i in range(len(numbers)):
+        for j in range(i+1, len(numbers)):
+            if numbers[j] != 0:
+                ratio_list.append(numbers[i] / numbers[j])
+            else:
+                ratio_list.append('undefined')
+  return ratio_list","def create_ratio_list(numbers):
+    ratio_list = []
+    for i in range(len(numbers)):
+        for j in range(i+1, len(numbers)):
+            ratio_list.append(numbers[i] / numbers[j])
+    return ratio_list","wrong_code_solution:
+```
+def ratio_list(numbers):
+    ratio_list = []
+    for i in range(len(numbers)):
+        for j in range(i+1, len(numbers)):
+            ratio = numbers[i] / numbers[j]
+            ratio_list.append(ratio)
+    return ratio_list
+
+print(ratio_list([2, 4, 6, 8]))
+print(ratio_list([0, 3, 5, 7]))
+print(ratio_list([1, 2, 3, 4, 5, 6]))
+print(ratio_list([-2, 4, -6, 8]))
+```
+Note: The function name and the variable name inside the function are the same, which causes a Name Error when trying to append the ratio to the ratio_list.","def ratio_list(num_list):
+    ratios = []
+    for i in range(len(num_list)):
+        for j in range(len(num_list)):
+            if i != j:
+                ratios.append(num_list[i]/num_list[j])
+    return ratios
+
+ratio_list([1, 2, 3]) + 'a'"
+"Given a list of positive integers, find the factorial of all these numbers.","def factorial(numbers):
+    result = []
+    for num in numbers:
+        fact = 1
+        for i in range(1, num + 1)
+            fact *= i
+        result.append(fact)
+    return result","def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+        
+    for num in [5, 3, 7, 2, 8]:
+        print(factorial(num))","def factorial_list(numbers):
+    factorials = []
+    for num in numbers:
+        factorial = 1
+        for i in range(1, num + 1):
+            factorial *= i
+        factorials.append(factorial)
+    return factorials","wrong code solution:
+
+for num in list_of_integers:
+    fact = 1
+    for i in range(1,num+1):
+        fact = fact*i
+    print(""Factorial of "", num, "" is "", factorial)
+    
+# NameError: name 'factorial' is not defined","def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+    
+numbers = [2, 3, 4, ""5"", 6]
+factorials = []
+for num in numbers:
+    factorials.append(factorial(num))
+print(factorials)"
+"Given a positive integer, find out all prime numbers from 1 up to this number.","def find_prime_numbers(n):
+    primes = []
+    for num in range(1, n + 1):
+        if num > 1:
+            for i in range(2, num):
+                if (num % i) == 0:
+                    break
+            else:
+                primes.append(num)
+    return primes
+
+# Wrong code solution with Syntax Error
+def find_prime_numbers(n):
+    primes = []
+    for num in range(1, n + 1)
+        if num > 1:
+            for i in range(2, num):
+                if (num % i) == 0:
+                    break
+            else:
+                primes.append(num)
+    return primes","def find_prime_numbers(n):
+  prime_numbers = []
+  for num in range(2, n + 1):
+    if num > 1:
+    for i in range(2, num):
+      if (num % i) == 0:
+        break
+    else:
+      prime_numbers.append(num)
+  return prime_numbers","def find_prime_numbers(n):
+    prime_numbers = []
+    for num in range(1, n + 1):
+        if num > 1:
+            for i in range(2, num):
+                if (num % i) == 0:
+                    break
+            else:
+                prime_numbers.append(num)
+    return prime_numbers
+
+# This code has a logic error because it does not properly check for prime numbers. It is not correctly identifying prime numbers and including non-prime numbers in the result.","Code Solution with Name Error:
+
+```
+n = int(input(""Enter a positive integer: ""))
+for i in range(1,n+1):
+    if i == 1:
+        continue
+    for j in range(2,i):
+        if i % j == 0:
+            break
+    else:
+        print(prime)
+```
+
+The Name Error occurs because the program is trying to print a variable called ""prime"" which has not been defined anywhere in the code.","def prime_numbers(n):
+    primes = []
+    for i in range(2, n+1):
+        for j in range(2, int(i**0.5)+1):
+            if i % j == 0:
+                break
+        else:
+            primes.append(i)
+    return primes
+
+print(prime_numbers('10'))  # Type Error: '10' is a string, should be an integer."
+"Given a positive integer, find out the sum of all prime numbers from 1 up to this number.","def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+def sum_of_primes(n):
+    sum = 0
+    for i in range(1, n + 1):
+        if is_prime(i):
+            sum += i
+    return sum","def sum_of_primes(n):
+  sum = 0
+  for i in range(2, n + 1):
+    for j in range(2, i):
+      if (i % j) == 0:
+        break
+    else:
+      sum += i
+    return sum","def sum_of_primes(n):
+    prime_sum = 0
+    for num in range(1, n+1):
+        if num > 1:
+            for i in range(2, num):
+                if (num % i) == 0:
+                    break
+            else:
+                prime_sum += num
+    return prime_sum
+
+# This code has a logic error because it does not exclude 1 from being considered as a prime number.","wrong_code_solution:
+
+num = input(""Enter a positive integer: "")
+sum_primes = 0
+
+for i in range(1,num+1):
+    if i == 2:
+        sum_primes += 2
+    elif i > 2:
+        for j in range(2,i):
+            if i % j == 0:
+                break
+        else:
+            sum_primes += i
+
+print(""The sum of all prime numbers from 1 to"", num, ""is"", sum_primes)","def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+def sum_of_primes(n):
+    sum = 0
+    for i in range(1, n+1):
+        if is_prime(i):
+            sum += i
+    return sum
+
+print(sum_of_primes('10')) # Type Error"
+"Given a list of numbers, create another list of co-primes and count how many co-primes are there in this given list.","def count_coprimes(numbers):
+    coprimes = []
+    for num in numbers:
+        if num <= 1:
+            continue
+        else:
+            is_coprime = True
+            for i in range(2, num):
+                if num % i == 0:
+                    is_coprime = False
+                    break
+            if is_coprime:
+                coprimes.append(num)
+    
+    return len(coprimes","def gcd(a, b):
+c = 0
+while b != 0:
+c = a % b
+a = b
+b = c
+return a
+
+def is_coprime(x, y):
+return gcd(x, y) == 1
+
+def count_coprimes(numbers):
+coprimes = []
+count = 0
+for i in range(len(numbers)):
+for j in range(i+1, len(numbers)):
+if is_coprime(numbers[i], numbers[j]):
+coprimes.append(numbers[i])
+coprimes.append(numbers[j])
+count += 1
+return count, coprimes","def count_coprimes(nums):
+    coprimes = []
+    count = 0
+    
+    for num in nums:
+        is_coprime = True
+        for i in range(2, num):
+            if num % i == 0:
+                is_coprime = False
+                break
+        if is_coprime:
+            coprimes.append(num)
+            count += 1
+    
+    return count, coprimes","a = [4, 7, 9, 12, 15, 17, 20]
+coprimes = []
+
+for i in range(len(a)):
+    for j in range(i+1, len(a)):
+        if math.gcd(a[i], a[j]) == 1:
+            coprimes.append((a[i], a[j]))
+
+print(coprime)
+print(len(coprime))","def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
+
+def count_coprimes(lst):
+    coprimes = []
+    for i in range(len(lst)):
+        for j in range(i+1, len(lst)):
+            if gcd(lst[i], lst[j]) == 1:
+                coprimes.append(lst[i])
+                coprimes.append(lst[j])
+    return len(set(coprimes))
+
+count_coprimes([2, 3, 4, 5, 6, 7])"
+"Given a list of integers, find out how many times each number occurs in this list and find their mode.","def find_mode(numbers):
+  count = {}
+  for num in numbers
+    if num in count:
+      count[num] += 1
+    else:
+      count[num] = 1
+  mode = []
+  max_count = 0
+  for num, freq in count.items():
+    if freq > max_count:
+      mode = [num]
+      max_count = freq
+    elif freq == max_count:
+      mode.append(num)
+  return mode","def find_mode(arr):
+    count_dict = {}
+    for num in arr:
+    if num in count_dict:
+        count_dict[num] += 1
+    else:
+        count_dict[num] = 1
+    
+    max_count = max(count_dict.values())
+    mode = [key for key, value in count_dict.items() if value == max_count]
+    
+    return mode","def find_mode(arr):
+    count = {}
+    for num in arr:
+        if num in count:
+            count[num] += 1
+        else:
+            count[num] = 1
+    mode = max(count, key=count.get)
+    return mode, count[mode] + 1  # Logic error: adding 1 to the count of mode instead of returning just the count of mode.","lst = [1, 2, 3, 2, 4, 3, 5, 6, 2]
+count = {}
+for i in lst:
+    if i in count:
+        count[i] += 1
+    else:
+        counter[i] = 1
+mode = max(count, key=count.get)
+print(""Number of times each number occurs:"", count)
+print(""Mode:"", mode)","def count_mode(lst):
+    count_dict = {}
+    for i in lst:
+        if i in count_dict:
+            count_dict[i] += 1
+        else:
+            count_dict[i] = 1
+    return max(count_dict, key=count_dict.get)
+
+count_mode([1, 2, 3, 1, 2, 'a', 3, 'b'])"
+"Given two matrices of the same dimensions, find their sum.","Code Solution:
+
+def matrix_sum(matrix1, matrix2):
+    sum_matrix = []
+    for i in range(len(matrix1)):
+        row = []
+        for j in range(len(matrix1[0])):
+            row.append(matrix1[i][j] + matrix2[i][j])
+        sum_matrix.append(row)
+    return sum_matrix
+
+matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+matrix2 = [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
+
+result = matrix_sum(matrix1, matrix2)
+print(result)","matrix1 = [[1, 2, 3],
+           [4, 5, 6],
+           [7, 8, 9]]
+
+matrix2 = [[9, 8, 7],
+           [6, 5, 4],
+           [3, 2, 1]]
+
+sum_matrix = [[0, 0, 0],
+              [0, 0, 0],
+              [0, 0, 0]]
+
+for i in range(len(matrix1)):
+  for j in range(len(matrix1[0])):
+    sum_matrix[i][j] = matrix1[i][j] + matrix2[i][j]
+    print(sum_matrix[i][j])
+
+print(sum_matrix)","def matrix_sum(matrix1, matrix2, result):
+    if len(matrix1) != len(matrix2) or len(matrix1[0]) != len(matrix2[0]):
+        print(""Matrices must have the same dimensions"")
+    else:
+        for i in range(len(matrix1)):
+            for j in range(len(matrix1[0])):
+                result[i][j] = matrix1[i][j] + matrix2[i][j]
+        return result","matrix1 = [[1,2],[3,4],[5,6]]
+matrix2 = [[7,8],[9,10],[11,12]]
+
+matrix_sum = [[0,0],[0,0],[0,0]]
+
+for i in range(len(matrix1)):
+    for j in range(len(matrix1[0])):
+        matrix_sum[i][j] = matrix1[i][j] + matrix2[i][j]
+
+print(matrix_sum) 
+
+# The code above will result in a Name Error.","def matrix_sum(matrix1, matrix2):
+    result = []
+    for i in range(len(matrix1)):
+        row = []
+        for j in range(len(matrix2)):
+            row.append(matrix1[i][j] + matrix2[i][j])
+        result.append(row)
+    return result
+
+matrix_sum([[1,2],[3,4]], [[5,6],[7,8],[9,10]])
+
+# Type Error: The matrices have different number of columns."
+"Print the chessboard pattern, with white squares denoted by W and black squares by B.","for i in range(8):
+    for j in range(8):
+        if (i+j) % 2 == 0:
+            print(""W"", end="" "")
+        else:
+            print(""B"", end="" "")
+    print()","```python
+def print_chessboard():
+  for i in range(8):
+  for j in range(8):
+    if (i+j) % 2 == 0:
+      print(""W"", end="" "")
+    else:
+      print(""B"", end="" "")
+    print()
+```","Code:
+
+size = 8
+for i in range(size):
+    for j in range(size):
+        if (i+j) % 2 == 0:
+            print(""W"", end="" "")
+        else:
+            print(""W"", end="" "")
+    print()","Code:
+
+for i in range(8):
+    for j in range(8):
+        if (i+j)%2 == 0:
+            print(""W"", end="""")
+        else:
+            print(""B"", end="""")
+    print() 
+
+Error: NameError: name 'rangee' is not defined","Code Solution with Type Error:
+
+n = 8
+for i in range(n):
+    for j in range(n):
+        if (i+j)%2 == 0:
+            print('W', end=' ')
+        else:
+            print('B', end=' ')
+    print()"
+"Given a list of integers, sort it in ascending order and find the median.","def find_median(lst):
+    sorted_lst = lst.sort()
+    length = len(sorted_lst)
+    if length % 2 == 0:
+        median = (sorted_lst[length/2] + sorted_lst[length/2 - 1]) / 2
+    else:
+        median = sorted_lst[length/2]
+    return median","def find_median(arr):
+arr.sort()
+n = len(arr)
+if n % 2 == 0:
+median = (arr[n//2 - 1] + arr[n//2]) / 2
+else:
+median = arr[n//2]
+return median","def find_median(nums):
+    sorted_nums = nums.sort()
+    length = len(sorted_nums)
+    if length % 2 == 0:
+        median = (sorted_nums[length//2] + sorted_nums[length//2 - 1]) / 2
+    else:
+        median = sorted_nums[length//2]
+    return median","sorted_list = sorted(lst)
+n = len(sorted_list)
+if n % 2 == 0:
+    median = (sorted_list[n//2] + sorted_list[n//2 - 1]) / 2
+else:
+    median = sorted_list[n//2 + 1]
+print(median)","def find_median(lst):
+    sorted_lst = lst.sort()
+    length = len(sorted_lst)
+    if length % 2 == 0:
+        median = (sorted_lst[length//2] + sorted_lst[length//2 - 1])/2
+    else:
+        median = sorted_lst[length//2]
+    return median
+
+lst = [4, 2, 1, 5, 3]
+print(find_median(lst))"
+"Convert these two lists into a dictionary. Take the keys from the first list, and values from the second one.
+keys = [‘Ten’, ‘Twenty’, ‘Thirty’]
+values = [10, 20, 30]",dict = {keys[i]: values[i] for i in range(len(keys)),"keys = [‘Ten’, ‘Twenty’, ‘Thirty’]
+values = [10, 20, 30] 
+dictionary = {}
+for i in range(len(keys)):
+dictionary[keys[i]] = values[i] 
+print(dictionary)","wrong_dict = {}
+for i in range(len(keys)):
+    wrong_dict[keys[i]] = values[i+1]","wrong_dict = {}
+for i in range(len(keys)):
+    wrong_dict[keys[i]] = values[i+1] # Note the index error - i+1 instead of i","Wrong Code Solution:
+
+dict = {}
+keys = ['Ten', 'Twenty', 'Thirty']
+values = [10, 20, 30]
+for i in range(len(keys)):
+    dict[keys[i]] = values[i] + "" dollars""
+print(dict)"
+"Merge these two dictionaries into one using for loop
+dict1 = {‘Ten’: 10, ‘Twenty’: 20, ‘Thirty’: 30}
+dict2 = {‘Thirty’: 30, ‘Fourty’: 40, ‘Fifty’: 50}","for key, value in dict1.items():
+    dict2[key] = value","dict1 = {‘Ten’: 10, ‘Twenty’: 20, ‘Thirty’: 30}
+dict2 = {‘Thirty’: 30, ‘Fourty’: 40, ‘Fifty’: 50} 
+for key, value in dict2.items():
+print(key, value)","for key in dict1:
+    if key in dict2:
+        dict2[key] = dict1[key]
+    else:
+        dict2[key] = dict1[key]","for key in dict1:
+    if key in dict2:
+        dict2[key] += dict1[key]
+    else:
+        dict2[key] = dict1[key]
+print(dict3)","dict1 = {‘Ten’: 10, ‘Twenty’: 20, ‘Thirty’: 30}
+dict2 = {‘Thirty’: 30, ‘Fourty’: 40, ‘Fifty’: 50}
+merged_dict = dict1.copy()
+
+for key, value in dict2:
+    merged_dict[key] = value
+    
+print(merged_dict)"
+"Check if a key exists in a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+key_needed = ‘d’","sample_dict = {'a': 100, 'b': 200, 'c': 300}
+key_needed = 'd' 
+
+if key_needed in sample_dict
+    print(""Key exists in the dictionary"")","sample_dict = {'a': 100, 'b': 200, 'c': 300}
+key_needed = 'd'
+if key_needed in sample_dict:
+print(""Key exists in the dictionary"")
+else:
+print(""Key does not exist in the dictionary"")","if key_needed in sample_dict:
+    print(""Key exists in the dictionary"")
+else:
+    print(""Key does not exist in the dictionary"")",print(sample_dict[key_needed]),if key_needed in sample_dict:'
+"Check if a value exists in a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+value_needed = 200","Sample wrong code with syntax error:
+
+if value_needed in sample_dict.values()
+    print(""Value exists in dictionary"")","value_needed in sample_dict.values()
+  print(""Value exists in dictionary"")","if value_needed in sample_dict:
+    print(""Value exists in the dictionary"")
+else:
+    print(""Value does not exist in the dictionary"")",print(sample_dict[value_wanted]) # This will result in a Name Error since the correct variable name is 'value_needed' and not 'value_wanted'.,"if value_needed in sample_dict.keys(): 
+    print(""Value exists in dictionary"") 
+else: 
+    print(""Value does not exist in dictionary"") 
+
+TypeError: argument of type 'int' is not iterable"
+"Create a new dictionary so that it only has the keys mentioned in another list
+sample_dict = { “name”: “Kelly”, “age”: 25, “salary”: 8000, “city”: “New york”}
+# Keys to extract
+keys = [“name”, “salary”]","new_dict = {}
+for key in keys:
+    new_dict[key] = sample_dict[key]
+print(new_dict)","new_dict = {key: sample_dict[key] for key in keys}
+print(new_dict)",new_dict = {key: sample_dict[key] for key in keys if key in sample_dict},"new_dict = {}
+for key in keys:
+    new_dict[key] = sample_dict[key]
+print(new_dict)
+print(city) #Name Error","new_dict = {}
+for key in keys:
+    new_dict[key] = sample_dict[key]
+print(new_dict)"
+"Remove a key from a dictionary:
+dict_name.pop(key_name)",dict_name.pop(key_name,dict_name.pop(key_name),"dict_name.remove(key_name) # This is incorrect because the remove() function is used for lists, not dictionaries.",dict_name.pop(key) #This code will result in a Name Error as the name of the dictionary and/or key is not defined.,dict_name.pop() # Type Error: pop() missing 1 required positional argument: 'key'
+"What does this function return?
+Use pop to rename a key.","Syntax Error: 
+```python
+def rename_key(dictionary, old_key, new_key):
+    dictionary[new_key] = dictionary.pop(old_key)
+    return dictionary
+```","def rename_key(dictionary, old_key, new_key):
+    if old_key in dictionary:
+        dictionary[new_key] = dictionary.pop(old_key)
+        return dictionary
+    else:
+        return ""Key not found""","def rename_key(dictionary, old_key, new_key):
+    if old_key in dictionary:
+        dictionary[new_key] = dictionary.pop(old_key)",NameError: name 'pop' is not defined,TypeError: pop() takes at least 1 argument (0 given)
+"Create a dictionary to store the total marks of 5 students in the class in 3 subjects (Course1, Course2, Course3). The keys must be the student names, and the values must be the list of marks. Create another list which has the course names in the same order as the marks are stored in the dictionary values. Now write a nested for loop to print the marks for each student exam wise.","marks = {'student1': [90, 85, 95], 'student2': [80, 75, 70], 'student3': [95, 90, 92], 'student4': [85, 80, 75], 'student5': [92, 88, 90]}
+courses = ['Course1', 'Course2', 'Course3']
+
+for student in marks:
+    print(""Marks for"", student)
+    for i in range(len(courses)):
+        print(courses[i], "":"", marks[student][i])","marks = {
+    ""Student1"": [85, 90, 78],
+    ""Student2"": [76, 88, 92],
+    ""Student3"": [82, 79, 85],
+    ""Student4"": [90, 92, 87],
+    ""Student5"": [85, 86, 80]
+}
+
+courses = [""Course1"", ""Course2"", ""Course3""]
+
+for student, mark in marks.items():
+for i in range(len(courses)):
+print(student, "" scored "", mark[i], "" in "", courses[i])","marks_dict = {'John': [85, 90, 75], 'Emma': [78, 88, 92], 'Michael': [92, 85, 89], 'Sophia': [80, 95, 87], 'William': [75, 82, 79]}
+courses = ['Course1', 'Course2', 'Course3']
+
+for student, marks in marks_dict.items():
+    for course in courses:
+        print(f""{student}'s marks in {course}: {marks[courses.index(course)]}"")","marks = {'John': [90, 85, 92], 'Mary': [78, 87, 89], 'Tom': [80, 82, 76], 'Sara': [92, 91, 95], 'Mike': [85, 88, 79]}
+courses = ['Course1', 'Course2', 'Course3']
+
+for student in marks:
+    print(""Marks for"", student)
+    for i in range(3):
+        print(courses[i], "":"", marks[student][i])","marks = {
+   'Alice': [80, 70, 90],
+   'Bob': [60, 80, 75],
+   'Charlie': [70, 65, 80],
+   'David': [90, 75, 85],
+   'Eve': [85, 80, 90]
+}
+
+courses = ['Course1', 'Course2', 'Course3']
+
+for course in courses:
+   print(course + "":"")
+   for student in marks:
+      print(student + "": "" + marks[student][course]) # Wrong code with Type Error"
+"Write a for loop to create another dictionary from the above where the marks are replaced by grades. Above 80 is A grade, 60–80 is B grade, 40–60 is C grade, and below 40 is F. Create another dictionary to store the max and average marks for each student. Use this dictionary to compute the final CPI/CGPA of the student. Course1 is of 4 credits, Course2 of 10 credits, and Course3 of 6 credits. Store these credits in a list. Write this dictionary as a json file, and read it back into a new dictionary.","for student, marks in student_marks.items():
+    if marks > 80:
+        grade = 'A'
+    elif marks > 60 and marks <= 80:
+        grade = 'B'
+    elif marks > 40 and marks <= 60:
+        grade = 'C'
+    else:
+        grade = 'F'
+    student_grades[student] = grade","for student, marks in student_marks.items()
+    if marks > 80:
+        student_grades[student] = 'A'
+    elif marks >= 60 and marks <= 80:
+        student_grades[student] = 'B'
+    elif marks >= 40 and marks < 60:
+        student_grades[student] = 'C'
+    else:
+        student_grades[student] = 'F'","wrong code:
+```python
+student_grades = {}
+credits = [4, 10, 6]
+for key, value in student_marks.items():
+    if value > 80:
+        student_grades[key] = 'A'
+    elif value > 60 and value <= 80:
+        student_grades[key] = 'B'
+    elif value > 40 and value <= 60:
+        student_grades[key] = 'C'
+    else:
+        student_grades[key] = 'D'
+        
+max_avg_marks = {}
+for key, value in student_marks.items():
+    max_avg_marks[key] = {'Max': max(value), 'Average': sum(value)/len(value)}
+    
+with open('student_grades.json', 'w') as file:
+    json.dump(student_grades, file)
+    
+with open('student_grades.json', 'r') as file:
+    new_student_grades = json.load(file)
+```","Wrong Code Solution:
+
+grades_dict = {}
+for name, marks in marks_dict.items():
+    if marks > 80:
+        grades_dict[name] = 'A'
+    elif marks >= 60 and marks <= 80:
+        grades_dict[name] = 'B'
+    elif marks >= 40 and marks < 60:
+        grades_dict[name] = 'C'
+    else:
+        grades_dict[name] = 'E'
+        
+max_avg_dict = {}
+for name, marks in marks_dict.items():
+    max_mark = max(marks)
+    avg_mark = sum(marks)/len(marks)
+    max_avg_dict[name] = {'Max': max_mark, 'Avg': avg_mark}
+    
+credits_list = [4, 10, 6]
+
+final_dict = {}
+for name, marks in max_avg_dict.items():
+    total_credits = sum(credits_list)
+    weighted_sum = (marks['Max']*4 + marks['Avg']*total_credits)/total_credits
+    final_dict[name] = round(weighted_sum, 2)
+    
+import json
+with open('final_dict.json', 'w') as file:
+    json.dump(final_dict, file)
+    
+with open('final_dict.json', 'r') as file:
+    new_dict = json.load(file)","Wrong code solution with Type Error:
+
+```
+marks_dict = {""John"": [75, 82, 60], ""Jane"": [90, 68, 78], ""Bob"": [40, 55, 45]}
+grades_dict = {}
+credits = [4, 10, 6]
+max_avg_dict = {}
+
+for key, value in marks_dict.items():
+    for i in range(len(value)):
+        if value[i] > 80:
+            grades_dict[key][i] = 'A'
+        elif value[i] > 60:
+            grades_dict[key][i] = 'B'
+        elif value[i] > 40:
+            grades_dict[key][i] = 'C'
+        else:
+            grades_dict[key][i] = 'F'
+    max_avg_dict[key] = {""max"": max(value), ""avg"": sum(value)/len(value)}
+    cpi_cgpa = sum([credits[i]*value[i] for i in range(len(value))])/sum(credits)
+    
+print(grades_dict)
+print(max_avg_dict)
+print(cpi_cgpa)
+```"
+"Create a dictionary of your marks in various subjects and then sort it by its values first in descending order, and then in or ascending order. Do not use any inbuilt sorting functions.","marks = {'Maths': 90, 'Science': 85, 'English': 92, 'History': 88}
+
+sorted_marks = sorted(marks.items(), key=lambda x: x[1], reverse=True
+for subject, mark in sorted_marks:
+    print(subject, mark)","marks = {'Maths': 85, 'Science': 90, 'English': 78, 'History': 92, 'Geography': 88}
+
+sorted_marks_desc = dict(sorted(marks.items(), key=lambda x: x[1], reverse=True)
+for subject, mark in sorted_marks_desc.items():
+    print(f""{subject}: {mark}"")
+
+sorted_marks_asc = dict(sorted(marks.items(), key=lambda x: x[1])
+for subject, mark in sorted_marks_asc.items():
+    print(f""{subject}: {mark}"")","marks = {'Maths': 85, 'Science': 90, 'English': 75, 'History': 80}
+
+# Wrong code with Logic Error
+sorted_marks_desc = {}
+sorted_marks_asc = {}
+
+for key, value in marks.items():
+    max_key = max(marks, key=marks.get)
+    sorted_marks_desc[max_key] = marks[max_key]
+    marks.pop(max_key)
+
+for key, value in sorted_marks_desc.items():
+    sorted_marks_asc[key] = value
+
+print(""Sorted marks in descending order:"", sorted_marks_desc)
+print(""Sorted marks in ascending order:"", sorted_marks_asc)","marks = {'Maths': 85, 'Science': 90, 'English': 75, 'History': 80}
+sorted_marks_desc = sorted(marks.items(), key=lambda x: x[1], reverse=True)
+sorted_marks_asc = sorted(marks.items(), key=lambda x: x[1])
+
+marks['Geography'] = 92
+sorted_marks_desc = sorted(marks.items(), key=lambda x: x[2], reverse=True) # Name Error - should be x[1], not x[2]","marks = {'Maths': 78, 'Science': 84, 'English': 76, 'History': 89, 'Geography': 92}
+
+sorted_marks = sorted(marks, key=marks.values(), reverse=True) #Wrong code solution with Type Error
+
+print(sorted_marks)"
+"Write a python function that takes a string as input, and returns the string in reverse order (without using string splicing).","def reverse_string(string):
+    reversed_string = """"
+    for i in range(len(string), 0, -1):
+        reversed_string += string[i]
+    return reversed_string","def reverse_string(input_string):
+  reversed_string = """"
+for char in input_string:
+reversed_string = char + reversed_string
+return reversed_string","def reverse_string(input_string):
+    reversed_string = """"
+    for i in range(len(input_string)):
+        reversed_string += input_string[len(input_string) - i]  # Incorrect logic, should be input_string[len(input_string) - i - 1]
+    return reversed_string","def reverse_string(input_string):
+    reversed_string = """"
+    for i in range(len(input_string), -1, -1):
+        reversed_string += input_str[i]
+    return reversed_string
+
+reverse_string(""hello world"") # NameError: name 'input_str' is not defined","def reverse_string(string):
+    string = list(string)
+    for i in range(len(string)//2):
+        string[i], string[len(string)-i] = string[len(string)-i], string[i]
+    return ''.join(string)
+
+reverse_string(1234) # Type Error"
+"Write a python function that takes a string as input, and returns the number of vowels in it.","def count_vowels(string):
+    count = 0
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    
+    for char in string:
+        if char.lower() in vowels
+            count += 1
+    
+    return count","def count_vowels(s):
+count = 0
+for char in s:
+if char in ""aeiouAEIOU"":
+count += 1
+return count","def count_vowels(input_str):
+    vowels = 'aeiou'
+    count = 0
+    for char in input_str:
+        if char in vowels:
+            count += 1
+    return count + 1  # Logic error: adding 1 extra to the count before returning","def count_vowels(string):
+    count = 0
+    vowels = ""aeiou""
+    for char in string:
+        if char in vowels:
+            count += 1
+    return count
+
+print(count_vowels(""hello world!""))","def count_vowels(string):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    count = 0
+    for char in string:
+        if char in vowels:
+            count += 1
+    return count
+
+count_vowels(1234) # This will raise a TypeError because the input is not a string."
+"Write a python function that takes a string as input, and returns the number of words in it. Use space as a separator for words.","def count_words(string):
+    words = string.split("" "")
+    return len(words)","def count_words(input_string):
+    words = input_string.split("" "")
+    return len(words)","def count_words(input_string):
+    words = input_string.split(',') # using comma as separator instead of space
+    return len(words)","def count_words(s):
+    word_list = s.split()
+    return len(word_list)
+
+print(countword(""Hello world"")) # Name Error: name 'countword' is not defined","def count_words(s):
+    return len(s.split())
+
+count_words(1234) # Type Error: 'int' object has no attribute 'split'"
+"Write a python function that takes a string as input, and returns the string with the first letter of each word capitalised.","def capitalize_words(string):
+    words = string.split()
+    capitalized_words = [word[0].upper() + word[1:] for word in words]
+    return ' '.join(capitalized_words)","def capitalize_first_letter(input_string):
+for word in input_string.split():
+return word.capitalize()","def capitalize_first_letter(input_string):
+    words = input_string.split("" "")
+    for word in words:
+        word[0] = word[0].upper()
+    return "" "".join(words)","def capitalize_words(s):
+    words = s.split()
+    for i in range(len(words)):
+        words[i] = words[i][0].upper() + words[i][1:]
+    return ' '.join(words)
+
+print(capitalize_words('this is a test'))","def capitalize_words(s):
+    words = s.split()
+    for i in range(len(words)):
+        words[i][0] = words[i][0].upper()
+    return "" "".join(words)
+
+capitalize_words(123) # This will raise a TypeError as 'str' object cannot be interpreted as an integer"
+"Write a python function that takes a string as input, and returns the length of the longest word in it. Use space as a separator for words.","def longest_word_length(string):
+    words = string.split()
+    max_length = 0
+    for word in words:
+        if len(word) > max_length
+            max_length = len(word)
+    return max_length","def longest_word_length(s):
+  words = s.split(' ')
+  max_length = 0
+  for word in words:
+    if len(word) > max_length:
+      max_length = len(word)
+  return max_length
+
+s = ""This is a sample string""
+print(longest_word_length(s))","def longest_word_length(s):
+    words = s.split(' ')
+    max_length = 0
+    for word in words:
+        if len(word) > max_length:
+            max_length = len(word)
+    return max_length + 1  # Incorrect logic, adding 1 to the max length before returning it.","def longest_word_length(sentence):
+    words = sentence.split()
+    max_length = 0
+    for word in words:
+        if len(word) > max_len:
+            max_len = len(word)
+    return max_length
+
+print(longest_word_length(""This is a test sentence"")) # Should output 8
+print(longest_word_length(""Hello world"")) # Should output 5
+print(longest_word_length(""Python is awesome"")) # Should output 7
+print(longest_word_length(""I love coding"")) # Should output 6
+print(longest_word_length(""This sentence has a lot of long words"")) # Should output 8
+print(longest_word_length(""A"")) # Should output 1
+print(longest_word_length("""")) # Should output 0","def longest_word_length(string):
+    words = string.split("" "")
+    longest_word = """"
+    for word in words:
+        if len(word) > len(longest_word):
+            longest_word = word
+    return len(longest_word)
+
+longest_word_length(12345) # Type Error"
+"Write a python function that takes a string as input, and returns if its a valid email address.","def validate_email_address(email):
+    if '@' not in email:
+        return False
+    if '.' not in email:
+        return False
+    if email.count('@') > 1:
+        return False
+    if email.count('.') > 1:
+        return False
+    return True
+
+# Wrong code solution with Syntax Error
+def validate_email_address(email
+    if '@' not in email:
+        return False
+    if '.' not in email:
+        return False
+    if email.count('@') > 1:
+        return False
+    if email.count('.') > 1:
+        return False
+    return True","def is_valid_email(email):
+if '@' in email and '.' in email:
+return True
+else:
+return False","def validate_email(email):
+    if ""@"" in email and ""."" in email:
+        return True
+    else:
+        return False","def check_email(email):
+    if ""@"" in email:
+        return True
+    else:
+        return False
+
+print(check_emal(""example@gmail.com"")) #Name Error: ""check_emal"" is not defined.","def check_email(email):
+        if '@' not in email:
+            return False
+        else:
+            domain = email.split('@')[1]
+            if '.' not in domain:
+                return False
+            else:
+                return True
+        
+check_email(1234) # Type Error"
+"Write a python function that takes a string as input, and returns if its a valid mobile number in India.","def is_valid_mobile_number(number):
+    if len(number) != 10:
+        return False
+    if not number.isdigit():
+        return False
+    return True
+
+number = input(""Enter a mobile number: "")
+if is_valid_mobile_number(number):
+    print(""Valid mobile number"")
+else:
+    print(""Invalid mobile number"")","def is_valid_mobile_number(number):
+if len(number) != 10:
+    return False
+for digit in number:
+    if not digit.isdigit():
+        return False
+if number[0] not in ['7', '8', '9']:
+    return False
+return True","def is_valid_mobile_number(number):
+    if len(number) != 10:
+        return False
+    for digit in number:
+        if not digit.isdigit():
+            return False
+    return True","def check_mobile_number(num):
+    if len(num) != 10:
+        return False
+    elif not num.isdigit():
+        return False
+    elif num[0] not in ['7','8','9']:
+        return False
+    else:
+        return True
+
+check_mobile_number('9876543210')
+print(num) # NameError: name 'num' is not defined","def valid_mobile_number(mobile):
+    if len(mobile) != 10:
+        return False
+    for digit in mobile:
+        if not digit.isdigit():
+            return False
+    return True
+
+valid_mobile_number(1234567890) #Type Error"
+Implement a simple encryption algorithm that can encrypt and decrypt strings.,"def encrypt_decrypt(string):
+    encrypted = """"
+    for char in string:
+        if char.isalpha():
+            if char.islower():
+                encrypted += chr((ord(char) + 3 - 97) % 26 + 97)
+            else:
+                encrypted += chr((ord(char) + 3 - 65) % 26 + 65)
+        else:
+            encrypted += char
+    return encrypted
+
+string = input(""Enter a string: "")
+encrypted_string = encrypt_decrypt(string)
+print(""Encrypted string:"", encrypted_string)
+decrypted_string = encrypt_decrypt(encrypted_string)
+print(""Decrypted string:"", decrypted_string)","def encrypt(text, key):
+    encrypted_text = """"
+    for char in text:
+        encrypted_text += chr(ord(char) + key)
+    return encrypted_text
+
+def decrypt(encrypted_text, key):
+    decrypted_text = """"
+    for char in encrypted_text:
+        decrypted_text += chr(ord(char) - key)
+    return decrypted_text
+
+text = ""Hello""
+key = 3
+encrypted = encrypt(text, key)
+print(""Encrypted:"", encrypted)
+decrypted = decrypt(encrypted, key)
+print(""Decrypted:"", decrypted)","def encrypt_decrypt_string(input_string):
+    encrypted_string = """"
+    for char in input_string:
+        # Incorrect logic for encryption
+        encrypted_string += chr(ord(char) + 1)
+    
+    decrypted_string = """"
+    for char in encrypted_string:
+        # Incorrect logic for decryption
+        decrypted_string += chr(ord(char) - 1)
+    
+    return encrypted_string, decrypted_string","Solution:
+
+```
+#Wrong code solution with Name Error
+
+def encrypt(string):
+    encrypted = """"
+    for char in string:
+        encrypted += chr(ord(char) + 3)
+    return encrypted
+
+
+def decrypt(string):
+    decrypted = """"
+    for char in string:
+        decrypted += chr(ord(char) - 3)
+    return decrypted
+
+
+message = ""Hello World""
+encrypted_message = encrypt(mesage) # Name Error here, correct spelling is ""message""
+print(encrypted_message)
+
+decrypted_message = decrypt(encrypted_message)
+print(decrypted_message)
+```","def encrypt_decrypt(string, key):
+    result = """"
+    for i in range(len(string)):
+        char = string[i]
+        result += chr(ord(char) ^ key)
+    return result
+
+# Example usage:
+encrypted = encrypt_decrypt(""Hello world"", ""secretkey"")
+print(encrypted)
+decrypted = encrypt_decrypt(encrypted, 10)
+print(decrypted)"
+"Write a python function that takes in a string and checks if its a palindrome (without using string splicing, case sensitive and ignoring spaces).","def is_palindrome(string):
+    reversed_string = """"
+    for i in range(len(string)-1, -1, -1)
+        reversed_string += string[i]
+    if reversed_string == string:
+        return True
+    else:
+        return False","def is_palindrome(s):
+  s = s.replace("" "", """")
+  s = s.lower()
+  return s == s[::-1]","def is_palindrome(s):
+    s = s.replace("" "", """")
+    s = s.lower()
+    length = len(s)
+    for i in range(length // 2):
+        if s[i] != s[length - i]:  # Logic Error: Incorrect index used for comparison
+            return False
+    return True","def check_palindrome(string):
+    reversed_string = """"
+    for i in range(len(string)-1, -1, -1):
+        reversed_string += string[i]
+    
+    # Check if reversed string matches original string
+    if reversed_string == string:
+        return True
+    else:
+        return False
+    
+print(check_palindrome(""racecar"")) # Expected output: True
+print(check_palindrome(""hello"")) # Expected output: False
+print(check_palindrome(""Was it a car or a cat I saw"")) # Expected output: Name Error","def is_palindrome(s):
+    s = s.replace("" "", """")
+    s = s.lower()
+    return s == s[::-1]
+    
+is_palindrome(12321) # Type Error"
+"Write a python function that takes in a paragraph as input, and returns a list of sentences. Use full-stop, exclamation and question mark as the three allowed delimiters between sentences.","def get_sentences(paragraph):
+    sentences = []
+    sentence = """"
+    for char in paragraph:
+        if char == '.' or char == '!' or char == '?':
+            sentences.append(sentence)
+            sentence = """"
+        else:
+            sentence += char
+    return sentences","def get_sentences(paragraph):
+sentences = []
+current_sentence = ''
+for char in paragraph:
+if char == '.' or char == '!' or char == '?':
+sentences.append(current_sentence)
+current_sentence = ''
+else:
+current_sentence += char
+return sentences","def get_sentences(paragraph):
+    sentences = paragraph.split('. ')
+    return sentences","def sentence_splitter(paragraph):
+    sentences = []
+    delimiters = ['.', '!', '?']
+    new_sentence = ''
+    for char in paragraph:
+        if char in delimiters:
+            sentences.append(new_sentence)
+            new_sentence = ''
+        else:
+            new_sentence += char
+    return sentences
+
+paragraph = ""This is a sample paragraph. It contains multiple sentences! Do you want to try splitting it?""
+print(sentence_splitter(paragraph))","def get_sentences(paragraph):
+    return paragraph.split(.!?)
+
+get_sentences(""This is a sample paragraph. It contains multiple sentences! Can you identify all of them?"")"

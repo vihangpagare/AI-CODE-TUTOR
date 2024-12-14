@@ -1,0 +1,1554 @@
+Question,Answer,Degree of Correctness,,STATS,,
+"Given an integer, check if it is even or odd.Write a Sample Python code for the given problem","
+""""""
+
+num = int(input(""Enter a number: ""))
+
+if num % 2 == 0:
+    print(num, ""is even"")
+else:
+    print(num, ""is odd"") ",Fully Correct,,"Wrong - 10 , Partially Correct - 6 ,Fully Correct - 44",,
+"Given two integers, find the larger one.Write a Sample Python code for the given problem","
+""""""
+
+def find_larger(a, b):
+    if a > b:
+        return a
+    else:
+        return b
+
+a = int(input(""Enter the first number: ""))
+b = int(input(""Enter the second number: ""))
+
+print(""The larger number is:"", find_larger(a, b)) ",Fully Correct,,,,
+"Given a temperature in Celsius, convert it to Fahrenheit using the formula F = (C * 1.8) + 32. If the temperature is above 90°F, print “It’s hot outside!” otherwise, print “The temperature is pleasant”.Write a Sample Python code for the given problem","
+Solution:
+temp = float(input(""Enter the temperature in Celsius: ""))
+fahrenheit = (temp * 1.8) + 32
+print(""Temperature in Fahrenheit is: "", fahrenheit)
+if fahrenheit > 90:
+    print(""It's hot outside!"")
+else:
+    print(""The temperature is pleasant"") ",Fully Correct,,,,
+"Given a year, check if it is a leap year or not. A leap year is divisible by 4, except for years that are divisible by 100. However, years that are divisible by 400 are also leap years.Write a Sample Python code for the given problem","
+<|im_sep|> ",Wrong,,,,
+"Given two numbers, a and b, find the value of a/b (b may be zero).Write a Sample Python code for the given problem","
+Solution:
+
+a = int(input(""Enter the value of a: ""))
+b = int(input(""Enter the value of b: ""))
+
+try:
+    result = a/b
+    print(f""The result of {a}/{b} is {result}"")
+except ZeroDivisionError:
+    print(""Error: Cannot divide by zero!"")
+except Exception as e:
+    print(f""Error: {e}"")
+
+# In the above code, we have used the try-except block to handle the exception. If b is zero, then it will raise a ZeroDivisionError. We have handled this exception and printed an error message. ",Fully Correct,,,,
+"Given a point (x1, y1), find the quadrant in which this point lies.Write a Sample Python code for the given problem","
+We can find the quadrant of a point (x, y) by checking the sign of its coordinates. If both coordinates are positive, it lies in the first quadrant. If x is positive and y is negative, it lies in the second quadrant. If both coordinates are negative, it lies in the third quadrant. If x is negative and y is positive, it lies in the fourth quadrant. If both coordinates are zero, it lies on the x-axis or y-axis. If x is positive and y is zero, it lies on the y-axis. If x is negative and y is zero, it lies on the y-axis. If x is zero and y is positive, it lies on the x-axis. If both coordinates are zero, it lies at the origin. ",Partially Correct,Incomplete Answer,GIve Python Code,"
+Answer: \begin{code}
+def find_quadrant(x1, y1):
+    if x1 > 0 and y1 > 0:
+        return ""First quadrant""
+    elif x1 < 0 and y1 > 0:
+        return ""Second quadrant""
+    elif x1 < 0 and y1 < 0:
+        return ""Third quadrant""
+    elif x1 > 0 and y1 < 0:
+        return ""Fourth quadrant""
+    elif x1 == 0 and y1 > 0:
+        return ""Y-axis positive""
+    elif x1 == 0 and y1 < 0:
+        return ""Y-axis negative""
+    elif y1 == 0 and x1 > 0:
+        return ""X-axis positive""
+    elif y1 == 0 and x1 < 0:
+        return ""X-axis negative""
+    elif x1 == 0 and y1 == 0:
+        return ""Origin""
+    else:
+        return ""On the axis""
+
+print(find_quadrant(1, 1)) # First quadrant
+print(find_quadrant(-1, 1)) # Second quadrant
+print(find_quadrant(-1, -1)) # Third quadrant
+print(find_quadrant(1, -1)) # Fourth quadrant
+print(find_quadrant(0, 1)) # Y-axis positive
+print(find_quadrant(0, -1)) # Y-axis negative
+print(find_quadrant(1, 0)) # X-axis positive
+print(find_quadrant(-1, 0)) # X-axis negative
+print(find_quadrant(0, 0)) # Origin
+\end{code}",Fully Correct
+"Given two points (x1, y1) and (x2, y2), find the slope and intercept of the line joining these two points (the line may be perfectly horizontal or vertical).Write a Sample Python code for the given problem","
+Solution:
+We can use the formula of slope and intercept to find the slope and intercept of a line passing through two points.
+
+Slope = (y2 - y1) / (x2 - x1)
+Intercept = y1 - slope * x1
+
+If the line is perfectly horizontal, then the slope will be 0 and intercept will be the y-coordinate of the point.
+If the line is perfectly vertical, then the slope will be infinity and intercept will be the x-coordinate of the point.
+
+Here's the Python code to find the slope and intercept of a line passing through two points:
+
+
+x1 = float(input(""Enter x1: ""))
+y1 = float(input(""Enter y1: ""))
+x2 = float(input(""Enter x2: ""))
+y2 = float(input(""Enter y2: ""))
+
+if x2 - x1 == 0:
+    print(""Line is perfectly vertical"")
+    print(""Intercept: "", x1)
+else:
+    slope = (y2 - y1) / (x2 - x1)
+    intercept = y1 - slope * x1
+    print(""Slope: "", slope)
+    print(""Intercept: "", intercept)
+
+Note: We use float() function to convert the input values into float data type as we may get decimal values for slope. ",Fully Correct,,,,
+"Given a quadratic equation with coefficients a, b and c, find the two solutions (may be real or complex). You should not take the square root of a negative number in your code.Write a Sample Python code for the given problem","
+
+Answer:You can use the quadratic formula to find the roots of a quadratic equation. The formula is:
+
+
+\begin{code}
+x = (-b ± sqrt(b^2 - 4ac)) / 2a
+\end{code}
+
+where `a`, `b`, and `c` are the coefficients of the quadratic equation `ax^2 + bx + c = 0`.
+
+However, you should be careful when `b^2 - 4ac` is negative, because you cannot take the square root of a negative number. In that case, you can use the `cmath` module to find the complex roots.
+
+Here's a sample Python code:
+
+\begin{code}
+import cmath
+
+a = float(input(""Enter the coefficient a: ""))
+b = float(input(""Enter the coefficient b: ""))
+c = float(input(""Enter the coefficient c: ""))
+
+discriminant = b**2 - 4*a*c
+
+if discriminant >= 0:
+    root1 = (-b + math.sqrt(discriminant)) / (2*a)
+    root2 = (-b - math.sqrt(discriminant)) / (2*a)
+    print(""The roots are real and are"", root1, ""and"", root2)
+else:
+    root1 = (-b + cmath.sqrt(discriminant)) / (2*a)
+    root2 = (-b - cmath.sqrt(discriminant)) / (2*a)
+    print(""The roots are complex and are"", root1, ""and"", root2)
+\end{code}
+
+Note that `cmath.sqrt` returns a complex number, so you don't need to worry about taking the square root of a negative number. ",Fully Correct,,,,
+"Given three points, find out whether they lie on the same straight line or not.Write a Sample Python code for the given problem","# Input:
+# The input should be in the form of three points (x1,y1),(x2,y2),(x3,y3) where x1,x2,x3 are the x-coordinates and y1,y2,y3 are the y-coordinates of the three points.
+
+# Output:
+# Output should be True or False.
+
+# Example:
+# Input: (1,2),(2,3),(3,4)
+# Output: True
+# Input: (1,2),(2,4),(3,6)
+# Output: True
+# Input: (1,2),(2,4),(3,7)
+# Output: False ",Incomplete Answer,,,,
+"Given three integers, find the smallest one.Write a Sample Python code for the given problem","
+Solution:
+We can use the built-in function `min()` to find the smallest number among the given three integers.
+
+Here's the code:
+
+```python
+def find_smallest(a, b, c):
+    return min(a, b, c)
+```
+
+We can test the function with some sample inputs:
+
+```python
+print(find_smallest(5, 3, 7))  # Output: 3
+print(find_smallest(10, 15, 2))  # Output: 2
+print(find_smallest(15, 10, 20))  # Output: 10
+``` ",Fully Correct,,,,
+"Given a positive integer, print all integers from 1 up to this number.Write a Sample Python code for the given problem","
+```python
+n = int(input(""Enter a positive integer: "")
+for i in range(1, n+1):
+    print(i)
+```
+
+Example:
+
+Input:
+
+```
+Enter a positive integer: 5
+```
+
+Output:
+
+```
+1
+2
+3
+4
+5
+``` ",Fully Correct,,,,
+"Given a positive integer, find out the sum of all integers from 1 up to this number.Write a Sample Python code for the given problem","
+\begin{code}
+num = int(input(""Enter a positive integer: ""))
+sum = 0
+for i in range(1, num+1):
+    sum += i
+print(""Sum of integers from 1 to"", num, ""is"", sum)
+\end{code}
+
+\strong{Output:}
+
+\begin{code}
+Enter a positive integer: 10
+Sum of integers from 1 to 10 is 55
+\end{code}
+
+\strong{Explanation:}
+
+
+The code prompts the user to enter a positive integer and stores it in the variable `num`. The variable `sum` is initialized to 0. Then, using a `for` loop, the code iterates from 1 to `num+1` and adds each integer to the variable `sum`. Finally, the sum is printed as the output.
+
+
+\strong{Note:}
+
+
+The `range()` function is used to generate a sequence of numbers from 1 to `num+1` and the `+=` operator is used to add each integer to the variable `sum`. ",Fully Correct,,,,
+"Given a positive integer, find out its factorial.Write a Sample Python code for the given problem","
+Solution:
+
+To find the factorial of a number, we multiply it with all the integers from 1 to that number. For example, the factorial of 5 is 5*4*3*2*1 which is 120. So, we can write a function that takes a number as input and returns its factorial. We can use a for loop to multiply the number with all the integers from 1 to that number and return the result.
+
+
+Here's the Python code to find the factorial of a number:
+
+
+```python
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+```
+
+In this code, we first check if the input number is 0. If it is, we return 1 because the factorial of 0 is 1. Otherwise, we call the same function recursively with n-1 as the input and multiply the result with n. This will continue until n becomes 0 and the recursion stops. 
+
+
+Let's test the function with some inputs:
+
+
+```python
+print(factorial(5)) # Output: 120
+print(factorial(0)) # Output: 1
+print(factorial(10)) # Output: 36288000
+```
+
+Note: The maximum value of n that can be passed to this function is limited by the maximum recursion depth of Python. For larger values, we can use a loop instead of recursion. ",Fully Correct,,,,
+"Given a positive integer, find out if it’s prime or not.Write a Sample Python code for the given problem","
+Solution:
+We can check if a number is prime or not by dividing it by all the numbers from 2 to its square root. If it is divisible by any of those numbers, it is not a prime number. If it is not divisible by any of them, it is a prime number. 
+
+Here's the Python code to implement this logic: 
+
+```python
+import math
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(math.sqrt(n))+1):
+        if n % i == 0:
+            return False
+    return True
+```
+
+We first check if the number is less than 2, because 0 and 1 are not prime numbers. Then, we iterate from 2 to the square root of the number and check if it is divisible by any of those numbers. If it is, we return False. If it is not divisible by any of them, we return True. 
+
+
+We can test this function with some sample inputs: 
+
+```python
+print(is_prime(7)) # True
+print(is_prime(12)) # False
+print(is_prime(11)) # True
+print(is_prime(1)) # False
+``` ",Fully Correct,,,,
+"Given a positive integer, find out the sum of all odd numbers from 1 up to this number.Write a Sample Python code for the given problem","
+```python
+def sum_of_odd_numbers(n):
+    """"""
+    This function takes a positive integer n as input and returns the sum of all odd numbers from 1 up to n
+    """"""
+    return sum(range(1, n+1, 2))
+
+# Example usage:
+n = 10
+print(sum_of_odd_numbers(n)) # Output: 25
+``` ",Partially Correct,Usage of inbuilt function,"Given a positive integer, find out the sum of all odd numbers from 1 up to this number.Write a Sample Python code for the given  problem. Do not use inbuilt functions","#Example: 
+#Input: 10
+#Output: 25 (1+3+5+7+9)
+
+#Solution:
+
+n = int(input(""Enter a positive integer: ""))
+sum = 0
+for i in range(1, n+1, 2):
+    sum += i
+print(""The sum of all odd numbers from 1 to"", n, ""is"", sum)
+
+
+#Explanation:
+
+#We first take an integer input from the user and store it in the variable n. Then we initialize a variable sum to 0. We use a for loop with a step of 2 to iterate over all odd numbers from 1 to n. We add each odd number to the variable sum. Finally, we print the sum of all odd numbers. ",Fully Correct
+"Given a positive integer, find out the sum of all even numbers from 2 up to this number.Write a Sample Python code for the given problem","# Input:
+# Enter the number: 10
+
+# Output:
+# The sum of even numbers from 2 to 10 is 30
+
+# Explanation:
+# 2 + 4 + 6 + 8 + 10 = 30
+
+
+# Input:
+# Enter the number: 15
+
+# Output:
+# The sum of even numbers from 2 to 15 is 56
+
+# Explanation:
+# 2 + 4 + 6 + 8 + 10 + 12 + 14 = 30
+
+
+# Input:
+# Enter the number: 20
+# Output:
+# The sum of even numbers from 2 to 20 is 1100
+# Explanation:
+# 2 + 4 + 6 + 8 + 10 + 12 + 14 + 16 + 18 + 20 = 56
+
+
+num = int(input(""Enter the number: ""))
+sum = 0
+for i in range(2, num+1, 2):
+    sum += i
+print(""The sum of even numbers from 2 to"", num, ""is"", sum) ",Fully Correct,,,,
+"Given a positive integer, find the multiplication table of that integer up to 10.Write a Sample Python code for the given problem","""""""
+
+num = int(input(""Enter a positive integer: ""))
+for i in range(1, 11):
+    print(num, ""x"", i, ""="", num*i) ",Fully Correct,,,,
+"Given a positive integer, find all its divisors.Write a Sample Python code for the given problem","# Input:
+# An integer n (1<=n<=10^6)
+
+# Output:
+# All divisors of n, separated by spaces
+
+# Example:
+# Input:
+# 12
+# Output:
+# 1 2 3 4 6 12
+
+n = int(input())
+for i in range(1, n+1):
+    if n%i == 0:
+        print(i, end=' ') ",Fully Correct,,,,
+"Given a positive integer, print each of its digits separately without converting the number into a string.Write a Sample Python code for the given problem","""""""
+
+#Solution:
+
+num = int(input(""Enter a positive integer: ""))
+while num != 0:
+    digit = num % 10
+    print(digit)
+    num = num // 10
+
+#Explanation:
+
+#We first take an integer input from the user and store it in the variable num.
+#We then run a while loop until the value of num becomes 0.
+#In each iteration, we find the last digit of the number by taking the modulus of the number with 10 and print it.
+#Then we remove the last digit from the number by integer dividing it with 10 and discarding the remainder. ",Fully Correct,,,,
+"Given a positive integer, convert it into binary, and vice-versa.Write a Sample Python code for the given problem","""""""
+
+def decimal_to_binary(n):
+    binary = """"
+    while n > 0:
+        binary = str(n % 2) + binary
+        n = n // 2
+    return binary
+
+def binary_to_decimal(binary):
+    decimal = 0
+    for i in range(len(binary)):
+        decimal = decimal + int(binary[i]) * 2**(len(binary)-i-1)
+    return decimal
+
+def main():
+    choice = input(""Enter 1 for Decimal to Binary, 2 for Binary to Decimal: "")
+    if choice == ""1"":
+        n = int(input(""Enter a positive integer: ""))
+        print(""Binary representation of"", n, ""is"", decimal_to_binary(n))
+    elif choice == ""2"":
+        binary = input(""Enter a binary number: "")
+        print(""Decimal representation of"", binary, ""is"", binary_to_decimal(binary))
+    else:
+        print(""Invalid choice"")
+
+if __name__ == ""__main__"":
+    main() ",Fully Correct,,,,
+"Given a list of numbers, find out its length and the sum of all these numbers.Write a Sample Python code for the given problem","
+Solution:
+
+num_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+length = len(num_list)
+sum = sum(num_list)
+
+print(""Length of the list: "", length)
+print(""Sum of the list: "", sum)
+
+Output:
+
+Length of the list: 6
+Sum of the list: 25
+
+Explanation:
+
+The given list has 6 elements and their sum is 1+2+3+4+5+6+7+8+9 = 25. ",Partially Correct,Usage of inbuilt function,"Given a list of numbers, find out its length and the sum of all these numbers.Write a Sample Python code for the given problem.Do not use inbuilt functions.","def find_length_and_sum(numbers):
+    length = 0
+    sum = 0
+    for num in numbers:
+        length += 1
+        sum += num
+    return length, sum
+
+# Test the function with sample inputs
+print(find_length_and_sum([1, 2, 3, 4, 5, 6, 7, 8, 9])) # Output: (6, 45)
+print(find_length_and_sum([10, 20, 30, 40, 50])) # Output: (4, 120) ",Fully Correct
+"Given a list of numbers, find the squares of all the numbers.Write a Sample Python code for the given problem","
+```python
+def square_list(numbers):
+    result = []
+    for num in numbers:
+        result.append(num**2)
+    return result
+
+numbers = [1, 2, 3, 4, 5]
+print(square_list(numbers))
+```
+
+Output:
+```
+[1, 4, 9, 16, 25]
+``` ",Fully Correct,,,,
+"Given a list of numbers, find out their mean and standard deviation.Write a Sample Python code for the given problem","
+""""""
+
+import math
+
+def mean(numbers):
+    """"""
+    This function calculates the mean of a list of numbers.
+    """"""
+    return sum(numbers) / len(numbers)
+
+def std_dev(numbers):
+    """"""
+    This function calculates the standard deviation of a list of numbers.
+    """"""
+    mn = mean(numbers)
+    variance = sum([(x - mn) ** 2 for x in numbers]) / len(numbers)
+    return math.sqrt(variance)
+
+def main():
+    """"""
+    This function takes a list of numbers as input, calculates their mean and standard deviation and prints them.
+    """"""
+    numbers = [float(x) for x in input(""Enter a list of numbers separated by space: "").split()]
+    print(""Mean: "", mean(numbers))
+    print(""Standard Deviation: "", std_dev(numbers))
+
+if __name__ == ""__main__"":
+    main()
+
+# Test the code
+# Sample Input: 2 4 6 8 10 12 14
+# Sample Output:
+# Mean: 8.0
+# Standard Deviation: 3.316622479035539989
+
+# Explanation:
+# Mean = (2+4+6+8+10+12+14)/5 = 8
+# Standard Deviation = sqrt(((2-8)^2 + (4-8)^2 + (6-8)^2 + (10-8)^2 + (12-8)^2 + (14-8)^2)/5) = 3.3166
+
+
+# Time Complexity: O(n)
+# Space Complexity: O(1) ",Fully Correct,,,,
+"Given a list of integers, find all the even numbers in it and their count.Write a Sample Python code for the given problem","
+""""""
+
+def count_even_numbers(lst):
+    even_numbers = []
+    count = 0
+    for num in lst:
+        if num % 2 == 0:
+            even_numbers.append(num)
+            count += 1
+    return even_numbers, count
+
+# Test the function with a sample list
+lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(count_even_numbers(lst)) # Output: ([2, 4, 6, 8, 10], 4) ",Fully Correct,,,,
+"Given a list of integers, find all the odd numbers in it and their count.Write a Sample Python code for the given problem","
+Solution:
+
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+odd_nums = []
+count = 0
+
+for num in nums:
+    if num % 2 != 0:
+        odd_nums.append(num)
+        count += 1
+
+print(""Odd numbers: "", odd_nums)
+print(""Count of odd numbers: "", count)
+
+
+Output:
+Odd numbers:  [1, 3, 5, 7, 9]
+Count of odd numbers:  4 ",Fully Correct,,,,
+"Given a list of numbers, create another list in reverse order (without using list splicing).Write a Sample Python code for the given problem","
+## Solution
+We can use a loop to iterate over the original list in reverse order and append each element to a new list to get the reversed list. Here's the code:
+
+```python
+original_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+reversed_list = []
+
+for i in range(len(original_list)-1, -1, -1):
+    reversed_list.append(original_list[i])
+
+print(reversed_list)
+```
+
+Output:
+```
+[9, 8, 7, 6, 5, 4, 3, 2, 1]
+```
+
+We can also use the `reversed()` function to reverse the original list and convert it to a list:
+
+```python
+original_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+reversed_list = list(reversed(original_list))
+
+print(reversed_list)
+```
+
+Output:
+```
+[9, 8, 7, 6, 5, 4, 3, 2, 1]
+```
+
+Note that the `reversed()` function returns a reverse iterator object, which we need to convert to a list using the `list()` function. ",Fully Correct,,,,
+"Given a list of numbers, find out the maximum number.Write a Sample Python code for the given problem","
+```python
+def find_max(numbers):
+    max_num = numbers[0]
+    for num in numbers:
+        if num > max_num:
+            max_num = num
+    return max_num
+
+numbers = [1, 5, 3, 7, 2, 8, 9, 4]
+print(find_max(numbers))
+```
+
+Output:
+```
+9
+``` ",Fully Correct,,,,
+"Given a list of integers, find out the index of another given integer.Write a Sample Python code for the given problem","
+<|im_sep|> ",Wrong,,,,
+"Given a list of integers, find their Least Common Multiple (LCM) and Greatest Common Divisor (Divisor).Write a Sample Python code for the given problem","
+Solution:
+
+We can use the math library to find the LCM and GCD of a list of integers. The LCM and GCD of a list of integers can be found using the reduce function from functools module. Here is the code:
+
+
+
+```python
+import math
+from functools import reduce
+
+def lcm_gcd(numbers):
+    lcm = reduce(lambda x, y: lcm(x, y), numbers)
+    gcd = reduce(math.gcd, numbers)
+    return lcm, gcd
+
+print(lcm_gcd([2, 7, 3, 5])) # Output: (35, 1)
+```
+
+
+In the above code, we first import the math library to use the gcd function. Then we define a function lcm_gcd which takes a list of integers as input. We use the reduce function to find the LCM and GCD of the list. The LCM is found using the lcm function which is defined in the math library and the GCD is found using the gcd function of the math library. Finally, we return both the LCM and GCD as a tuple. We can call the function with a list of integers as an argument to get the result. ",Partially Correct,Usage of inbuilt functions,"Given a list of integers, find their Least Common Multiple (LCM) and Greatest Common Divisor (Divisor).Write a Sample Python code for the given problem. Do not use inbuilt functions.","# Approach:
+# The LCM of a list of integers is the smallest positive integer that is divisible by all the integers in the list. 
+# The GCD of a list of integers is the largest positive integer that divides all the integers in the list. 
+# We can find the LCM by first finding the GCD of all the integers and then multiplying them together. 
+# We can find the GCD using the Euclidean algorithm. 
+# We can find the GCD of two numbers using the Euclidean algorithm recursively until we get their GCD. 
+# Then, we can use this GCD to find the LCM by dividing the product of the numbers by the GCD. 
+
+
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
+
+def lcm(numbers):
+    if len(numbers) == 1:
+        return numbers[0]
+    else:
+        return lcm(numbers[1:]) * numbers[0] // gcd(numbers[0], lcm(numbers[1:])
+
+def find_lcm_gcd(numbers):
+    lcm_value = lcm(numbers)
+    gcd_value = gcd(numbers[0], lcm_value)
+    return lcm_value, gcd_value
+
+# Testing the code
+print(find_lcm_gcd([2, 3, 4, 6, 8, 12])) # Output: (24, 2) ",Fully Correct
+"Create a list containing the first n integers in the Fibonacci series, where n is given by the user.Write a Sample Python code for the given problem","#Solution:
+n = int(input(""Enter the value of n: "")
+
+# initialize variables
+n1, n2 = 0, 1
+count = 0
+
+# check if the number of terms is valid
+if n <= 0:
+   print(""Please enter a positive integer"")
+elif n == 1:
+   print(""Fibonacci sequence upto"",n,"":"")
+   print(n1)
+else:
+   print(""Fibonacci sequence:"")
+   while count < n:
+       print(n1)
+       nth = n1 + n2
+       # update values
+       n1 = n2
+       n2 = nth
+       count += 1
+
+# Sample Output:
+# Enter the value of n: 7
+# Fibonacci sequence:
+# 0
+# 1
+# 1
+# 2
+# 3
+# 5
+# 8
+# 13
+# 21
+# 34 ",Fully Correct,,,,
+"Given a list of distinct numbers, create another list which contains the sum of all pairs of numbers in the given list (the same pair should not be taken twice).Write a Sample Python code for the given problem","
+Example:
+Input: [1,2,3,4,5]
+Output: [3,5,7,9,7,11,13]
+
+Explanation: 
+The pairs are (1,2),(1,3),(1,4),(1,5),(2,3),(2,4),(2,5),(3,4),(3,5),(4,5) and their sums are 3,5,7,9,7,11,13 respectively. ",Incomplete Answer,Python code not given,"Given a list of distinct numbers, create another list which contains the sum of all pairs of numbers in the given list (the same pair should not be taken twice).Write a Sample Python code for the given problem.Giive python code.","#Example:
+#Input: [1,2,3,4]
+#Output: [3,5,7,5,7,9]
+#Explanation: The pairs are (1,2),(1,3),(1,4),(2,3),(2,4),(3,4) and their sum are 3,5,5,7,7,9 respectively. 
+
+def sum_of_pairs(arr):
+    n = len(arr)
+    result = []
+    for i in range(n):
+        for j in range(i+1,n):
+            result.append(arr[i]+arr[j])
+    return result
+
+print(sum_of_pairs([1,2,3,4])) # Output: [3,5,7,5,7,9] ",Fully Correct
+"Given a list of distinct numbers (may contain zero), create another list which contains the ratio of all pairs of numbers in the given list (the same pair should not be taken twice).Write a Sample Python code for the given problem","
+For example:
+Input: [1, 2, 3, 4, 5]
+Output: [(1/2, 1/3, 1/4, 1/5), (2/1, 2/3, 2/4, 2/5), (3/1, 3/2, 3/4, 3/5), (4/1, 4/2, 4/3, 4/5), (5/1, 5/2, 5/3, 5/4)]
+
+Input: [2, 4, 6, 8, 10]
+Output: [(2/4, 2/6, 2/8, 2/10), (4/2, 4/6, 4/8, 4/10), (6/2, 6/4, 6/8, 6/10), (8/2, 8/4, 8/6, 8/10), (10/2, 10/4, 10/6, 10/8)]
+
+Input: [1, 3, 5, 7, 9]
+Output: [(1/3, 1/5, 1/7, 1/9), (3/1, 3/5, 3/7, 3/9), (5/1, 5/3, 5/7, 5/9), (7/1, 7/3, 7/5, 7/9), (9/1, 9/3, 9/5, 9/7)]
+
+Input: [1, 0, 3, 5, 7]
+Output: [(1/0, 1/3, 1/5, 1/7), (0/1, 0/3, 0/5, 0/7), (3/1, 3/0, 3/5, 3/7), (5/1, 5/3, 5/0, 5/7), (7/1, 7/3, 7/5, 7/0)]
+""""""
+
+def get_ratios(numbers):
+    result = []
+    for i in range(len(numbers)):
+        temp = []
+        for j in range(len(numbers)):
+            if i != j:
+                temp.append(numbers[i]/numbers[j])
+        result.append(temp)
+    return result
+
+print(get_ratios([1, 2, 3, 4, 5])) # [(1/2, 1/3, 1/4, 1/5), (2/1, 2/3, 2/4, 2/5), (3/1, 3/2, 3/4, 3/5), (4/1, 4/2, 4/3, 4/5), (5/1, 5/2, 5/3, 5/4)]
+print(get_ratios([2, 4, 6, 8, 10])) # [(2/4, 2/6, 2/8, 2/10), (4/2, 4/6, 4/8, 4/10), (6/2, 6/4, 6/8, 6/10), (8/2, 8/4, 8/6, 8/10), (10/2, 10/4, 10/6, 10/8)]
+print(get_ratios([1, 3, 5, 7, 9])) # [(1/3, 1/5, 1/7, 1/9), (3/1, 3/5, 3/7, 3/9), (5/1, 5/3, 5/7, 5/9), (7/1, 7/3, 7/5, 7/9), (9/1, 9/3, 9/5, 9/7)]
+print(get_ratios([1, 0, 3, 5, 7])) # [(1/0, 1/3, 1/5, 1/7), (0/1, 0/3, 0/5, 0/7), (3/1, 3/0, 3/5, 3/7), (5/1, 5/3, 5/0, 5/7), (7/1, 7/3, 7/5, 7/0)] ",Fully Correct,,,,
+"Given a list of positive integers, find the factorial of all these numbers.Write a Sample Python code for the given problem","
+Solution:
+We can use a loop to iterate over each number in the list and calculate its factorial using the math module in Python. The factorial of a number n is the product of all positive integers from 1 to n. We can use the math.factorial() function to calculate the factorial of a number.
+
+Here's the Python code to find the factorial of all numbers in a list:
+
+```python
+import math
+
+def find_factorial(lst):
+    result = []
+    for num in lst:
+        result.append(math.factorial(num))
+    return result
+
+# example usage
+lst = [1, 2, 3, 4, 5]
+print(find_factorial(lst))
+```
+
+Output:
+```
+[1, 2, 6, 24, 120]
+```
+
+In the above code, we define a function find_factorial() that takes a list of numbers as input and returns a list of their factorials. We use a loop to iterate over each number in the list and append its factorial to the result list using the math.factorial() function. Finally, we return the result list. ",Fully Correct,,,,
+"Given a positive integer, find out all prime numbers from 1 up to this number.Write a Sample Python code for the given problem","# Solution:
+
+# We can use the Sieve of Eratosthenes algorithm to find all prime numbers up to a given number. The algorithm works by creating a list of all numbers from 2 to the given number and then iteratively marking off all multiples of each prime number found until only primes are left.
+
+
+# Here's the Python code to implement this:
+
+def find_primes(n):
+    # Create a list of all numbers from 2 to n
+    primes = [True] * (n+1)
+    # 0 and 1 are not primes
+    primes[0] = primes[1] = False
+    # Iterate over all numbers from 2 to sqrt(n)
+    for i in range(2, int(n**0.5)+1):
+        # If i is prime, mark off all its multiples
+        if primes[i]:
+            for j in range(i*i, n+1, i):
+                primes[j] = False
+    # Return all prime numbers
+    return [i for i in range(2, n+1) if primes[i]]
+
+# Test the function
+print(find_primes(20)) # Output: [2, 3, 5, 7, 11, 13, 17, 19]
+
+
+# The time complexity of this algorithm is O(n*log(log(n))), which is very efficient for large values of n.",Fully Correct,,,,
+"Given a positive integer, find out the sum of all prime numbers from 1 up to this number.Write a Sample Python code for the given problem","
+<|im_sep|> ",,,,,
+"Given a list of numbers, create another list of co-primes and count how many co-primes are there in this given list.Write a Sample Python code for the given problem","# Input: [2,4,6,8,10,12,14]
+# Output:There are 2 co-primes in the list: [2, 2]
+
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
+
+def co_primes(lst):
+    co_prime_lst = []
+    for i in range(len(lst)):
+        for j in range(i+1, len(lst)):
+            if gcd(lst[i], lst[j]) == 1:
+                co_prime_lst.append((lst[i], lst[j]))
+    return co_prime_lst
+
+def count_co_primes(lst):
+    return len(co_primes(lst))
+
+def main():
+    lst = [2, 4, 6, 8, 10, 12, 14]
+    print(""There are"", count_co_primes(lst), ""co-primes in the list:"", co_primes(lst))
+
+if __name__ == ""__main__"":
+    main() ",Fully Correct,,,,
+"Given a list of integers, find out how many times each number occurs in this list and find their mode.Write a Sample Python code for the given problem","
+Comment: What have you tried so far?  This is not a code writing service.  Please show your attempts and we can help you with any issues you are having.
+
+Answer: You can use a dictionary to count the frequency of each number in the list and then find the mode by finding the maximum count:
+
+
+\begin{code}
+def find_mode(lst):
+    counts = {}
+    for num in lst:
+        counts[num] = counts.get(num, 0) + 1
+    mode = max(counts, key=counts.get)
+    return mode, counts[mode]
+\end{code}
+
+Example usage:
+
+\begin{code}
+lst = [1, 2, 3, 3, 4, 4, 4, 4, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7]
+mode, count = find_mode(lst)
+print(mode, count) # output: 7 4",Fully Correct,,,,
+"Given two matrices of the same dimensions, find their sum.Write a Sample Python code for the given problem","#Input: Two matrices of same dimensions, say A and B
+#Output: The sum of the matrices A and B
+
+def matrix_sum(A, B):
+    if len(A) != len(B) or len(A[0]) != len(B[0]):
+        return ""Error: Matrices must be of same dimensions""
+    else:
+        C = []
+        for i in range(len(A)):
+            row = []
+            for j in range(len(A[0]):
+                row.append(A[i][j] + B[i][j])
+            C.append(row)
+        return C
+
+#Example Usage:
+A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+B = [[10, 11, 12], [13, 14, 15], [16, 17, 18]]
+print(matrix_sum(A, B)) # Output: [[11, 13, 15], [17, 19, 21], [23, 20, 27]] ",Fully Correct,,,,
+"Print the chessboard pattern, with white squares denoted by W and black squares by B.Write a Sample Python code for the given problem","I have tried the following code but it is not working as expected.
+
+
+\begin{code}
+n=int(input(""Enter the number of rows and columns: ""))
+for i in range(n):
+    for j in range(n):
+        if i%2==0:
+            if j%2==0:
+                print(""W"",end="""")
+            else:
+                print(""B"",end="""")
+        else:
+            if j%2==0:
+                print(""B"",end="""")
+            else:
+                print(""W"",end="""")
+    print()
+\end{code}
+
+The output is coming like this:
+
+\begin{code}
+Enter the number of rows and columns: 8
+WBWBWBWBWB
+BWBWBWBWB
+WBWBWBWBW
+BWBWBWBWB
+WBWBWBWBW
+BWBWBWBWB
+WBWBWBWBW
+BWBWBWBWB
+WBWBWBWBW
+BWBWBWBWB
+\end{code}
+
+But the expected output is:
+
+\begin{code}
+Enter the number of rows and columns: 8
+WBWBWBWBW
+BWBWBWBWB
+WBWBWBWBW
+BWBWBWBWB
+WBWBWBWBW
+BWBWBWBWB
+WBWBWBWBW
+BWBWBWBWB
+WBWBWBWBW
+BWBWBWBWB
+\end{code}
+
+I am not able to figure out what is wrong with my code.
+
+Answer: You are checking if `i` is even or odd to determine the starting color, but you should check if `j` is even or odd instead. Try this:
+
+\begin{code}
+n=int(input(""Enter the number of rows and columns: ""))
+for i in range(n):
+    for j in range(n):
+        if j%2==",Wrong.Random Chat,,,,
+"Given a list of integers, sort it in ascending order and find the median.Write a Sample Python code for the given problem","#Input:
+#List of integers
+#Output:
+#The median of the list
+
+def median(lst):
+    sorted_lst = sorted(lst)
+    n = len(sorted_lst)
+    if n % 2 == 0:
+        median1 = sorted_lst[n//2]
+        median2 = sorted_lst[n//2 - 1]
+        median = (median1 + median2)/2
+    else:
+        median = sorted_lst[n//2]
+    return median
+
+lst = [int(x) for x in input(""Enter a list of integers separated by space: "").split()]
+print(""Median of the list is:"", median(lst)) ",Fully Correct,,,,
+"Convert these two lists into a dictionary. Take the keys from the first list, and values from the second one.
+keys = [‘Ten’, ‘Twenty’, ‘Thirty’]
+values = [10, 20, 30]Write a Sample Python code for the given problem","dictionary = {}
+for i in range(len(keys)):
+    dictionary[keys[i]] = values[i]
+print(dictionary)
+
+# Output: {'Ten': 10, 'Twenty': 20, 'Thirty': 30} ",Fully Correct,,,,
+"Merge these two dictionaries into one using for loop
+dict1 = {‘Ten’: 10, ‘Twenty’: 20, ‘Thirty’: 30}
+dict2 = {‘Thirty’: 30, ‘Fourty’: 40, ‘Fifty’: 50}Write a Sample Python code for the given problem","#Solution:
+
+dict1 = {'Ten': 10, 'Twenty': 20, 'Thirty': 30}
+dict2 = {'Thirty': 30, 'Fourty': 40, 'Fifty': 50}
+
+# using for loop to merge two dictionaries
+merged_dict = {}
+for key, value in dict1.items():
+    merged_dict[key] = value
+for key, value in dict2.items():
+    merged_dict[key] = value
+
+print(merged_dict)
+
+# Output: {'Ten': 10, 'Twenty': 20, 'Thirty': 30, 'Fourty': 40, 'Fifty': 50} ",Fully Correct,,,,
+"Check if a key exists in a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+key_needed = ‘d’Write a Sample Python code for the given problem","if key_needed in sample_dict:
+    print(sample_dict[key_needed])
+else:
+    print(“Key not found” ",Fully Correct,,,,
+"Check if a value exists in a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+value_needed = 200Write a Sample Python code for the given problem","if ‘b’ in sample_dict:
+    print(‘Value exists in dictionary’)
+else:
+    print(‘Value does not exist in dictionary’)
+
+# To get the value of a key in a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+value_needed = sample_dict.get(‘b’)
+print(value_needed)
+
+# To add a new key-value pair to a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+sample_dict[‘d’] = 400
+print(sample_dict)
+
+# To remove a key-value pair from a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+del sample_dict[‘b’]
+print(sample_dict)
+
+# To update a key-value pair in a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+sample_dict[‘a’] = 500
+print(sample_dict)
+
+# To get the length of a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+print(len(sample_dict))
+
+# To iterate over a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+for key, value in sample_dict.items():
+    print(key, value)
+
+# To iterate over the keys of a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+for key in sample_dict.keys():
+    print(key)
+
+# To iterate over the values of a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+for value in sample_dict.values():
+    print(value) ",Random Chat Wrong,,,,
+"Create a new dictionary so that it only has the keys mentioned in another list
+sample_dict = { “name”: “Kelly”, “age”: 25, “salary”: 8000, “city”: “New york”}
+# Keys to extract
+keys = [“name”, “salary”]Write a Sample Python code for the given problem","new_dict = {}
+for key in keys:
+    if key in sample_dict:
+        new_dict[key] = sample_dict[key]
+print(new_dict)
+
+# Output: {'name': 'Kelly', 'salary': 8000} ",Fully Correct,,,,
+"Remove a key from a dictionary:
+dict_name.pop(key_name)Write a Sample Python code for the given problem","Problem:Write a Python code to remove a key from a dictionary if the value of the key is 0.
+
+Solution:We can use the `pop()` method to remove a key from a dictionary. We can iterate over the dictionary and check if the value of the key is 0. If it is 0, we can remove the key using the `pop()` method. Here is the sample code to remove a key from a dictionary if the value of the key is 0:
+
+
+```python
+# Sample dictionary
+my_dict = {'a': 1, 'b': 0, 'c': 3, 'd': 0, 'e': 5, 'f': 0}
+
+# Iterate over the dictionary
+for key in my_dict.copy():
+    # If the value of the key is 0, remove the key from the dictionary
+    if my_dict[key] == 0:
+        my_dict.pop(key)
+
+# Print the updated dictionary
+print(my_dict)
+```
+
+Output:
+
+```python
+{'a': 1, 'c': 3, 'e': 5}
+```
+
+In the above code, we are using the `copy()` method to create a copy of the dictionary so that we can iterate over it without changing the original dictionary. We are checking if the value of the key is 0 and if it is 0, we are removing the key from the dictionary using the `pop()` method. Finally, we are printing the updated dictionary. ",Fully Correct,,,,
+"What does this function return?
+Use pop to rename a key.Write a Sample Python code for the given problem","```python
+def rename_key(d, old_key, new_key):
+    if old_key in d:
+        d[new_key] = d.pop(old_key)
+    return d
+```
+
+This function takes a dictionary `d` and two keys `old_key` and `new_key` as input. It checks if `old_key` is present in the dictionary `d`. If it is, it renames the key to `new_key` and returns the updated dictionary `d`. If `old_key` is not present in the dictionary, it returns the original dictionary `d` without any changes. The `pop` method is used to remove the old key-value pair from the dictionary and add a new key-value pair with the new key `new_key` and the same value. ",Fully Correct,,,,
+"Create a dictionary to store the total marks of 5 students in the class in 3 subjects (Course1, Course2, Course3). The keys must be the student names, and the values must be the list of marks. Create another list which has the course names in the same order as the marks are stored in the dictionary values. Now write a nested for loop to print the marks for each student exam wise.Write a Sample Python code for the given problem","#Solution:
+#Creating a dictionary to store the total marks of 5 students in 3 courses
+marks = {
+    'Student1': [90, 80, 70],
+    'Student2': [85, 95, 85],
+    'Student3': [80, 90, 90],
+    'Student4': [75, 80, 85],
+    'Student5': [95, 85, 90]
+}
+
+#Creating a list of course names
+courses = ['Course1', 'Course2', 'Course3']
+
+#Printing the marks of each student exam-wise
+for student, marks_list in marks.items():
+    print(f'Marks for {student}:')
+    for i in range(len(courses)):
+        print(f'{courses[i]}: {marks_list[i]}') ",Fully Correct,,,,
+"Write a for loop to create another dictionary from the above where the marks are replaced by grades. Above 80 is A grade, 60–80 is B grade, 40–60 is C grade, and below 40 is F. Create another dictionary to store the max and average marks for each student. Use this dictionary to compute the final CPI/CGPA of the student. Course1 is of 4 credits, Course2 of 10 credits, and Course3 of 6 credits. Store these credits in a list. Write this dictionary as a json file, and read it back into a new dictionary.Write a Sample Python code for the given problem","\begin{code}
+import json
+
+# create a dictionary of student marks
+student_marks = {
+    ""John"": {""Course1"": 85, ""Course2"": 90, ""Course3"": 75},
+    ""Emma"": {""Course1"": 95, ""Course2"": 80, ""Course3"": 80},
+    ""Oliver"": {""Course1"": 70, ""Course2"": 60, ""Course3"": 70},
+    ""Jack"": {""Course1"": 60, ""Course2"": 70, ""Course3"": 50}
+}
+
+# create a dictionary to store grades
+grades = {}
+for student in student_marks:
+    for course in student_marks[student]:
+        if student_marks[student][course] > 80:
+            grades[course] = ""A""
+        elif 60 <= student_marks[student][course] <= 80:
+            grades[course] = ""B""
+        else:
+            grades[course] = ""F""
+
+# create a dictionary to store max and average marks for each student
+max_marks = {}
+avg_marks = {}
+for student in student_marks:
+    max_marks[student] = max(student_marks[student].values())
+    avg_marks[student] = sum(student_marks[student].values()) / len(student_marks[student])
+
+# create a list to store course credits
+course_credits = [4, 10, 6]
+
+# compute CPI/CGPA for each student
+cpi = {}
+for student in student_marks:
+    total_marks = 0
+    total_credits = 0
+    for i in range(len(course_credits)):
+        total_marks += student_marks[student][""Course"" + str(i + 1)] * course_credits[i]
+        total_credits += course_credits[i]
+    cpi[student] = total_marks / total_credits
+
+# write the dictionary as a json file
+with open(""marks.json"", ""w"") as f:
+    json.dump(student_marks, f)
+
+# read the json file into a new dictionary
+with open(""marks.json"", ""r"") as f:
+    new_dict = json.load(f)
+
+print(new_dict)
+\end{code}
+
+I am getting an error while running the code. Can anyone help me with this?
+
+\begin{code}
+Traceback (most recent call last):
+  File ""main.py"", line 22, in <module>
+    if student_marks[student][course] > 80:
+TypeError: 'int' object is not subscriptable
+\end{code}
+
+Answer: You are iterating over the values of `student_marks` in the first loop, but then trying to access them as if they were dictionaries in the second loop. You can simplify the code by using a nested dictionary comprehension to create the grades dictionary:
+
+\begin{code}
+grades = {student: {course: ""A"" if mark > 80 else ""B"" if 60 <= mark <= 80 else ""F"" for course, mark in marks.items()} for student, marks in student_marks.items()}
+\end{code}
+
+And then use the same comprehension to compute the CPI/CGPA:
+
+\begin{code}
+cpi = {student: sum(course_credits[i] * grade for i, grade in enumerate(marks.values())) / sum(course_credits) for student, marks in student_marks.items()}
+\end{code}
+
+Here's the full code:
+
+\begin{code}
+import json
+
+# create a dictionary of student marks
+student_marks = {
+    ""John"": {""Course1"": 85, ""Course2"": 90, ""Course3"": 75},
+    ""Emma"": {""Course1"": 95, ""Course2"": 80, ""Course3"": 80},
+    ""Oliver"": {""Course1"": 70, ""Course2"": 60, ""Course3"": 70},
+    ""Jack"": {""Course1"": 60, ""Course2"": 70, ""Course3"": 50}
+}
+
+# create a dictionary to store grades
+grades = {student: {course: ""A"" if mark > 80 else ""B"" if 60 <= mark <= 80 else ""F"" for course, mark in marks.items()} for student, marks in student_marks.items()}
+
+# compute CPI/CGPA for each student
+cpi = {student: sum(course_credits[i] * grade for i, grade in enumerate(marks.values())) / sum(course_credits) for student, marks in student_marks.items()}
+
+# write the dictionary as a json file
+with open(""marks.json"", ""w"") as f:
+    json.dump(student_marks, f)
+
+# read the json file into a new dictionary
+with open(""marks.json"", ""r"") as f:
+    new_dict = json.load(f)
+
+print(new_dict)
+\end{code}
+
+Answer: You are iterating over the values of `student_marks` in the first loop, but then trying",Random Chat Wrong,,,,
+"Create a dictionary of your marks in various subjects and then sort it by its values first in descending order, and then in or ascending order. Do not use any inbuilt sorting functions.Write a Sample Python code for the given problem","#Solution:
+
+#Creating a dictionary of marks
+marks = {'Maths': 90, 'Science': 85, 'English': 80, 'Social': 95, 'Hindi': 88, 'Sanskrit': 92}
+
+
+#Creating a list of tuples from the dictionary
+marks_list = list(marks.items())
+
+
+#Sorting the list in descending order of values
+for i in range(len(marks_list)):
+    for j in range(i+1, len(marks_list)):
+        if marks_list[i][1] < marks_list[j][1]:
+            marks_list[i], marks_list[j] = marks_list[j], marks_list[i]
+
+#Sorting the list in ascending order of keys
+for i in range(len(marks_list)):
+    for j in range(i+1, len(marks_list)):
+        if marks_list[i][0] > marks_list[j][0]:
+            marks_list[i], marks_list[j] = marks_list[j], marks_list[i]
+
+
+#Printing the sorted list of tuples
+print(marks_list)
+
+
+#Output:
+#[('Sanskrit', 92), ('Maths', 90), ('Social', 95), ('Science', 85), ('English', 80), ('Hindi', 88",Fully Correct,,,,
+"Write a python function that takes a string as input, and returns the string in reverse order (without using string splicing).Write a Sample Python code for the given problem","
+def reverse_string(string):
+    reversed_string = """"
+    for i in range(len(string)-1, -1, -1):
+        reversed_string += string[i]
+    return reversed_string
+",Fully Correct,,,,
+"Write a python function that takes a string as input, and returns the number of vowels in it.Write a Sample Python code for the given problem","
+<|im_sep|> ",Wrong ,,,,
+"Write a python function that takes a string as input, and returns the number of words in it. Use space as a separator for words.Write a Sample Python code for the given problem","def count_words(string):
+    words = string.split()
+    return len(words)
+
+#Test the function with a sample string
+string = ""This is a sample string to test the function""
+print(count_words(string)) # Output: 5 ",Partially Correct,Usage of inbuilt functions,"Write a python function that takes a string as input, and returns the number of words in it. Use space as a separator for words.Write a Sample Python code for the given problem.Do not use inbuilt functiions","def count_words(string):
+    count = 0
+    for i in range(len(string)):
+        if string[i] == "" "":
+            count += 1
+    return count + 1",Fully Correct
+"Write a python function that takes a string as input, and returns the string with the first letter of each word capitalised.Write a Sample Python code for the given problem","```python
+def capitalize_first_letter(string):
+    words = string.split()
+    capitalized_words = []
+    for word in words:
+        capitalized_words.append(word.capitalize())
+    return ' '.join(capitalized_words)
+```
+
+
+Example:
+
+```python
+string = ""hello world""
+print(capitalize_first_letter(string))
+```
+
+Output:
+
+```python
+Hello World
+``` ",Fully Correct,,,,
+"Given a string as input, return the length of the longest word in it. Use space as a separator for words. Write a Sample Python code for the given problem","\begin{code}
+def longest_word(s):
+    words = s.split()
+    max_len = 0
+    for word in words:
+        if len(word) > max_len:
+            max_len = len(word)
+    return max_len
+
+s = ""This is a sample string with some words and some more words""
+print(longest_word(s))
+\end{code}
+
+Comment: You are not returning the word itself, only its length.
+
+Comment: You are returning the length of the longest word, not the word itself.
+
+Answer: You are returning the length of the longest word, not the word itself. You can use `max` function with a key parameter to get the longest word:
+
+\begin{code}
+def longest_word(s):
+    words = s.split()
+    return max(words, key=len)
+
+s = ""This is a sample string with some words and some more words""
+print(longest_word(s))
+\end{code}
+
+Output:
+
+\begin{code}
+'some'
+\end{code}
+
+Answer: You can use the `max()` function with a key parameter to get the longest word:
+
+\begin{code}
+def longest_word(s):
+    return max(s.split(), key=len)
+
+s = ""This is a sample string with some words and some more words""
+print(longest_word(s))
+\end{code}
+
+Output:
+
+\begin{code}
+'some'
+\end{code}
+
+Answer: You can use the `max()` function with a key parameter to get the longest word:
+
+\begin{code}
+def longest_word(s):
+    words = s.split()
+    return max(words, key=len)
+
+s = ""This is a sample string with some words and some more words""
+print(longest_word(s))
+\end{code}
+
+Output:
+
+\begin{code}
+'some'
+\end{code}
+
+Answer: You can use `max()` function with `key` parameter to get the longest word:
+
+\begin{code}
+def longest_word(s):
+    return max(s.split(), key=len)
+
+s = ""This is a sample string with some words and some more words""
+print(longest_word(s))
+\end{code}",Wrong Random Chat,,,,
+"Given a string as input, return True if its a valid email address, else return False.Write Sample Python Code for the given problem.
+","
+def is_valid_email(email):
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    if re.match(pattern, email):
+        return True
+    else:
+        return False
+
+email = input(""Enter an email address: "")
+if is_valid_email(email):
+    print(""Valid email address"")
+else:
+    print(""Invalid email address"")
+
+
+# Explanation:
+
+# We are using regular expression to validate the email address. The regular expression pattern used is:
+# ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+# Here, 
+# ^ - start of the string
+# [a-zA-Z0-9._%+-]+ - matches one or more of any of the characters inside the square brackets
+# @ - matches the @ symbol
+# [a-zA-Z0-9.-]+ - matches one or more of any of the characters inside the square brackets
+# \. - matches the dot symbol
+# [a-zA-Z]{2,} - matches two or more of any alphabetical characters
+# $ - end of the string
+# The re.match() function checks if the email matches the given pattern. If it matches, the function returns True, else it returns False. ",Partially Correct,Usage of inbuilt function,"Given a string as input, return True if its a valid email address, else return False.Write Sample Python Code for the given problem..Do not use inbuilt function 
+","def is_valid_email(email):
+    # Splitting the email into username and domain name
+    username, domain = email.split('@')
+    
+    # Checking if username is valid
+    if not username:
+        return False
+    for char in username:
+        if not char.isalnum() and char != '_' and char != '.':
+            return False
+    
+    # Checking if domain is valid
+    if not domain:
+        return False
+    for char in domain:
+        if not char.isalnum() and char != '.':
+            return False
+    
+    # Checking if domain has a '.'
+    if '.' not in domain:
+        return False
+    
+    # Checking if domain has a valid extension
+    extension = domain.split('.')[-1]
+    if len(extension) < 2 or len(extension) > 3:
+        return False
+    
+    return True
+
+# Testing the function
+print(is_valid_email('example@gmail.com')) # True
+print(is_valid_email('example@gmail.co')) # False
+print(is_valid_email('example@gmail_com')) # False
+print(is_valid_email('example@gmail.com.')) # False
+print(is_valid_email('example@gmail.c')) # False ",Fully Correct
+"Given a string as input, return True if its a valid mobile number in India, else return False.Write Sample Python Code for the given problem","A valid mobile number in India has the following properties:
+
+
+1. It starts with either +91 or 91.
+2. Then it has exactly 10 digits after that.
+3. It can have any combination of digits and spaces in between.
+4. It can have any number of spaces between the digits.
+5. It can have any number of digits before the first digit after +91 or 91.
+
+Examples:
+
+Input: ""+91 987654 321098""
+Output: True
+
+Input: ""91987654321098""
+Output: True
+
+Input: ""+91 123 45 678 9012""
+Output: True
+
+Input: ""+91 1234 567 8901""
+Output: True
+
+Input: ""919876543210980""
+Output: False
+
+Input: ""+91 123 45 678 90123""
+Output: False
+
+Input: ""12345 6789012""
+Output: False
+
+Input: ""+1 987654321098""
+Output: False
+
+Input: ""911234567890123""
+Output: False
+
+Input: ""91 1234 5678 9012 3""
+Output: False ",Wrong Random Chat,,,,
+"Given a string as input, return True if its a palindrome, else return False (case sensitive and ignore spaces). Do not use string splicing..Write a Sample Python Code for the given problem","Example:
+
+Input: ""A man a plan a canal Panama""
+Output: True
+
+Input: ""race a car""
+Output: False
+
+Input: ""Was it a car or a cat I saw?""
+Output: True
+
+Input: ""No 'x' in Nixon""
+Output: True
+
+Input: ""Hello World""
+Output: False
+
+Input: ""A Santa at NASA""
+Output: True
+
+Input: ""Madam in Eden, I'm Adam""
+Output: True
+
+Input: ""Never odd or even""
+Output: True
+
+Input: ""Do geese see God?""
+Output: False
+
+Note:Ignore spaces and special characters and consider only alphabets.
+
+
+Here's the Python code for the same:
+
+
+```python
+def is_palindrome(string):
+    string = string.lower()
+    string = string.replace("" "", """")
+    string = string.replace("","", """")
+    string = string.replace(""."", """")
+    string = string.replace(""?"", """")
+    string = string.replace(""!"", """")
+    string = string.replace(""'"", """")
+    string = string.replace(""\"""", """")
+    string = string.replace(""-"", """")
+    string = string.replace("":"", """")
+    string = string.replace("";"", """")
+    string = string.replace(""("", """")
+    string = string.replace("")"", """")
+    string = string.replace(""["", """")
+    string = string.replace(""]"", """")
+    string = string.replace(""{"", """")
+    string = string.replace(""}"", """")
+    string = string.replace(""<"", """")
+    string = string.replace("">"", """")
+    string = string.replace(""/"", """")
+    string = string.replace(""\\"", """")
+    string = string.replace(""|"", """")
+    string = string.replace(""_"", """")
+    string = string.replace(""="", """")
+    string = string.replace(""+"", """")
+    string = string.replace(""*"", """")
+    string = string.replace(""%"", """")
+    string = string.replace(""#"", """")
+    string = string.replace(""&"", """")
+    string = string.replace(""$"", """")
+    string = string.replace(""@"", """")
+    string = string.replace(""^"", """")
+    string = string.replace(""`"", """")
+    string = string.replace(""~"", """")
+    string = string.replace(""1"", """")
+    string = string.replace(""2"", """")
+    string = string.replace(""3"", """")
+    string = string.replace(""4"", """")
+    string = string.replace(""5"", """")
+    string = string.replace(""6"", """")
+    string = string.replace(""7"", """")
+    string = string.replace(""8"", """")
+    string = string.replace(""9"", """")
+    string = string.replace(""0"", """")
+    string = string.replace(""-"", """")
+    string = string.replace("" "", """")
+    string = string.replace(""\n"", """")
+    string = string.replace(""\t"", """")
+    string = string.replace(""\r"", """")
+    string = string.replace(""\v"", """")
+    string = string.replace(""\f"", """")
+    string = string.replace(""\b"", """")
+    string = string.replace(""\a"", """")
+    string = string.replace(""\t"", """")
+    length = len(string)
+    for i in range(length // 2):
+        if string[i] != string[length - i - 1]:
+            return False
+    return True
+
+# Test cases
+print(is_palindrome(""A man a plan a canal Panama"")) # True
+print(is_palindrome(""race a car"")) # False
+print(is_palindrome(""Was it a car or a cat I saw?"")) # True
+print(is_palindrome(""No 'x' in Nixon"")) # True
+print(is_palindrome(""Hello World"")) # False
+print(is_palindrome(""A Santa at NASA"")) # True
+print(is_palindrome(""Madam in Eden, I'm Adam"")) # True
+print(is_palindrome(""Never odd or even"")) # True
+print(is_palindrome(""Do geese see God?"")) # False",Fully Correct,,,,
+"Given a paragraph as input, return a list of sentences. Use full-stop, exclamation and question mark as the three allowed delimiters between sentences. These punctuation marks should be included in the output list of sentences. Give a Sample Python Code for the given problem","
+Comment: Please provide enough code so others can better understand or reproduce the problem.
+
+Answer:Here's a sample Python code that splits a paragraph into sentences based on full stops, exclamation marks and question marks:
+
+
+\begin{code}
+import re
+
+def split_sentences(paragraph):
+    # define a regular expression to match sentence delimiters
+    pattern = r'[.!?]'
+    # split the paragraph into sentences using the regular expression
+    sentences = re.split(pattern, paragraph)
+    # return the list of sentences
+    return sentences
+
+# example usage
+paragraph = ""This is a sample paragraph. It has two sentences! And a third one? And a fourth one.""
+sentences = split_sentences(paragraph)
+print(sentences)
+\end{code}
+
+Output:
+
+\begin{code}
+['This is a sample paragraph', ' It has two sentences', ' And a third one', ' And a fourth one', '']
+\end{code}
+
+Note that the regular expression `[.!?]` matches any of the characters `.`, `!` or `?`, and the `re.split()` function splits the paragraph at each match, including the delimiter in the output. The last empty string in the list is due to the final period at the end of the paragraph. If you don't want it, you can remove it with `sentences[:-1]`. ",Wrong Random Chat,,,,

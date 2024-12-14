@@ -1,0 +1,2126 @@
+QUESTION NO.,QUESTIONS,,,Answer Provided,,,Degree of Correctness of Answer,CORRECTIONS TO SUGGEST,Additional Prompt,Final Best answer,Remarks on the Answer,Link to URL for ChatGPT conversation
+1,"Given an integer, check if it is even or odd.",,,"def check_even_odd(num):
+    if num % 2 == 0:
+        return ""Even""
+    else:
+        return ""Odd""
+
+# Example usage:
+number = int(input(""Enter an integer: ""))
+result = check_even_odd(number)
+print(f""The number {number} is {result}."")
+",,,Fully Correct,,,,,https://chat.openai.com/c/ca53bd36-3c4e-47d5-b701-2a0921d7af48
+2,"Given two integers, find the larger one.",,,"def find_larger_integer(a, b):
+    if a > b:
+        return a
+    else:
+        return b
+
+# Example usage:
+num1 = int(input(""Enter the first integer: ""))
+num2 = int(input(""Enter the second integer: ""))
+
+larger_integer = find_larger_integer(num1, num2)
+print(""The larger integer is:"", larger_integer)",,,Fully Correct,,,,,https://chat.openai.com/c/8bd78246-5c35-4488-9183-a24b67cde101
+3,"Given a temperature in Celsius, convert it to Fahrenheit using the formula F = (C * 1.8) + 32. If the temperature is above 90°F, print “It’s hot outside!” otherwise, print “The temperature is pleasant”.",,,"def celsius_to_fahrenheit(celsius):
+    fahrenheit = (celsius * 1.8) + 32
+    return fahrenheit
+
+def main():
+    celsius = float(input(""Enter the temperature in Celsius: ""))
+    fahrenheit = celsius_to_fahrenheit(celsius)
+    print(f""The temperature in Fahrenheit is: {fahrenheit}"")
+
+    if fahrenheit > 90:
+        print(""It's hot outside!"")
+    else:
+        print(""The temperature is pleasant"")
+
+if __name__ == ""__main__"":
+    main()",,,Fully Correct,,,,,https://chat.openai.com/c/70dd5f34-da87-42a1-a5cd-7b406d3cf4c0
+4,"Given a year, check if it is a leap year or not. A leap year is divisible by 4, except for years that are divisible by 100. However, years that are divisible by 400 are also leap years.",,,"def is_leap_year(year):
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                return True
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
+
+# Test the function
+year = int(input(""Enter a year: ""))
+if is_leap_year(year):
+    print(f""{year} is a leap year."")
+else:
+    print(f""{year} is not a leap year."")
+",,,Fully Correct,,,,,https://chat.openai.com/c/e8f6b3e4-9bb7-4d11-917a-45d5d0a1a111
+5,"Given two numbers, a and b, find the value of a/b (b may be zero).",,,"def divide(a, b):
+    if b == 0:
+        if a == 0:
+            print(""Both numerator and denominator are zero. Result is undefined."")
+            return None
+        else:
+            print(""Cannot divide by zero. Result is undefined."")
+            return None
+    else:
+        return a / b
+
+# Example usage:
+a = float(input(""Enter the value of a: ""))
+b = float(input(""Enter the value of b: ""))
+
+result = divide(a, b)
+if result is not None:
+    print(""Result of"", a, ""/"", b, ""is"", result)",,,Fully Correct,,,,,https://chat.openai.com/c/2fe2abbf-bcd5-41df-a393-b1a4fe0253f7
+6,"Given a point (x1, y1), find the quadrant in which this point lies.",,,"def find_quadrant(x1, y1):
+    if x1 > 0 and y1 > 0:
+        quadrant = ""first quadrant""
+    elif x1 < 0 and y1 > 0:
+        quadrant = ""second quadrant""
+    elif x1 < 0 and y1 < 0:
+        quadrant = ""third quadrant""
+    elif x1 > 0 and y1 < 0:
+        quadrant = ""fourth quadrant""
+    elif x1 == 0 and y1 == 0:
+        quadrant = ""origin""
+    elif x1 == 0:
+        quadrant = ""lies on y-axis""
+    elif y1 == 0:
+        quadrant = ""lies on x-axis""
+    return quadrant
+
+# Example usage:
+x1 = float(input(""Enter the x-coordinate: ""))
+y1 = float(input(""Enter the y-coordinate: ""))
+
+quadrant = find_quadrant(x1, y1)
+print(f""The point ({x1}, {y1}) {quadrant}."")
+",,,Fully Correct,,,,,https://chat.openai.com/c/a06a7a35-b255-4876-9be9-33658e993dd7
+7,"Given two points (x1, y1) and (x2, y2), find the slope and intercept of the line joining these two points (the line may be perfectly horizontal or vertical).",,,"def slope_intercept(x1, y1, x2, y2):
+    # Calculate the slope
+    if x2 - x1 != 0:  # To avoid division by zero for vertical lines
+        m = (y2 - y1) / (x2 - x1)
+    else:
+        m = float('inf')  # For vertical lines, set slope as infinity
+    # Calculate the y-intercept
+    b = y1 - m * x1
+    return m, b
+
+# Example usage:
+x1, y1 = 1, 2
+x2, y2 = 3, 4
+m, b = slope_intercept(x1, y1, x2, y2)
+print(""Slope:"", m)
+print(""Intercept:"", b)
+",,,Fully Correct,,,,,https://chat.openai.com/c/941571d6-0a7a-49f0-9543-68003906fc51
+8,"Given a quadratic equation with coefficients a, b and c, find the two solutions (may be real or complex). You should not take the square root of a negative number in your code.",,,"import cmath
+
+def find_quadratic_roots(a, b, c):
+    discriminant = b**2 - 4*a*c
+
+    if discriminant >= 0:
+        # Real roots
+        root1 = (-b + discriminant**0.5) / (2*a)
+        root2 = (-b - discriminant**0.5) / (2*a)
+    else:
+        # Complex roots
+        discriminant_sqrt = cmath.sqrt(discriminant)
+        real_part = -b / (2*a)
+        imaginary_part = discriminant_sqrt / (2*a)
+        root1 = complex(real_part, imaginary_part)
+        root2 = complex(real_part, -imaginary_part)
+
+    return root1, root2
+
+# Example usage:
+a = 1
+b = -3
+c = 2
+
+root1, root2 = find_quadratic_roots(a, b, c)
+print(""Root 1:"", root1)
+print(""Root 2:"", root2)
+",,,Fully Correct,,,,,https://chat.openai.com/c/c13bc0c9-5dbc-45d2-a74c-1119aeeb6379
+9,"Given three points, find out whether they lie on the same straight line or not.",,,"def on_same_line(x1, y1, x2, y2, x3, y3):
+    # Calculate slopes
+    slope1 = (y2 - y1) / (x2 - x1) if (x2 - x1) != 0 else float('inf')
+    slope2 = (y3 - y2) / (x3 - x2) if (x3 - x2) != 0 else float('inf')
+
+    # Check if slopes are equal (or infinite)
+    return slope1 == slope2
+
+# Test the function
+x1, y1 = 1, 1
+x2, y2 = 2, 2
+x3, y3 = 3, 3
+
+if on_same_line(x1, y1, x2, y2, x3, y3):
+    print(""The points lie on the same line."")
+else:
+    print(""The points do not lie on the same line."")
+",,,Fully Correct,,,,,https://chat.openai.com/c/80ebee58-e24d-40bc-81b8-4c83dfd87b90
+10,"Given three integers, find the smallest one.",,,"def find_smallest(a, b, c):
+    return min(a, b, c)
+
+# Example usage:
+num1 = 10
+num2 = 5
+num3 = 7
+
+smallest = find_smallest(num1, num2, num3)
+print(""The smallest number is:"", smallest)",,,Fully Correct,,,,,https://chat.openai.com/c/f806c12e-fbcc-45d3-a1c5-111af0301700
+CONCEPT 2,,,,,,,,,,,,
+1,"Given a positive integer, print all integers from 1 up to this number.",,,"def print_numbers_up_to(n):
+    if n < 1:
+        print(""Please enter a positive integer."")
+    else:
+        for i in range(1, n+1):
+            print(i)
+
+# Example usage:
+positive_integer = int(input(""Enter a positive integer: ""))
+print_numbers_up_to(positive_integer)
+",,,Fully Correct,,,,,https://chat.openai.com/c/f905b558-3cf8-4c5e-85d5-8fe67cc27956
+2,"Given a positive integer, find out the sum of all integers from 1 up to this number.",,,"def sum_of_integers(n):
+    return (n * (n + 1)) // 2
+
+# Test the function
+num = int(input(""Enter a positive integer: ""))
+if num < 1:
+    print(""Please enter a positive integer."")
+else:
+    result = sum_of_integers(num)
+    print(f""The sum of integers from 1 to {num} is: {result}"")
+",,,Partially Correct,The Concept of Loop is not used in the answer,Use loop to solve the question,"def sum_of_integers(n):
+    # Initialize the sum
+    total_sum = 0
+    
+    # Iterate from 1 to n and accumulate the sum
+    for i in range(1, n + 1):
+        total_sum += i
+    
+    return total_sum
+
+# Test the function
+num = int(input(""Enter a positive integer: ""))
+if num < 1:
+    print(""Please enter a positive integer."")
+else:
+    result = sum_of_integers(num)
+    print(f""The sum of integers from 1 to {num} is: {result}"")",Fully correct,https://chat.openai.com/c/1a95fea9-5540-4efd-a65f-dc076018c66c
+3,"Given a positive integer, find out its factorial.",,,"def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# Example usage:
+num = int(input(""Enter a positive integer: ""))
+if num < 0:
+    print(""Factorial is not defined for negative numbers."")
+else:
+    print(""The factorial of"", num, ""is"", factorial(num))",,,Partially Correct,The Concept of Loop is not used in the answer,Use loop to solve the question,"def factorial(n):
+    if n < 0:
+        return ""Factorial is not defined for negative numbers.""
+    elif n == 0:
+        return 1
+    else:
+        result = 1
+        for i in range(1, n + 1):
+            result *= i
+        return result
+
+# Example usage:
+num = int(input(""Enter a positive integer: ""))
+print(""The factorial of"", num, ""is"", factorial(num))",Fully correct,https://chat.openai.com/c/c0f96960-fdc9-4492-a36a-7c85b60b086a
+4,"Given a positive integer, find out if it’s prime or not.",,,"import math
+
+def is_prime(n):
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    max_divisor = math.isqrt(n)
+    for d in range(3, max_divisor + 1, 2):
+        if n % d == 0:
+            return False
+    return True
+
+# Test the function
+num = int(input(""Enter a positive integer: ""))
+if is_prime(num):
+    print(num, ""is a prime number."")
+else:
+    print(num, ""is not a prime number."")
+",,,Fully Correct,,,,,https://chat.openai.com/c/e2c37da2-af23-4334-8876-7214d0367b18
+5,"Given a positive integer, find out the sum of all odd numbers from 1 up to this number.",,,"def sum_of_odd_numbers(n):
+    first_odd = 1
+    last_odd = n if n % 2 != 0 else n - 1
+    number_of_odd_numbers = (last_odd - first_odd) // 2 + 1
+    sum_odd_numbers = number_of_odd_numbers * (first_odd + last_odd) // 2
+    return sum_odd_numbers
+
+# Test the function
+n = int(input(""Enter a positive integer: ""))
+if n < 1:
+    print(""Please enter a positive integer."")
+else:
+    result = sum_of_odd_numbers(n)
+    print(""Sum of odd numbers from 1 to"", n, ""is:"", result)",,,Partially Correct,Concept of loops is not used,Use loop to solve the problem,"def sum_of_odd_numbers(n):
+    # Initialize the sum to 0
+    sum_odd = 0
+    
+    # Iterate through numbers from 1 to n
+    for num in range(1, n + 1, 2):
+        # Add the current odd number to the sum
+        sum_odd += num
+        
+    return sum_odd
+
+# Test the function
+n = int(input(""Enter a positive integer: ""))
+if n < 1:
+    print(""Please enter a positive integer."")
+else:
+    result = sum_of_odd_numbers(n)
+    print(""Sum of odd numbers from 1 to"", n, ""is:"", result)",Fully correct,https://chat.openai.com/c/58802151-ff0c-4027-aedf-7e8c471728bd
+6,"Given a positive integer, find out the sum of all even numbers from 2 up to this number.",,,"def sum_of_even_numbers(n):
+    # Find the largest even number less than or equal to n
+    largest_even = n if n % 2 == 0 else n - 1
+    
+    # Calculate the number of even numbers
+    num_even_numbers = largest_even // 2
+    
+    # Calculate the sum using the formula for the sum of an arithmetic series
+    sum_even_numbers = num_even_numbers * (2 + largest_even) // 2
+    
+    return sum_even_numbers
+
+# Test the function
+n = int(input(""Enter a positive integer: ""))
+if n <= 0:
+    print(""Please enter a positive integer."")
+else:
+    result = sum_of_even_numbers(n)
+    print(""The sum of all even numbers from 2 up to"", n, ""is:"", result)",,,Partially Correct,Concept of loops is not used,Use loop to solve the problem,"def sum_of_even_numbers(n):
+    # Initialize the sum
+    even_sum = 0
+    
+    # Iterate through even numbers from 2 to n
+    for num in range(2, n + 1, 2):
+        even_sum += num
+    
+    return even_sum
+
+# Test the function
+n = int(input(""Enter a positive integer: ""))
+if n <= 0:
+    print(""Please enter a positive integer."")
+else:
+    result = sum_of_even_numbers(n)
+    print(""The sum of all even numbers from 2 up to"", n, ""is:"", result)",Fully correct,https://chat.openai.com/c/dbcf7261-fff7-421d-8757-929fec658926
+7,"Given a positive integer, find the multiplication table of that integer up to 10.",,,"def multiplication_table(n):
+    if n <= 0:
+        print(""Please enter a positive integer."")
+        return
+
+    print(f""Multiplication table of {n}:"")
+    for i in range(1, 11):
+        print(f""{n} x {i} = {n * i}"")
+
+# Example usage:
+num = int(input(""Enter a positive integer: ""))
+multiplication_table(num)
+",,,Fully Correct,,,,,https://chat.openai.com/c/12d114ec-9021-4fab-a441-25c33a8324d4
+8,"Given a positive integer, find all its divisors.",,,"def find_divisors(n):
+    divisors = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            divisors.append(i)
+    return divisors
+
+# Test the function
+num = int(input(""Enter a positive integer: ""))
+print(""The divisors of"", num, ""are:"", find_divisors(num))
+",,,Fully Correct,,,,,https://chat.openai.com/c/82a70de6-a829-4d2b-8ede-e44e360fcf4a
+9,"Given a positive integer, print each of its digits separately without converting the number into a string.",,,"def print_digits(n):
+    # Base case: If the number is a single digit, print it
+    if n < 10:
+        print(n)
+    else:
+        # Extract the last digit using modulo operator
+        digit = n % 10
+        # Recursively print the remaining digits
+        print_digits(n // 10)
+        # Print the extracted digit
+        print(digit)
+
+# Test the function
+number = int(input(""Enter a positive integer: ""))
+print(""Digits of the number:"")
+print_digits(number)
+",,,Partially Correct,Concept of loops is not used,Use loop to solve the problem,"def print_digits(n):
+    # Initialize an empty list to store digits
+    digits = []
+
+    # Extract digits using a loop
+    while n > 0:
+        # Extract the last digit using modulo operator
+        digit = n % 10
+        # Add the digit to the beginning of the list
+        digits.insert(0, digit)
+        # Update n by removing the last digit
+        n = n // 10
+
+    # Print each digit separately
+    for digit in digits:
+        print(digit)
+
+# Test the function
+number = int(input(""Enter a positive integer: ""))
+print(""Digits of the number:"")
+print_digits(number)",Fully Correct,https://chat.openai.com/c/1cad831b-2e6a-4847-816e-8b0728740973
+10,"Given a positive integer, convert it into binary, and vice-versa.",,,"def decimal_to_binary(decimal):
+    if decimal == 0:
+        return '0'
+    
+    binary = ''
+    while decimal > 0:
+        remainder = decimal % 2
+        binary = str(remainder) + binary
+        decimal = decimal // 2
+    
+    return binary
+
+def binary_to_decimal(binary):
+    decimal = 0
+    power = 0
+    for digit in binary[::-1]:  # Start from the rightmost digit
+        decimal += int(digit) * (2 ** power)
+        power += 1
+    return decimal
+
+# Test the functions
+if __name__ == ""__main__"":
+    decimal_num = 13
+    binary_num = '1101'
+
+    # Convert decimal to binary
+    binary_result = decimal_to_binary(decimal_num)
+    print(f""Binary representation of {decimal_num}: {binary_result}"")
+
+    # Convert binary to decimal
+    decimal_result = binary_to_decimal(binary_num)
+    print(f""Decimal representation of {binary_num}: {decimal_result}"")
+",,,Fully Correct,,,,,https://chat.openai.com/c/09afd891-ee4a-4399-95f9-7052628e1003
+CONCEPT 3,,,,,,,,,,,,
+1,"Given a list of numbers, find out its length and the sum of all these numbers.",,,"# Define the list of numbers
+numbers = [5, 10, 15, 20, 25]
+
+# Calculate the length of the list
+length = len(numbers)
+
+# Calculate the sum of all numbers in the list
+total_sum = sum(numbers)
+
+# Print the length and the sum
+print(""Length of the list:"", length)
+print(""Sum of all numbers in the list:"", total_sum)",,,Partially Correct,Concept of loop is not used,Don;t use inbuilt functions and use loop,"# Define the list of numbers
+numbers = [5, 10, 15, 20, 25]
+
+# Calculate the length of the list using a loop
+length = 0
+for _ in numbers:
+    length += 1
+
+# Calculate the sum of all numbers in the list using a loop
+total_sum = 0
+for num in numbers:
+    total_sum += num
+
+# Print the length and the sum
+print(""Length of the list:"", length)
+print(""Sum of all numbers in the list:"", total_sum)",Fully correct,https://chat.openai.com/c/e7500862-784e-4597-9a60-26a4dcc110e4
+2,"Given a list of numbers, find the squares of all the numbers.",,,"# Define a function to compute squares of numbers in a list
+def square_numbers(numbers):
+    squares = []  # Initialize an empty list to store the squares
+    for num in numbers:
+        squares.append(num ** 2)  # Compute the square of each number and append to the list
+    return squares
+
+# Example list of numbers
+numbers = [1, 2, 3, 4, 5]
+
+# Call the function to find the squares of the numbers
+squared_numbers = square_numbers(numbers)
+
+# Print the squares
+print(""Squares of the numbers:"", squared_numbers)",,,Fully Correct,,,,,https://chat.openai.com/c/007ad9c9-23ab-4b5e-9858-cf907654cee2
+3,"Given a list of numbers, find out their mean and standard deviation.",,,"import numpy as np
+
+# Example list of numbers
+numbers = [2, 4, 4, 4, 5, 5, 7, 9]
+
+# Calculate mean
+mean = np.mean(numbers)
+
+# Calculate standard deviation
+std_dev = np.std(numbers)
+
+print(""Mean:"", mean)
+print(""Standard Deviation:"", std_dev)
+",,,Partially Correct,concept of numpy library and its inbuilt functions are being used,Do not use numpy library and its inbuilt functions and use loops,"# Example list of numbers
+numbers = [2, 4, 4, 4, 5, 5, 7, 9]
+
+# Calculate mean
+sum_numbers = 0
+for num in numbers:
+    sum_numbers += num
+mean = sum_numbers / len(numbers)
+
+# Calculate variance
+sum_squared_diff = 0
+for num in numbers:
+    sum_squared_diff += (num - mean) ** 2
+variance = sum_squared_diff / len(numbers)
+
+# Calculate standard deviation
+std_dev = variance ** 0.5
+
+print(""Mean:"", mean)
+print(""Standard Deviation:"", std_dev)",Fully correct,https://chat.openai.com/c/1fb46ea0-850e-4408-9fa1-b9f24f4bbed0
+4,"Given a list of integers, find all the even numbers in it and their count.",,,"def find_even_numbers(numbers):
+    even_numbers = [num for num in numbers if num % 2 == 0]
+    even_count = len(even_numbers)
+    return even_numbers, even_count
+
+# Example usage:
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers, even_count = find_even_numbers(numbers)
+print(""Even numbers:"", even_numbers)
+print(""Count of even numbers:"", even_count)
+",,,Fully Correct,,,,,https://chat.openai.com/c/1fd472f1-ef24-40a6-a702-1c09f8dbb374
+5,"Given a list of integers, find all the odd numbers in it and their count.",,,"def find_odd_numbers(numbers):
+    odd_numbers = [num for num in numbers if num % 2 != 0]
+    odd_count = len(odd_numbers)
+    return odd_numbers, odd_count
+
+# Example usage:
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+odd_numbers, odd_count = find_odd_numbers(numbers)
+print(""Odd numbers:"", odd_numbers)
+print(""Count of odd numbers:"", odd_count)",,,Fully Correct,,,,,https://chat.openai.com/c/92cf96d9-6cc9-4c01-86b2-4904f5020d5a
+6,"Given a list of numbers, create another list in reverse order (without using list splicing).",,,"def reverse_list(original_list):
+    reversed_list = []
+    for i in range(len(original_list) - 1, -1, -1):
+        reversed_list.append(original_list[i])
+    return reversed_list
+
+# Example usage:
+numbers = [1, 2, 3, 4, 5]
+reversed_numbers = reverse_list(numbers)
+print(reversed_numbers)",,,Fully Correct,,,,,https://chat.openai.com/c/88e6377c-3c43-415f-abba-bb48d9bfc849
+7,"Given a list of numbers, find out the maximum number.",,,"def find_max(numbers):
+    if not numbers:
+        return None  # Return None for empty lists
+    max_num = numbers[0]  # Assume the first number is the maximum initially
+    for num in numbers:
+        if num > max_num:
+            max_num = num  # Update max_num if we find a larger number
+    return max_num
+
+# Example usage:
+numbers = [5, 3, 9, 2, 7, 10]
+print(""Maximum number:"", find_max(numbers))",,,Fully Correct,,,,,https://chat.openai.com/c/d2959baa-55ed-42a2-bc5d-1f2d016c66ab
+8,"Given a list of integers, find out the index of another given integer.",,,"def find_index(arr, target):
+    try:
+        index = arr.index(target)
+        return index
+    except ValueError:
+        return -1
+
+# Example usage:
+arr = [1, 5, 9, 12, 15]
+target = 9
+print(""Index of"", target, "":"", find_index(arr, target))",,,Partially Correct,Inbuilt functions are used,Do not use python inbuilt functions,"def find_index(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+    return -1
+
+# Example usage:
+arr = [1, 5, 9, 12, 15]
+target = 9
+print(""Index of"", target, "":"", find_index(arr, target))",Fully correct,https://chat.openai.com/c/aee22ad6-4d8d-4e96-9c56-95a6636a5369
+9,"Given a list of integers, find their Least Common Multiple (LCM) and Greatest Common Divisor (Divisor).",,,"import math
+
+def find_lcm(numbers):
+    lcm = numbers[0]
+    for num in numbers[1:]:
+        lcm = lcm * num // math.gcd(lcm, num)
+    return lcm
+
+def find_gcd(numbers):
+    gcd = numbers[0]
+    for num in numbers[1:]:
+        gcd = math.gcd(gcd, num)
+    return gcd
+
+# Example list of integers
+numbers = [12, 18, 24, 36]
+
+lcm_result = find_lcm(numbers)
+gcd_result = find_gcd(numbers)
+
+print(""Least Common Multiple (LCM):"", lcm_result)
+print(""Greatest Common Divisor (GCD):"", gcd_result)",,,Partially Correct,For GCD Inbuilt function is used,Do not use python inbuilt functions,"def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def lcm(a, b):
+    return (a * b) // gcd(a, b)
+
+def find_lcm(numbers):
+    result_lcm = numbers[0]
+    for num in numbers[1:]:
+        result_lcm = lcm(result_lcm, num)
+    return result_lcm
+
+def find_gcd(numbers):
+    result_gcd = numbers[0]
+    for num in numbers[1:]:
+        result_gcd = gcd(result_gcd, num)
+    return result_gcd
+
+# Example list of integers
+numbers = [12, 18, 24, 36]
+
+lcm_result = find_lcm(numbers)
+gcd_result = find_gcd(numbers)
+
+print(""Least Common Multiple (LCM):"", lcm_result)
+print(""Greatest Common Divisor (GCD):"", gcd_result)",Fully correct,https://chat.openai.com/c/103af357-0256-413a-8195-cecb1f24eb78
+10,"Create a list containing the first n integers in the Fibonacci series, where n is given by the user.",,,"def fibonacci(n):
+    fibonacci_list = []
+    a, b = 0, 1
+    for _ in range(n):
+        fibonacci_list.append(a)
+        a, b = b, a + b
+    return fibonacci_list
+
+try:
+    n = int(input(""Enter the number of Fibonacci numbers you want: ""))
+    if n <= 0:
+        print(""Please enter a positive integer."")
+    else:
+        result = fibonacci(n)
+        print(""The first"", n, ""Fibonacci numbers are:"", result)
+except ValueError:
+    print(""Invalid input. Please enter a valid integer."")",,,Fully Correct,,,,,https://chat.openai.com/c/527f165c-18f1-4323-87cc-9aee0df4bb1d
+CONCEPT 4,,,,,,,,,,,,
+1,"Given a list of distinct numbers, create another list which contains the sum of all pairs of numbers in the given list (the same pair should not be taken twice).",,,"def sum_of_pairs(numbers):
+    pairs_sum = []
+    n = len(numbers)
+    
+    # Iterate through each pair of numbers
+    for i in range(n):
+        for j in range(i + 1, n):
+            pair_sum = numbers[i] + numbers[j]
+            pairs_sum.append(pair_sum)
+    
+    return pairs_sum
+
+# Example usage:
+numbers = [1, 2, 3, 4, 5]
+result = sum_of_pairs(numbers)
+print(""Sum of pairs:"", result)",,,Fully Correct,,,,,https://chat.openai.com/c/182586f8-2b4d-4cc9-93ba-10ba693fcff3
+2,"Given a list of distinct numbers (may contain zero), create another list which contains the ratio of all pairs of numbers in the given list (the same pair should not be taken twice).",,,"def calculate_ratio_pairs(numbers):
+    ratio_pairs = []
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if numbers[j] != 0:  # Avoid division by zero
+                ratio = numbers[i] / numbers[j]
+                ratio_pairs.append(ratio)
+            if numbers[i] != 0:  # Avoid division by zero
+                ratio = numbers[j] / numbers[i]
+                ratio_pairs.append(ratio)
+    return ratio_pairs
+
+# Example usage:
+numbers = [1, 2, 3, 4]
+result = calculate_ratio_pairs(numbers)
+print(""Ratio pairs:"", result)
+",,,Fully Correct,,,,,https://chat.openai.com/c/43cbd59d-ade9-4704-8c12-d155b6c27628
+3,"Given a list of positive integers, find the factorial of all these numbers.",,,"def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+def factorial_of_list(numbers):
+    factorials = []
+    for num in numbers:
+        if num < 0:
+            factorials.append(None)  # Handle negative numbers
+        else:
+            factorials.append(factorial(num))
+    return factorials
+
+# Example usage:
+numbers = [5, 3, 7, 2, 4]
+factorials = factorial_of_list(numbers)
+print(""Factorials of the numbers:"", factorials)",,,Partially Correct,Nested loops is not used but recursion is used ,Use nested loops for this question,"def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        result = 1
+        for i in range(1, n + 1):
+            result *= i
+        return result
+
+def factorial_of_list(numbers):
+    factorials = []
+    for num in numbers:
+        if num < 0:
+            factorials.append(None)  # Handle negative numbers
+        else:
+            factorials.append(factorial(num))
+    return factorials
+
+# Example usage:
+numbers = [5, 3, 7, 2, 4]
+factorials = factorial_of_list(numbers)
+print(""Factorials of the numbers:"", factorials)",Fully Correct,https://chat.openai.com/c/ba98fc68-0c0e-493a-a2ae-fd35bb71d57b
+4,"Given a positive integer, find out all prime numbers from 1 up to this number.",,,"def sieve_of_eratosthenes(n):
+    primes = [True] * (n+1)
+    primes[0] = primes[1] = False
+
+    p = 2
+    while p * p <= n:
+        if primes[p]:
+            for i in range(p * p, n+1, p):
+                primes[i] = False
+        p += 1
+
+    prime_numbers = [i for i in range(n+1) if primes[i]]
+    return prime_numbers
+
+# Example usage:
+n = int(input(""Enter a positive integer: ""))
+if n < 2:
+    print(""There are no prime numbers less than"", n)
+else:
+    print(""Prime numbers up to"", n, ""are:"", sieve_of_eratosthenes(n))",,,Fully Correct,,,,,https://chat.openai.com/c/f3615e3d-a525-42be-a5aa-9e91923e80b4
+5,"Given a positive integer, find out the sum of all prime numbers from 1 up to this number.",,,"def is_prime(n):
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+def sum_of_primes_up_to_n(n):
+    prime_sum = 0
+    for i in range(2, n + 1):
+        if is_prime(i):
+            prime_sum += i
+    return prime_sum
+
+# Example usage:
+num = int(input(""Enter a positive integer: ""))
+result = sum_of_primes_up_to_n(num)
+print(""Sum of prime numbers up to"", num, ""is:"", result)
+",,,Fully Correct,,,,,https://chat.openai.com/c/af777e7e-c4ef-472e-9996-f74b62af33b7
+6,"Given a list of numbers, create another list of co-primes and count how many co-primes are there in this given list.",,,"def gcd(a, b):
+    """"""Calculate the Greatest Common Divisor (GCD) of two numbers.""""""
+    while b:
+        a, b = b, a % b
+    return a
+
+def are_coprime(a, b):
+    """"""Check if two numbers are co-prime.""""""
+    return gcd(a, b) == 1
+
+def count_coprimes(numbers):
+    """"""Count co-primes in the given list of numbers.""""""
+    coprimes = []
+    for i in range(len(numbers)):
+        is_coprime = True
+        for j in range(i + 1, len(numbers)):
+            if not are_coprime(numbers[i], numbers[j]):
+                is_coprime = False
+                break
+        if is_coprime:
+            coprimes.append(numbers[i])
+    return coprimes, len(coprimes)
+
+# Example usage:
+numbers = [12, 15, 7, 9, 11, 14]
+coprimes, count = count_coprimes(numbers)
+print(""List of co-primes:"", coprimes)
+print(""Number of co-primes:"", count)
+",,,Fully Correct,,,,,https://chat.openai.com/c/8ac360a9-7976-410f-8904-3fc90a01d518
+7,"Given a list of integers, find out how many times each number occurs in this list and find their mode.",,,"from collections import Counter
+
+def find_mode_and_counts(nums):
+    # Count the occurrences of each number
+    counts = Counter(nums)
+    
+    # Find the mode(s)
+    max_count = max(counts.values())
+    mode = [num for num, count in counts.items() if count == max_count]
+    
+    return counts, mode
+
+# Example list of integers
+nums = [1, 2, 3, 4, 5, 1, 2, 3, 2, 2, 2, 4, 4, 4, 4]
+
+# Find the mode and counts
+counts, mode = find_mode_and_counts(nums)
+
+# Print the counts and mode
+print(""Number counts:"", counts)
+print(""Mode(s):"", mode)
+",,,Partially Correct,Usage of inbuilt functions counter,Do not use inbuilt python functions,"def find_mode_and_counts(nums):
+    counts = {}
+    for num in nums:
+        if num in counts:
+            counts[num] += 1
+        else:
+            counts[num] = 1
+    
+    max_count = 0
+    mode = []
+    for num, count in counts.items():
+        if count > max_count:
+            max_count = count
+            mode = [num]
+        elif count == max_count:
+            mode.append(num)
+    
+    return counts, mode
+
+# Example list of integers
+nums = [1, 2, 3, 4, 5, 1, 2, 3, 2, 2, 2, 4, 4, 4, 4]
+
+# Find the mode and counts
+counts, mode = find_mode_and_counts(nums)
+
+# Print the counts and mode
+print(""Number counts:"", counts)
+print(""Mode(s):"", mode)",Fully Correct,https://chat.openai.com/c/b536f5e7-fbcf-428a-9ad4-84af0fe3bc35
+8,"Given two matrices of the same dimensions, find their sum.",,,"def add_matrices(A, B):
+    # Check if the matrices have the same dimensions
+    if len(A) != len(B) or len(A[0]) != len(B[0]):
+        return ""Matrices must have the same dimensions""
+    
+    # Initialize an empty result matrix with the same dimensions as A and B
+    m, n = len(A), len(A[0])
+    C = [[0 for _ in range(n)] for _ in range(m)]
+    
+    # Iterate through each element of the matrices and add them
+    for i in range(m):
+        for j in range(n):
+            C[i][j] = A[i][j] + B[i][j]
+    
+    return C
+
+# Example matrices
+A = [[1, 2, 3],
+     [4, 5, 6]]
+
+B = [[7, 8, 9],
+     [10, 11, 12]]
+
+# Compute the sum of the matrices
+result = add_matrices(A, B)
+for row in result:
+    print(row)",,,Fully Correct,,,,,https://chat.openai.com/c/d11f41dd-fcce-495f-a67e-19d30573cb8a
+9,"Print the chessboard pattern, with white squares denoted by W and black squares by B.",,,"def print_chessboard(rows, cols):
+    for i in range(rows):
+        for j in range(cols):
+            if (i + j) % 2 == 0:
+                print('W', end=' ')
+            else:
+                print('B', end=' ')
+        print()
+
+rows = 8
+cols = 8
+print_chessboard(rows, cols)",,,Fully Correct,,,,,https://chat.openai.com/c/56310db2-1fa2-4c14-9034-c971be478174
+10,"Given a list of integers, sort it in ascending order and find the median.",,,"def find_median(nums):
+    # Sort the list in ascending order
+    nums.sort()
+
+    # Find the length of the list
+    n = len(nums)
+
+    # Check if the number of elements is odd or even
+    if n % 2 == 0:
+        # If the number of elements is even, median is the average of the middle two elements
+        median = (nums[n // 2 - 1] + nums[n // 2]) / 2
+    else:
+        # If the number of elements is odd, median is the middle element
+        median = nums[n // 2]
+
+    return median
+
+# Example usage:
+nums = [4, 2, 7, 1, 5, 3, 6]
+median = find_median(nums)
+print(""Sorted List:"", nums)
+print(""Median:"", median)",,,Fully Correct,,,,,https://chat.openai.com/c/d156dfa8-212e-436d-8396-0cce054715c9
+CONCEPT 5,,,,,,,,,,,,
+1,"Convert these two lists into a dictionary. Take the keys from the first list, and values from the second one.
+keys = [‘Ten’, ‘Twenty’, ‘Thirty’]
+values = [10, 20, 30]",,,"keys = ['Ten', 'Twenty', 'Thirty']
+values = [10, 20, 30]
+
+# Create a dictionary using zip
+result_dict = dict(zip(keys, values))
+
+print(result_dict)",,,Partially Correct,Use of inbuilt python functions,Added using for a loop to the original prompt,"keys = ['Ten', 'Twenty', 'Thirty']
+values = [10, 20, 30]
+
+result_dict = {}
+
+# Using a for loop to iterate through both lists simultaneously
+for i in range(len(keys)):
+    result_dict[keys[i]] = values[i]
+
+print(result_dict)",Fully correct,https://chat.openai.com/c/fc0876c6-9046-4ed4-937d-166fc6c444fd
+2,"Merge these two dictionaries into one using for loop
+dict1 = {‘Ten’: 10, ‘Twenty’: 20, ‘Thirty’: 30}
+dict2 = {‘Thirty’: 30, ‘Fourty’: 40, ‘Fifty’: 50}",,,"dict1 = {'Ten': 10, 'Twenty': 20, 'Thirty': 30}
+dict2 = {'Thirty': 30, 'Forty': 40, 'Fifty': 50}
+
+merged_dict = dict1.copy()
+
+for key, value in dict2.items():
+    merged_dict[key] = value
+
+print(merged_dict)",,,Fully Correct,,,,,https://chat.openai.com/c/704846eb-9cc5-4dca-9a28-7fb2ed4c02df
+3,"Check if a key exists in a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+key_needed = ‘d’
+Check if a value exists in a dictionary:
+sample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}
+value_needed = 200",,,"# Check if a key exists in a dictionary
+sample_dict = {'a': 100, 'b': 200, 'c': 300}
+key_needed = 'd'
+
+if key_needed in sample_dict:
+    print(f""The key '{key_needed}' exists in the dictionary."")
+else:
+    print(f""The key '{key_needed}' does not exist in the dictionary."")
+
+# Check if a value exists in a dictionary
+value_needed = 200
+
+if value_needed in sample_dict.values():
+    print(f""The value '{value_needed}' exists in the dictionary."")
+else:
+    print(f""The value '{value_needed}' does not exist in the dictionary."")
+",,,Fully Correct,,,,,https://chat.openai.com/c/96127f9e-0e02-4cf4-a3c8-5149f14dd01b
+4,"Create a new dictionary so that it only has the keys mentioned in another list
+sample_dict = { “name”: “Kelly”, “age”: 25, “salary”: 8000, “city”: “New york”}
+# Keys to extract
+keys = [“name”, “salary”]",,,"sample_dict = {""name"": ""Kelly"", ""age"": 25, ""salary"": 8000, ""city"": ""New York""}
+keys = [""name"", ""salary""]
+
+new_dict = {key: sample_dict[key] for key in keys if key in sample_dict}
+
+print(new_dict)",,,Partially Correct,"Code is not consize,doesn't feel like written for a student",Write it in a way a student learning coding for the first time would write,"# Define the sample dictionary
+sample_dict = {""name"": ""Kelly"", ""age"": 25, ""salary"": 8000, ""city"": ""New York""}
+
+# Define the keys to extract
+keys = [""name"", ""salary""]
+
+# Create an empty dictionary to store the extracted key-value pairs
+new_dict = {}
+
+# Loop through each key in the keys list
+for key in keys:
+    # Check if the key exists in the sample_dict
+    if key in sample_dict:
+        # If the key exists, add it to the new_dict with its corresponding value
+        new_dict[key] = sample_dict[key]
+
+# Print the new dictionary
+print(new_dict)",Fully correct,https://chat.openai.com/c/f383b43c-b681-4c34-9aa6-5c72151d940b
+5,"Remove a key from a dictionary:
+dict_name.pop(key_name)
+What does this function return?
+Use pop to rename a key.",,,"# Define the dictionary
+my_dict = {'old_key': 'value'}
+
+# Remove the old key and get its value
+value = my_dict.pop('old_key')
+
+# Rename the key
+my_dict['new_key'] = value
+",,,Fully Correct,,,,,https://chat.openai.com/c/d86bb9ec-d6a8-4a98-b5c4-a13ff4d6a21a
+6,"Create a dictionary to store the total marks of 5 students in the class in 3 subjects (Course1, Course2, Course3). The keys must be the student names, and the values must be the list of marks. Create another list which has the course names in the same order as the marks are stored in the dictionary values. Now write a nested for loop to print the marks for each student exam wise.
+Student1
+Course1 marks : 82
+Course2 marks : 84
+Course3 marks : 72
+Student2
+Course1 marks : 87
+Course2 marks : 83
+Course3 marks : 78",,,"# Create a dictionary to store the total marks of 5 students in 3 subjects
+# Keys are student names, values are lists of marks
+marks_dict = {
+    'Student1': [82, 84, 72],
+    'Student2': [87, 83, 78]
+}
+
+# Create a list of course names in the same order as the marks are stored
+course_names = ['Course1', 'Course2', 'Course3']
+
+# Nested loop to print the marks for each student exam wise
+for student, marks in marks_dict.items():
+    print(student)
+    for i in range(len(course_names)):
+        print(f""{course_names[i]} marks : {marks[i]}"")
+",,,Fully Correct,,,,,https://chat.openai.com/c/5a8f69f1-0eef-4c61-99c2-f2c8e9e97e52
+7,"Write a for loop to create another dictionary from the above where the marks are replaced by grades. Above 80 is A grade, 60–80 is B grade, 40–60 is C grade, and below 40 is F. Create another dictionary to store the max and average marks for each student. Use this dictionary to compute the final CPI/CGPA of the student. Course1 is of 4 credits, Course2 of 10 credits, and Course3 of 6 credits. Store these credits in a list. Write this dictionary as a json file, and read it back into a new dictionary.",,,"# Dictionary of student marks
+student_marks = {
+    'Alice': {'Course1': 75, 'Course2': 82, 'Course3': 60},
+    'Bob': {'Course1': 60, 'Course2': 45, 'Course3': 70},
+    'Charlie': {'Course1': 90, 'Course2': 92, 'Course3': 88}
+}
+
+# Dictionary to store grades
+student_grades = {}
+
+# Calculate grades for each student
+for student, marks in student_marks.items():
+    grades = {}
+    for course, mark in marks.items():
+        if mark >= 80:
+            grades[course] = 'A'
+        elif mark >= 60:
+            grades[course] = 'B'
+        elif mark >= 40:
+            grades[course] = 'C'
+        else:
+            grades[course] = 'F'
+    student_grades[student] = grades
+
+print(""Student Grades:"", student_grades)                                
+# Credits for each course
+credits = [4, 10, 6]
+
+# Dictionary to store max and average marks
+max_avg_marks = {}
+
+# Calculate max and average marks for each student
+for student, marks in student_marks.items():
+    max_marks = max(marks.values())
+    avg_marks = sum(marks.values()) / len(marks)
+    max_avg_marks[student] = {'max_marks': max_marks, 'avg_marks': avg_marks}
+
+print(""Max and Average Marks:"", max_avg_marks)
+
+# Calculate CPI/CGPA
+cpi_cgpa = {}
+for student, marks_info in max_avg_marks.items():
+    total_credits = sum(credits)
+    weighted_sum = (marks_info['avg_marks'] * credits[0] + marks_info['avg_marks'] * credits[1] + marks_info['avg_marks'] * credits[2])
+    cpi_cgpa[student] = weighted_sum / total_credits
+
+print(""CPI/CGPA:"", cpi_cgpa)
+import json
+
+# Write dictionary to JSON file
+with open('student_data.json', 'w') as json_file:
+    json.dump({'student_grades': student_grades, 'max_avg_marks': max_avg_marks, 'cpi_cgpa': cpi_cgpa}, json_file)
+
+# Read JSON file back into a new dictionary
+with open('student_data.json', 'r') as json_file:
+    new_data = json.load(json_file)
+
+print(""New Dictionary from JSON file:"", new_data)
+",,,Fully Correct,,,,,https://chat.openai.com/c/00ed4303-cb63-40b0-8e1c-1fcd7f2392d0
+8,"Create a dictionary of your marks in various subjects and then sort it by its values first in descending order, and then in or ascending order. Do not use any inbuilt sorting functions.",,,"# Dictionary of marks in various subjects
+marks = {
+    'Math': 85,
+    'Science': 90,
+    'English': 80,
+    'History': 88,
+    'Computer Science': 95
+}
+
+# Sorting the dictionary by values in descending order (without using inbuilt sorting functions)
+sorted_marks_desc = dict(sorted(marks.items(), key=lambda item: item[1], reverse=True))
+
+print(""Sorted marks in descending order:"")
+for subject, mark in sorted_marks_desc.items():
+    print(subject + "":"", mark)
+
+# Sorting the dictionary by values in ascending order (without using inbuilt sorting functions)
+sorted_marks_asc = dict(sorted(marks.items(), key=lambda item: item[1]))
+
+print(""\nSorted marks in ascending order:"")
+for subject, mark in sorted_marks_asc.items():
+    print(subject + "":"", mark)",,,Fully Correct,,,,,https://chat.openai.com/c/0e39a226-655f-45ad-9021-afad668ca590
+9,"Create a dictionary whose keys are the names of your family members and friends, and the values are the list of fruits they like to eat. Now if the user gives a fruit as input, the code should print the list of names who like this fruit. Write another code to print the list of people who do not like this fruit. Using this dictionary as input, write a code to make a consolidated list of all the fruit names present in the values of various keys. This list should not have any duplicate entries. Do not use the set() function.",,,"# Dictionary of family members and their favorite fruits
+family_fruits = {
+    'John': ['apple', 'banana', 'orange'],
+    'Emily': ['banana', 'grape', 'pineapple'],
+    'Michael': ['orange', 'grapefruit', 'strawberry'],
+    'Sarah': ['apple', 'kiwi', 'pineapple']
+}
+
+# Function to find who likes a specific fruit
+def who_likes(fruit):
+    likers = []
+    for person, fruits in family_fruits.items():
+        if fruit in fruits:
+            likers.append(person)
+    return likers
+
+# Function to find who doesn't like a specific fruit
+def who_dislikes(fruit):
+    dislikers = []
+    for person, fruits in family_fruits.items():
+        if fruit not in fruits:
+            dislikers.append(person)
+    return dislikers
+
+# Consolidated list of all the fruit names without duplicates
+all_fruits = []
+for fruits in family_fruits.values():
+    for fruit in fruits:
+        if fruit not in all_fruits:
+            all_fruits.append(fruit)
+
+# Taking input from the user
+fruit_input = input(""Enter a fruit name: "").strip().lower()
+
+# Finding who likes the input fruit
+likers_list = who_likes(fruit_input)
+print(""People who like"", fruit_input + "":"", likers_list)
+
+# Finding who doesn't like the input fruit
+dislikers_list = who_dislikes(fruit_input)
+print(""People who don't like"", fruit_input + "":"", dislikers_list)
+
+# Consolidated list of all fruit names
+print(""Consolidated list of fruits:"", all_fruits)",,,Fully Correct,,,,,https://chat.openai.com/c/3a39ef82-01dd-4b23-ae25-f87bb611faf0
+10,"Create a text file with one word in each line. The words can be repeated, i.e. the same word can come in more than one line. Read this text file in python, and create a dictionary where the key is the word and the value is the number of times it occurs in the text file. Save these words and their counts in a JSON file.",,,"import json
+
+# Function to read the text file and count words
+def count_words(filename):
+    word_count = {}
+    with open(filename, 'r') as file:
+        for line in file:
+            word = line.strip()
+            if word in word_count:
+                word_count[word] += 1
+            else:
+                word_count[word] = 1
+    return word_count
+
+# Path to the text file
+text_file_path = 'words.txt'
+
+# Count words from the text file
+word_counts = count_words(text_file_path)
+
+# Path to the JSON file
+json_file_path = 'word_counts.json'
+
+# Save word counts to a JSON file
+with open(json_file_path, 'w') as json_file:
+    json.dump(word_counts, json_file, indent=4)
+
+print(""Word counts saved to:"", json_file_path)",,,Fully Correct,,,,,https://chat.openai.com/c/bea5f267-6128-415f-b794-c065dde6ef3d
+CONCEPT 6,,,,,,,,,,,,
+1,"Write a python function that takes a string as input, and returns the string in reverse order (without using string splicing).",,,"def reverse_string(input_str):
+    if input_str == """":
+        return """"
+    else:
+        return input_str[-1] + reverse_string(input_str[:-1])
+
+# Test the function
+input_string = ""Hello, world!""
+reversed_string = reverse_string(input_string)
+print(""Original string:"", input_string)
+print(""Reversed string:"", reversed_string)",,,Fully Correct,,,,,https://chat.openai.com/c/47303350-9f10-4c70-81c8-3ae1f61f40a9
+2,"Write a python function that takes a string as input, and returns the number of vowels in it.",,,"def count_vowels(input_string):
+    # Define a set of vowels
+    vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+
+    # Initialize a counter for vowels
+    vowel_count = 0
+
+    # Iterate through each character in the input string
+    for char in input_string:
+        # Check if the character is a vowel
+        if char in vowels:
+            # Increment the vowel count
+            vowel_count += 1
+
+    return vowel_count
+
+# Test the function
+input_string = input(""Enter a string: "")
+print(""Number of vowels in the string:"", count_vowels(input_string))",,,Fully Correct,,,,,https://chat.openai.com/c/5b19d8b2-04dc-46e6-a88c-d314fabd4713
+3,"Write a python function that takes a string as input, and returns the number of words in it. Use space as a separator for words.",,,"def count_words(input_string):
+    # Split the input string by spaces
+    words = input_string.split()
+    # Return the length of the list of words
+    return len(words)
+
+# Test the function
+input_string = input(""Enter a string: "")
+print(""Number of words:"", count_words(input_string))",,,Fully Correct,,,,,https://chat.openai.com/c/aec4c4b7-57bc-4b3d-b1ca-3dc23ffb545e
+4,"Write a python function that takes a string as input, and returns the string with the first letter of each word capitalised.",,,"def capitalize_words(input_string):
+    # Split the input string into words
+    words = input_string.split()
+
+    # Capitalize the first letter of each word and join them back into a string
+    capitalized_words = [word.capitalize() for word in words]
+
+    # Join the capitalized words into a single string
+    capitalized_string = ' '.join(capitalized_words)
+
+    return capitalized_string
+
+# Test the function
+input_string = ""hello world how are you""
+capitalized_output = capitalize_words(input_string)
+print(capitalized_output)  # Output: Hello World How Are You",,,Fully Correct,,,,,https://chat.openai.com/c/f7ef6805-f2cd-4393-92c1-25a7800cb713
+5,"Write a python function that takes a string as input, and returns the length of the longest word in it. Use space as a separator for words.",,,"def longest_word_length(input_string):
+    # Split the input string into words using space as separator
+    words = input_string.split()
+
+    # Initialize variable to store length of the longest word
+    max_length = 0
+
+    # Iterate through each word and update max_length if necessary
+    for word in words:
+        if len(word) > max_length:
+            max_length = len(word)
+
+    return max_length
+
+# Test the function
+input_string = input(""Enter a string: "")
+print(""Length of the longest word:"", longest_word_length(input_string))",,,Fully Correct,,,,,https://chat.openai.com/c/316cf55c-a055-443a-a85d-462ce00ad104
+6,"Write a python function that takes a string as input, and returns if its a valid email address.",,,"import re
+
+def is_valid_email(email):
+    # Regular expression pattern for validating email addresses
+    pattern = r'^[\w\.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    
+    # Check if the email matches the pattern
+    if re.match(pattern, email):
+        return True
+    else:
+        return False
+
+# Example usage:
+email1 = ""example@example.com""
+email2 = ""invalid.email.com""
+email3 = ""another_example@domain.co.uk""
+
+print(is_valid_email(email1))  # Output: True
+print(is_valid_email(email2))  # Output: False
+print(is_valid_email(email3))  # Output: True
+",,,Partially Correct,Use of inbuilt functions,Do not use inbuilt functions,"def is_valid_email(email):
+    if '@' not in email:
+        return False
+    
+    # Splitting the email address by '@' to separate the local and domain parts
+    local_part, domain_part = email.split('@')
+    
+    if '.' not in domain_part:
+        return False
+    
+    # Checking if there is only one '.' in the domain part
+    if domain_part.count('.') != 1:
+        return False
+    
+    # Checking if the local part is not empty and the domain part is not empty
+    if len(local_part) == 0 or len(domain_part) == 0:
+        return False
+    
+    # Checking if the local part contains only alphanumeric characters, '.', '_', or '-'
+    for char in local_part:
+        if not (char.isalnum() or char in ['.', '_', '-']):
+            return False
+    
+    # Checking if the domain part contains only alphanumeric characters and '.'
+    for char in domain_part:
+        if not (char.isalnum() or char == '.'):
+            return False
+    
+    # Checking if the domain part starts and ends with an alphanumeric character
+    if not (domain_part[0].isalnum() and domain_part[-1].isalnum()):
+        return False
+    
+    return True
+
+# Example usage:
+email1 = ""example@example.com""
+email2 = ""invalid.email.com""
+email3 = ""another_example@domain.co.uk""
+
+print(is_valid_email(email1))  # Output: True
+print(is_valid_email(email2))  # Output: False
+print(is_valid_email(email3))  # Output: True",Fully Correct,https://chat.openai.com/c/8979f385-40db-4e42-830f-78111ce155c7
+7,"Write a python function that takes a string as input, and returns if its a valid mobile number in India.",,,"import re
+
+def is_valid_mobile_number(number):
+    # Regular expression pattern for Indian mobile numbers
+    pattern = re.compile(r'^[789]\d{9}$')
+    # Check if the number matches the pattern
+    if re.match(pattern, number):
+        return True
+    else:
+        return False
+
+# Test the function
+number = input(""Enter a mobile number: "")
+if is_valid_mobile_number(number):
+    print(""Valid Indian mobile number"")
+else:
+    print(""Not a valid Indian mobile number"")",,,Partially Correct,Use of inbuilt functions,,,,https://chat.openai.com/c/4150830e-1a09-43f4-b0db-da55234988a4
+8,Implement a simple encryption algorithm that can encrypt and decrypt strings.,,,"def encrypt(text, shift):
+    encrypted_text = """"
+    for char in text:
+        if char.isalpha():
+            shifted_char = chr((ord(char) - 65 + shift) % 26 + 65) if char.isupper() else chr((ord(char) - 97 + shift) % 26 + 97)
+            encrypted_text += shifted_char
+        else:
+            encrypted_text += char
+    return encrypted_text
+
+def decrypt(text, shift):
+    decrypted_text = """"
+    for char in text:
+        if char.isalpha():
+            shifted_char = chr((ord(char) - 65 - shift) % 26 + 65) if char.isupper() else chr((ord(char) - 97 - shift) % 26 + 97)
+            decrypted_text += shifted_char
+        else:
+            decrypted_text += char
+    return decrypted_text
+
+# Example usage:
+text = ""Hello, World!""
+shift = 3
+encrypted_text = encrypt(text, shift)
+print(""Encrypted text:"", encrypted_text)
+decrypted_text = decrypt(encrypted_text, shift)
+print(""Decrypted text:"", decrypted_text)
+",,,Partially Correct,Not a simple algorithm,Prompted it to give me a algorithm a student learning for the first time would write,"def encrypt(text, shift):
+    encrypted_text = """"
+    for char in text:
+        if char.isalpha():  # Check if the character is an alphabet
+            shifted = ord(char) + shift
+            if char.islower():
+                if shifted > ord('z'):
+                    shifted -= 26
+                elif shifted < ord('a'):
+                    shifted += 26
+            elif char.isupper():
+                if shifted > ord('Z'):
+                    shifted -= 26
+                elif shifted < ord('A'):
+                    shifted += 26
+            encrypted_text += chr(shifted)
+        else:
+            encrypted_text += char
+    return encrypted_text
+
+def decrypt(text, shift):
+    return encrypt(text, -shift)
+
+# Example usage:
+text = ""Hello, World!""
+shift = 3
+encrypted_text = encrypt(text, shift)
+print(""Encrypted:"", encrypted_text)
+
+decrypted_text = decrypt(encrypted_text, shift)
+print(""Decrypted:"", decrypted_text)
+",Fully Correct,https://chat.openai.com/c/87782024-eaf0-4a6f-96b0-1fab4d100169
+9,"Write a python function that takes in a string and checks if its a palindrome (without using string splicing, case sensitive and ignoring spaces).",,,"def encrypt(text, shift):
+    encrypted_text = """"
+    for char in text:
+        if char.isalpha():  # Check if the character is an alphabet
+            shifted = ord(char) + shift
+            if char.islower():
+                if shifted > ord('z'):
+                    shifted -= 26
+                elif shifted < ord('a'):
+                    shifted += 26
+            elif char.isupper():
+                if shifted > ord('Z'):
+                    shifted -= 26
+                elif shifted < ord('A'):
+                    shifted += 26
+            encrypted_text += chr(shifted)
+        else:
+            encrypted_text += char
+    return encrypted_text
+
+def decrypt(text, shift):
+    return encrypt(text, -shift)
+
+# Example usage:
+text = ""Hello, World!""
+shift = 3
+encrypted_text = encrypt(text, shift)
+print(""Encrypted:"", encrypted_text)
+
+decrypted_text = decrypt(encrypted_text, shift)
+print(""Decrypted:"", decrypted_text)",,,Fully Correct,,,,,https://chat.openai.com/c/c656fa4f-40d4-4e66-a523-d028a66309db
+10,"Write a python function that takes in a paragraph as input, and returns a list of sentences. Use full-stop, exclamation and question mark as the three allowed delimiters between sentences.",,,"import re
+
+def split_paragraph_into_sentences(paragraph):
+    # Define the regular expression pattern to split sentences
+    sentence_delimiters = r'[.!?]'
+    # Split the paragraph into sentences using the defined delimiters
+    sentences = re.split(sentence_delimiters, paragraph)
+    # Remove any empty strings or whitespace-only strings from the list
+    sentences = [sentence.strip() for sentence in sentences if sentence.strip()]
+    return sentences
+
+# Example usage:
+paragraph = ""This is a sample paragraph. It contains multiple sentences! How are you doing today?""
+sentences = split_paragraph_into_sentences(paragraph)
+print(sentences)",,,Partially Correct,Use of inbuilt functions,Do this without using inbuilt functions,"def split_paragraph_into_sentences(paragraph):
+    sentences = []
+    current_sentence = ''
+    # Define delimiters
+    delimiters = {'.', '!', '?'}
+
+    for char in paragraph:
+        # Check if the current character is a delimiter
+        if char in delimiters:
+            # If the current sentence is not empty, add it to the list of sentences
+            if current_sentence.strip():
+                sentences.append(current_sentence.strip())
+            # Start a new sentence
+            current_sentence = ''
+        else:
+            # Add the character to the current sentence
+            current_sentence += char
+
+    # Add the last sentence if it's not empty
+    if current_sentence.strip():
+        sentences.append(current_sentence.strip())
+
+    return sentences
+
+# Example usage:
+paragraph = ""This is a sample paragraph. It contains multiple sentences! How are you doing today?""
+sentences = split_paragraph_into_sentences(paragraph)
+print(sentences)",Fully correct,https://chat.openai.com/c/de99871d-ecac-4cdc-ac2b-d4e4f516f916
+HIGHER LEVEL PROGRAMMING PROBLEMS,,,,,,,,,,,,
+1,Find the exit path in a 2D maze from an arbitrary starting point.,,,"def find_exit(maze, start):
+    def dfs(curr):
+        nonlocal found_exit
+        if curr == end:
+            found_exit = True
+            return True
+        
+        x, y = curr
+        for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:  # Movement: up, down, right, left
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < rows and 0 <= ny < cols and maze[nx][ny] == 0 and (nx, ny) not in visited:
+                visited.add((nx, ny))
+                if dfs((nx, ny)):
+                    path.append((nx, ny))
+                    return True
+        return False
+    
+    rows, cols = len(maze), len(maze[0])
+    end = (rows - 1, cols - 1)  # Assume exit is at bottom right
+    visited = set()
+    path = []
+    found_exit = False
+    
+    visited.add(start)
+    dfs(start)
+    
+    if found_exit:
+        return [start] + path[::-1]  # Reverse the path to get from start to exit
+    else:
+        return None
+
+# Example usage:
+maze = [
+    [0, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0],
+    [1, 1, 0, 1, 0],
+    [1, 1, 0, 0, 0],
+    [1, 1, 1, 1, 0]
+]
+
+start_point = (0, 0)
+exit_path = find_exit(maze, start_point)
+if exit_path:
+    print(""Exit Path:"", exit_path)
+else:
+    print(""No exit found."")",,,Fully correct,,,,,https://chat.openai.com/c/b81bcde6-e126-4e17-b5e5-8be3baecb93b
+2,"Given an arithmetic expression as an input string, solve the expression and print the result (without using the in-built eval function).",,,"def evaluate_expression(expression):
+    # Function to evaluate arithmetic expressions without using eval()
+    # This function assumes that the expression is valid
+
+    # Remove whitespaces from the expression
+    expression = expression.replace("" "", """")
+
+    # Operator precedence dictionary
+    precedence = {'+': 1, '-': 1, '*': 2, '/': 2}
+
+    # Function to apply the given operator to the two operands
+    def apply_operator(operators, operands):
+        operator = operators.pop()
+        operand2 = operands.pop()
+        operand1 = operands.pop()
+        if operator == '+':
+            operands.append(operand1 + operand2)
+        elif operator == '-':
+            operands.append(operand1 - operand2)
+        elif operator == '*':
+            operands.append(operand1 * operand2)
+        elif operator == '/':
+            operands.append(operand1 / operand2)
+
+    # Stacks to store operators and operands
+    operators = []
+    operands = []
+
+    i = 0
+    while i < len(expression):
+        if expression[i].isdigit():
+            # If the character is a digit, parse the entire number
+            j = i
+            while j < len(expression) and expression[j].isdigit():
+                j += 1
+            operands.append(int(expression[i:j]))
+            i = j
+        elif expression[i] == '(':
+            operators.append(expression[i])
+            i += 1
+        elif expression[i] == ')':
+            while operators[-1] != '(':
+                apply_operator(operators, operands)
+            operators.pop()  # Pop '('
+            i += 1
+        elif expression[i] in precedence:
+            # If the character is an operator
+            while (operators and operators[-1] != '(' and precedence[operators[-1]] >= precedence[expression[i]]):
+                apply_operator(operators, operands)
+            operators.append(expression[i])
+            i += 1
+        else:
+            # If the character is neither a digit nor an operator, skip
+            i += 1
+
+    # Apply remaining operators
+    while operators:
+        apply_operator(operators, operands)
+
+    # The final result is the only element left in the operands stack
+    return operands[0]
+
+# Example usage:
+expression = ""3 + (5 * 2 - 6) / 3""
+result = evaluate_expression(expression)
+print(""Result:"", result)",,,Fully correct,,,,,https://chat.openai.com/c/f9fba965-9c55-4683-842c-f8f9df7678a7
+3,Implement the Tic-Tac-Toe game. The program should allow two players to play against each other and display the board after each move.,,,"def print_board(board):
+    for row in board:
+        print(""|"".join(row))
+        print(""-"" * 5)
+
+def check_winner(board, player):
+    # Check rows, columns, and diagonals for a win
+    for i in range(3):
+        if all([board[i][j] == player for j in range(3)]) or \
+           all([board[j][i] == player for j in range(3)]):
+            return True
+    if all([board[i][i] == player for i in range(3)]) or \
+       all([board[i][2 - i] == player for i in range(3)]):
+        return True
+    return False
+
+def tic_tac_toe():
+    board = [["" ""]*3 for _ in range(3)]
+    player = ""X""
+    moves = 0
+
+    while True:
+        print_board(board)
+        row = int(input(f""Player {player}, enter row (0, 1, 2): ""))
+        col = int(input(f""Player {player}, enter column (0, 1, 2): ""))
+
+        if board[row][col] == "" "":
+            board[row][col] = player
+            moves += 1
+            if check_winner(board, player):
+                print_board(board)
+                print(f""Player {player} wins!"")
+                break
+            elif moves == 9:
+                print_board(board)
+                print(""It's a tie!"")
+                break
+            player = ""O"" if player == ""X"" else ""X""
+        else:
+            print(""That cell is already occupied. Try again."")
+
+tic_tac_toe()",,,Fully correct,,,,,https://chat.openai.com/c/31036510-c3be-4916-968f-5aa5089d755a
+4,Determine whether a given graph is planar or not.,,,"import networkx as nx
+
+def is_planar(graph):
+    """"""
+    Determine whether a given graph is planar or not.
+    
+    Parameters:
+    - graph: a NetworkX graph object
+    
+    Returns:
+    - True if the graph is planar, False otherwise
+    """"""
+    return nx.planarity.check_planarity(graph)[0]
+
+# Example usage:
+if __name__ == ""__main__"":
+    # Create a graph (you can construct your graph in any way you prefer)
+    G = nx.Graph()
+    G.add_edges_from([(1, 2), (1, 3), (1, 4), (2, 3), (3, 4)])
+
+    # Check if the graph is planar
+    if is_planar(G):
+        print(""The graph is planar."")
+    else:
+        print(""The graph is not planar."")",,,Partially correct,use of inbuilt library,Do not use inbuilt library,"class Graph:
+    def __init__(self, vertices):
+        self.V = vertices
+        self.graph = [[0 for column in range(vertices)]
+                      for row in range(vertices)]
+
+    # Utility function to check if the current edge (u,v) is a valid edge for next vertex w
+    def is_valid_next_edge(self, u, v, w):
+        # Check if v is already adjacent to u
+        if self.graph[u][v] == 1:
+            return False
+        # Check if the degree of v is less than 2
+        if self.degree[v] >= 2:
+            return False
+        return True
+
+    # Recursive function to check if the graph is planar
+    def is_planar_util(self, v, visited, parent):
+        visited[v] = True
+        count = 0
+        for i in range(self.V):
+            if self.graph[v][i] == 1:
+                count += 1
+                if not visited[i]:
+                    if self.is_planar_util(i, visited, v):
+                        return True
+                elif i != parent:
+                    return True
+        if count == 2:
+            return True
+        return False
+
+    # Main function to check if the graph is planar
+    def is_planar(self):
+        if self.V < 5:
+            return True
+
+        visited = [False] * self.V
+        for i in range(self.V):
+            if not visited[i]:
+                self.degree = [0] * self.V
+                for j in range(self.V):
+                    if self.graph[i][j] == 1:
+                        self.degree[i] += 1
+                if self.is_planar_util(i, visited, -1):
+                    return False
+        return True
+
+
+# Example usage:
+if __name__ == ""__main__"":
+    # Create a graph (you can construct your graph in any way you prefer)
+    g = Graph(5)
+    g.graph = [[0, 1, 0, 1, 0],
+               [1, 0, 1, 1, 1],
+               [0, 1, 0, 0, 1],
+               [1, 1, 0, 0, 1],
+               [0, 1, 1, 1, 0]]
+
+    # Check if the graph is planar
+    if g.is_planar():
+        print(""The graph is planar."")
+    else:
+        print(""The graph is not planar."")",Fully Correct,https://chat.openai.com/c/9f2164ef-4fca-4222-8d1f-14e917d4c988
+5,"Simulate the motion of a particle in an arbitrary polygon. The particle moves in straight lines between collisions, and the collisions could be inelastic.",,,"import numpy as np
+
+class Particle:
+    def __init__(self, position, velocity):
+        self.position = np.array(position, dtype=float)
+        self.velocity = np.array(velocity, dtype=float)
+
+class Edge:
+    def __init__(self, start, end):
+        self.start = np.array(start, dtype=float)
+        self.end = np.array(end, dtype=float)
+
+class Polygon:
+    def __init__(self, vertices):
+        self.vertices = [np.array(vertex, dtype=float) for vertex in vertices]
+        self.edges = [Edge(self.vertices[i], self.vertices[(i + 1) % len(vertices)]) for i in range(len(vertices))]
+
+def distance(p1, p2):
+    return np.linalg.norm(p1 - p2)
+
+def dot_product(v1, v2):
+    return np.dot(v1, v2)
+
+def normalize(v):
+    return v / np.linalg.norm(v)
+
+def inelastic_collision(particle, edge):
+    normal = normalize(np.array([edge.end[1] - edge.start[1], edge.start[0] - edge.end[0]]))
+    particle.velocity -= 2 * dot_product(particle.velocity, normal) * normal
+
+def simulate_particle_motion(particle, polygon, num_steps):
+    for _ in range(num_steps):
+        min_time = float('inf')
+        next_edge = None
+
+        for edge in polygon.edges:
+            start_to_particle = particle.position - edge.start
+            edge_vector = edge.end - edge.start
+
+            edge_length_sq = dot_product(edge_vector, edge_vector)
+            projection = dot_product(start_to_particle, edge_vector) / edge_length_sq
+
+            if 0 <= projection <= 1:
+                closest_point_on_edge = edge.start + projection * edge_vector
+                distance_to_particle = distance(closest_point_on_edge, particle.position)
+                time_to_collision = distance_to_particle / np.linalg.norm(particle.velocity)
+
+                if time_to_collision < min_time:
+                    min_time = time_to_collision
+                    next_edge = edge
+
+        particle.position += min_time * particle.velocity
+
+        if next_edge:
+            inelastic_collision(particle, next_edge)
+
+# Example usage
+if __name__ == ""__main__"":
+    polygon = Polygon([(0, 0), (4, 0), (4, 3), (2, 5), (0, 3)])  # Define a polygon
+    particle = Particle((1, 1), (1, 1))  # Initial position and velocity of the particle
+
+    num_steps = 10  # Number of simulation steps
+
+    print(""Initial position:"", particle.position)
+    for i in range(num_steps):
+        simulate_particle_motion(particle, polygon, num_steps)
+        print(""Step {}: Position: {}"".format(i + 1, particle.position))
+",,,Partially correct,use of inbuilt library,Do not use inbuilt library,"import math
+
+class Particle:
+    def __init__(self, position, velocity):
+        self.position = position
+        self.velocity = velocity
+
+class Edge:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+class Polygon:
+    def __init__(self, vertices):
+        self.vertices = vertices
+        self.edges = []
+        self._create_edges()
+
+    def _create_edges(self):
+        num_vertices = len(self.vertices)
+        for i in range(num_vertices):
+            start = self.vertices[i]
+            end = self.vertices[(i + 1) % num_vertices]
+            self.edges.append(Edge(start, end))
+
+def distance(p1, p2):
+    return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
+
+def dot_product(v1, v2):
+    return v1[0] * v2[0] + v1[1] * v2[1]
+
+def normalize(v):
+    length = math.sqrt(v[0]**2 + v[1]**2)
+    return (v[0] / length, v[1] / length)
+
+def inelastic_collision(particle, edge):
+    edge_vector = (edge.end[0] - edge.start[0], edge.end[1] - edge.start[1])
+    normal = normalize((edge_vector[1], -edge_vector[0]))
+    dot = dot_product(particle.velocity, normal)
+    particle.velocity = (particle.velocity[0] - 2 * dot * normal[0], particle.velocity[1] - 2 * dot * normal[1])
+
+def simulate_particle_motion(particle, polygon, num_steps):
+    for _ in range(num_steps):
+        min_time = float('inf')
+        next_edge = None
+
+        for edge in polygon.edges:
+            start_to_particle = (particle.position[0] - edge.start[0], particle.position[1] - edge.start[1])
+            edge_vector = (edge.end[0] - edge.start[0], edge.end[1] - edge.start[1])
+
+            edge_length_sq = edge_vector[0] ** 2 + edge_vector[1] ** 2
+            projection = dot_product(start_to_particle, edge_vector) / edge_length_sq
+
+            if 0 <= projection <= 1:
+                closest_point_on_edge = (edge.start[0] + projection * edge_vector[0], edge.start[1] + projection * edge_vector[1])
+                distance_to_particle = distance(closest_point_on_edge, particle.position)
+                time_to_collision = distance_to_particle / math.sqrt(particle.velocity[0]**2 + particle.velocity[1]**2)
+
+                if time_to_collision < min_time:
+                    min_time = time_to_collision
+                    next_edge = edge
+
+        particle.position = (particle.position[0] + min_time * particle.velocity[0], particle.position[1] + min_time * particle.velocity[1])
+
+        if next_edge:
+            inelastic_collision(particle, next_edge)
+
+# Example usage
+if __name__ == ""__main__"":
+    polygon = Polygon([(0, 0), (4, 0), (4, 3), (2, 5), (0, 3)])  # Define a polygon
+    particle = Particle((1, 1), (1, 1))  # Initial position and velocity of the particle
+
+    num_steps = 10  # Number of simulation steps
+
+    print(""Initial position:"", particle.position)
+    for i in range(num_steps):
+        simulate_particle_motion(particle, polygon, num_steps)
+        print(""Step {}: Position: {}"".format(i + 1, particle.position))",Fully Correct,https://chat.openai.com/c/3d9181ac-a721-47bb-aa59-2e4531faf2b5
+6,"Given a sorted list of integers, search for a given integer using the binary search algorithm.",,,"def binary_search(arr, target):
+    left = 0
+    right = len(arr) - 1
+
+    while left <= right:
+        mid = left + (right - left) // 2
+        
+        # Check if target is present at mid
+        if arr[mid] == target:
+            return mid
+        
+        # If target is greater, ignore left half
+        elif arr[mid] < target:
+            left = mid + 1
+        
+        # If target is smaller, ignore right half
+        else:
+            right = mid - 1
+    
+    # If the element is not present in the array
+    return -1
+
+# Example usage:
+arr = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+target = 11
+result = binary_search(arr, target)
+
+if result != -1:
+    print(f""Element {target} is present at index {result}."")
+else:
+    print(f""Element {target} is not present in the array."")",,,Fully correct,,,,,https://chat.openai.com/c/dc741227-3e25-49e7-9238-62e2304460c5
+7,"Given two strings as input, find out if these are the same or not (allowing for maximum one mismatch).",,,"def is_one_mismatch(str1, str2):
+    # If the strings are identical, return True
+    if str1 == str2:
+        return True
+    
+    # If the lengths of the strings differ by more than 1, they cannot have just one mismatch
+    if abs(len(str1) - len(str2)) > 1:
+        return False
+    
+    # Find the length of the shorter string
+    min_len = min(len(str1), len(str2))
+    
+    # Iterate through the strings to find the mismatch
+    mismatch_count = 0
+    i = 0
+    j = 0
+    while i < len(str1) and j < len(str2):
+        if str1[i] != str2[j]:
+            mismatch_count += 1
+            # If more than one mismatch is found, return False
+            if mismatch_count > 1:
+                return False
+            
+            # Move the index of the longer string by one to check for the next character
+            if len(str1) > len(str2):
+                i += 1
+            elif len(str1) < len(str2):
+                j += 1
+            else:
+                # If the strings are of equal length, move both indices by one
+                i += 1
+                j += 1
+        else:
+            # Move both indices by one to check the next character
+            i += 1
+            j += 1
+    
+    # If the mismatch count is 1 or both indices reached the end, return True
+    return mismatch_count == 1 or (i == len(str1) and j == len(str2))
+
+
+# Test cases
+print(is_one_mismatch(""abcd"", ""abcd""))  # True
+print(is_one_mismatch(""abcd"", ""abed""))  # True
+print(is_one_mismatch(""abcd"", ""abef""))  # False
+print(is_one_mismatch(""abc"", ""abcde""))   # False
+print(is_one_mismatch(""abc"", ""abcd""))    # True
+",,,Fully correct,,,,,https://chat.openai.com/c/711cbcf1-983d-4eb2-83fe-eff886a9cbf2
+8,Find out the product of two 3x3 matrices. Can you generalise it to a square matrices of higher dimensions?,,,"def matrix_multiply(A, B):
+    # Check if the matrices can be multiplied
+    if len(A[0]) != len(B):
+        raise ValueError(""Number of columns in A must be equal to the number of rows in B"")
+
+    # Initialize a matrix with zeros to store the result
+    result = [[0 for _ in range(len(B[0]))] for _ in range(len(A))]
+
+    # Perform matrix multiplication
+    for i in range(len(A)):
+        for j in range(len(B[0])):
+            for k in range(len(B)):
+                result[i][j] += A[i][k] * B[k][j]
+
+    return result
+
+# Example usage:
+A = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+
+B = [[9, 8, 7],
+     [6, 5, 4],
+     [3, 2, 1]]
+
+result = matrix_multiply(A, B)
+print(""Result of matrix multiplication:"")
+for row in result:
+    print(row)",,,Fully correct,,,,,https://chat.openai.com/c/4b30a0ee-7ec3-4a06-ac2d-a957e4e60a8f
+9,Find out the inverse of a given 3x3 matrix. Can you generalise it to a square matrix of higher dimensions?,,,"import numpy as np
+
+# Define the 3x3 matrix A
+A = np.array([[2, 3, 4],
+              [1, 5, 6],
+              [7, 8, 9]])
+
+# Calculate the determinant of A
+det_A = np.linalg.det(A)
+
+# Check if the determinant is non-zero
+if det_A != 0:
+    # Calculate the inverse of A using the formula
+    A_inv = np.array([[A[1,1]*A[2,2] - A[1,2]*A[2,1], A[0,2]*A[2,1] - A[0,1]*A[2,2], A[0,1]*A[1,2] - A[0,2]*A[1,1]],
+                      [A[1,2]*A[2,0] - A[1,0]*A[2,2], A[0,0]*A[2,2] - A[0,2]*A[2,0], A[0,2]*A[1,0] - A[0,0]*A[1,2]],
+                      [A[1,0]*A[2,1] - A[1,1]*A[2,0], A[0,1]*A[2,0] - A[0,0]*A[2,1], A[0,0]*A[1,1] - A[0,1]*A[1,0]]]) / det_A
+
+    print(""Inverse of A:"")
+    print(A_inv)
+else:
+    print(""Matrix A is singular, it does not have an inverse."")",,,Partially correct,use of inbuilt library,do not use inbuilt library,"def determinant(matrix):
+    # Base case for 2x2 matrix
+    if len(matrix) == 2:
+        return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
+    
+    det = 0
+    for c in range(len(matrix)):
+        det += ((-1) ** c) * matrix[0][c] * determinant([row[:c] + row[c+1:] for row in matrix[1:]])
+    return det
+
+def transpose(matrix):
+    return [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]
+
+def cofactor(matrix):
+    cofactors = []
+    for r in range(len(matrix)):
+        cofactor_row = []
+        for c in range(len(matrix)):
+            minor = [row[:c] + row[c+1:] for row in (matrix[:r]+matrix[r+1:])]
+            cofactor_row.append(((-1) ** (r+c)) * determinant(minor))
+        cofactors.append(cofactor_row)
+    return cofactors
+
+def inverse(matrix):
+    det = determinant(matrix)
+    if det == 0:
+        raise ValueError(""The matrix is singular and doesn't have an inverse"")
+    cofactors = cofactor(matrix)
+    adjugate = transpose(cofactors)
+    inv_matrix = [[adjugate[i][j] / det for j in range(len(adjugate))] for i in range(len(adjugate))]
+    return inv_matrix
+
+# Example usage:
+# Define your matrix A
+A = [[2, 1, 3],
+     [1, 0, 2],
+     [3, 2, 4]]
+
+# Find the inverse of A
+try:
+    A_inverse = inverse(A)
+    print(""Inverse of A:"")
+    for row in A_inverse:
+        print(row)
+except ValueError as e:
+    print(e)",Fully Correct,https://chat.openai.com/c/7fd21a80-ff91-4ca4-9fb9-d402ba037590
+10,"Given a dataset of texts (a .txt file with paragraphs separated by a new line) and a user query, find out which paragraph from this database would be the most suitable response to the user query",,,"import nltk
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Download NLTK resources
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+
+# Read dataset
+def read_dataset(file_path):
+    with open(file_path, 'r') as file:
+        paragraphs = file.readlines()
+    return paragraphs
+
+# Preprocess text
+def preprocess_text(text):
+    # Tokenize
+    tokens = word_tokenize(text.lower())
+
+    # Remove stopwords
+    stop_words = set(stopwords.words('english'))
+    filtered_tokens = [token for token in tokens if token not in stop_words]
+
+    # Lemmatize
+    lemmatizer = WordNetLemmatizer()
+    lemmatized_tokens = [lemmatizer.lemmatize(token) for token in filtered_tokens]
+
+    # Join tokens back into string
+    preprocessed_text = ' '.join(lemmatized_tokens)
+    return preprocessed_text
+
+# Compute similarity
+def find_most_similar_paragraph(query, paragraphs):
+    # Preprocess query
+    preprocessed_query = preprocess_text(query)
+
+    # Preprocess paragraphs
+    preprocessed_paragraphs = [preprocess_text(p) for p in paragraphs]
+
+    # Vectorize paragraphs
+    vectorizer = TfidfVectorizer()
+    tfidf_matrix = vectorizer.fit_transform(preprocessed_paragraphs)
+
+    # Vectorize query
+    query_vector = vectorizer.transform([preprocessed_query])
+
+    # Compute cosine similarity between query and paragraphs
+    similarity_scores = cosine_similarity(query_vector, tfidf_matrix)
+
+    # Find index of paragraph with highest similarity
+    most_similar_index = similarity_scores.argmax()
+
+    return paragraphs[most_similar_index]
+
+if __name__ == ""__main__"":
+    # Example usage
+    file_path = 'dataset.txt'  # Path to your dataset file
+    user_query = input(""Enter your query: "")
+
+    # Read dataset
+    paragraphs = read_dataset(file_path)
+
+    # Find most similar paragraph
+    most_similar_paragraph = find_most_similar_paragraph(user_query, paragraphs)
+
+    print(""Most suitable response:"")
+    print(most_similar_paragraph)
+",,,Partially correct,use of inbuilt library,do not use inbuilt library,"import string
+
+# Read dataset
+def read_dataset(file_path):
+    with open(file_path, 'r') as file:
+        paragraphs = file.readlines()
+    return paragraphs
+
+# Preprocess text
+def preprocess_text(text):
+    # Convert text to lowercase
+    text = text.lower()
+    # Remove punctuation
+    text = text.translate(str.maketrans('', '', string.punctuation))
+    # Tokenize text
+    tokens = text.split()
+    return tokens
+
+# Compute Jaccard similarity
+def jaccard_similarity(set1, set2):
+    intersection = len(set1.intersection(set2))
+    union = len(set1.union(set2))
+    return intersection / union if union != 0 else 0
+
+# Find most similar paragraph
+def find_most_similar_paragraph(query, paragraphs):
+    # Preprocess query
+    query_tokens = set(preprocess_text(query))
+
+    max_similarity = -1
+    most_similar_paragraph = None
+
+    # Iterate through each paragraph
+    for paragraph in paragraphs:
+        # Preprocess paragraph
+        paragraph_tokens = set(preprocess_text(paragraph))
+        # Compute Jaccard similarity
+        similarity = jaccard_similarity(query_tokens, paragraph_tokens)
+        # Update most similar paragraph if similarity is higher
+        if similarity > max_similarity:
+            max_similarity = similarity
+            most_similar_paragraph = paragraph
+
+    return most_similar_paragraph
+
+if __name__ == ""__main__"":
+    # Example usage
+    file_path = 'dataset.txt'  # Path to your dataset file
+    user_query = input(""Enter your query: "")
+
+    # Read dataset
+    paragraphs = read_dataset(file_path)
+
+    # Find most similar paragraph
+    most_similar_paragraph = find_most_similar_paragraph(user_query, paragraphs)
+
+    print(""Most suitable response:"")
+    print(most_similar_paragraph)",Fully Correct,https://chat.openai.com/c/d2919713-44e0-4672-9752-c1df99b9a526
